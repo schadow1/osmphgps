@@ -6,10 +6,18 @@ README
 Routable Garmin Map for OSM Philippines
 
 Download maps here (choose one):
- - http://esambale.wikispaces.com/osmphil_garmin
- - https://github.com/maning/osmphgps/wiki/Download
+ - http://www.s1expeditions.com/p/openstreetmaps.html
 
 Changes and updates:
+
+20131213
+ - mkgmap version 2857
+ - improved city and address search using mkgmap's compatibility with OSM's housenumbers tag
+ - manmade: added visibility of pipelines, powerlines, geographic survey points, and monitoring stations
+ - water: added visibility of wetlands, and POI for dive sites or undersea features.
+ - road reference now shown
+ - improved overview map for mapsource
+ 
 
 20110626
  - mkgmap city-region-index-r1992
@@ -98,7 +106,7 @@ Changes and updates:
  - data is as of 20100116 compiled using mkgmap ver. 1455.  46,000 ++
 kilometers of roads from 400 ++ contributors
 
-20091114
+2009-11-14
  - data as of 20091114, thanks to all the 350 contributors
  - 45,000 ++ kilometers of roads
  - sea polygon
@@ -107,7 +115,7 @@ kilometers of roads from 400 ++ contributors
  - changed codes for some POIs to enable search
  - compiled with mkgmap version 1334
 
-20090912
+2009-09-12
  - data as of 20090912, thanks to all the 292 contributors
  - 42,900 ++ kilometers of roads
  - new map design
@@ -123,12 +131,12 @@ Known bugs:
  - No polygon for sea areas
  - POI icons not visible using 3D mode in some units
 
-20090728
+2009-07-28
  - same data as 20090713
  - fixed magenta routing line under road
  - fixed routing problems along tile edges
 
-20090713
+2009-07-13
  - Data as of 20090713
  - 240 contributors
  - 39,800++ kilometers of roads
@@ -140,7 +148,7 @@ Known bugs:
  - fixed reported routing problems
 
 
-20090513
+2009-05-13
  - Data as of 20090513
  - 195 contributors
  - 38,400 kilometers of roads
@@ -150,7 +158,7 @@ Known bugs:
  - Fixed registry causing install error in MapSource
  - Thank you to all the 190 ++ contributors .
 
-20090325
+2009-03-25
  - 34,000 km of roads
  - more than 10,000 POIs
  - POI names for tagged areas
@@ -158,14 +166,14 @@ Known bugs:
  - Win Mapsource installer
  - Mac RoadTrip installer
  
-20090225
+2009-02-25
  - 33,000 km of roads
  - more POIs
  - improved POI searching for roads and cities 
  - improved road data in Mindanao
  - should work with Garmin Mobile XT
 
-20090114 
+2009-01-14 
 - Routable!
 - More than 30,000 kilometers of roads
 - POIs, provincial boundaries
