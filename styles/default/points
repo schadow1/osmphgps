@@ -558,6 +558,7 @@ place=island [0x650c resolution 19]
 	sport=swimming [0x2d09 resolution 23]
 	leisure=swimming_pool | amenity=swimming_pool [0x2d09 resolution 23]
 	sport=diving [0x2d09 resolution 23]
+	sport=scuba_diving [0x2d09 resolution 23]
 
 # 2d0a	Nuvi: Sport/Fitness Center (for practicing sport-skills & body fitness)
 #	Specific Sports:
@@ -930,7 +931,11 @@ highway=services [0x2702 resolution 19]
 	man_made=tower [0x6411 resolution 21]
 # 	man_made=mast [0x6411 resolution 21]
 
-#	man_made=survey_point				# BLLM, Triangulation Point
+	man_made=survey_point [0x0206 resolution 21]
+	man_made=measurement_station [0x0206 resolution 21]
+	man_made=beacon [0x0206 resolution 21]
+	
+# BLLM, Triangulation Point
 
 #       Landuse for Industrial Farming or Mining
 	landuse=quarry [0x640c resolution 18]
@@ -951,7 +956,7 @@ highway=services [0x2702 resolution 19]
 	natural=spring [0x6511 resolution 20]		# natural spring (not man-made eg. open well)
 	natural=stream [0x6512 resolution 21]
 	natural=channel [0x6506 resolution 18] 
-	natural=wetland [0x6513 resolution 21]
+#	natural=wetland [0x6513 resolution 21]
 	natural=bay | natural=cove [0x6503 resolution 19]
 #	natural=cove [0x6507 resolution 18]		# redundant for purpose of casual travel & mobile device
 # 	natural=reef
