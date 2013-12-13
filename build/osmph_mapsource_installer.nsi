@@ -3,14 +3,14 @@
 ; HM NIS Edit Wizard helper defines
 !define PRODUCT_NAME "OSM-PH Garmin maps"
 !define PRODUCT_VERSION "latest"
-!define PRODUCT_PUBLISHER "maning"
-!define MAP_EMAIL "http://esambale.wikispaces.com/message/list/home"
+!define PRODUCT_PUBLISHER "maning-schadow1"
+!define MAP_EMAIL "schadow1@s1expeditions.com"
 !define MAP_ID "7F02"
 !define TYP "MINIMAL.TYP"  
-!define PRODUCT_WEB_SITE "http://esambale.wikispaces.com/osmphil_garmin/"
+!define PRODUCT_WEB_SITE "http://www.s1expeditions.com/p/openstreetmaps.html"
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
-!define INSTALL_MSG         "This wizard will guide you through the installation of ${PRODUCT_NAME} version ${PRODUCT_VERSION} from (${PRODUCT_WEB_SITE}) for Garmin GPS Units.  Go to ${MAP_EMAIL} for questions or comments.$\r$\n$\r$\n Because OpenStreetMap is a work in progress many areas are only partially mapped or are incomplete. The data contained has not been checked or verified.  $\r$\n$\r$\n It is recommended that you close all other applications before starting Setup.  This will make it possible to update relevant system files without having to reboot your computer.$\r$\n$\r$\nClick Next to continue."
+!define INSTALL_MSG         "This wizard will guide you through the installation of ${PRODUCT_NAME} version ${PRODUCT_VERSION} from ${PRODUCT_WEB_SITE} for Garmin GPS Units.  Email ${MAP_EMAIL} for questions or comments.$\r$\n$\r$\n Because OpenStreetMap is a work in progress many areas are only partially mapped or are incomplete. The data contained has not been checked or verified.  $\r$\n$\r$\n It is recommended that you close all other applications before starting Setup.  This will make it possible to update relevant system files without having to reboot your computer.$\r$\n$\r$\nClick Next to continue."
 SetCompressor lzma
 
 ; MUI 1.67 compatible ------
@@ -18,8 +18,8 @@ SetCompressor lzma
 
 ; MUI Settings
 !define MUI_ABORTWARNING
-!define MUI_ICON "/home/maning/Downloads/osm/routable_garmin/svn/icons/osm_logo.ico"
-!define MUI_UNICON "/home/maning/Downloads/osm/routable_garmin/svn/icons/osm_logo_uninstall.ico"
+!define MUI_ICON "C:\Users\malicdem.15\Desktop\osm\osmphgps-master\build\osm_logo.ico"
+!define MUI_UNICON "C:\Users\malicdem.15\Desktop\osm\osmphgps-master\build\osm_logo_uninstall.ico"
 
 ; Welcome page
   !define MUI_WELCOMEPAGE_TITLE "Welcome to the ${PRODUCT_NAME} Setup Wizard"
