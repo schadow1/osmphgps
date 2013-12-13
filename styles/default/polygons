@@ -38,12 +38,13 @@
 	natural=marsh [0x51 resolution 20]
 	natural=mud [0x51 resolution 20]
  	natural=marsh [0x4c resolution 20]
+	natural=wetland [0x4c resolution 20]
  	natural=mud [0x4c resolution 20]
 	natural=beach {set natural=sand} [0x53 resolution 18]	# convert beach to sand ---> that means any beach with no separate POI will not be searchable
 	natural=sand [0x53 resolution 18]
 
 	natural=scrub [0x4f resolution 18]
-	leisure=nature_reserve [0x16 resolution 18]
+	# leisure=nature_reserve [0x16 resolution 18]
 	natural=wood [0x50 resolution 18]
 	landuse=forest [0x50 resolution 18]
 	# NOTES: wood/forest is currently assigned to isolated 'urban park' or 'managed forests' & alikes
@@ -102,6 +103,7 @@ landuse=commercial [0x08 resolution 18]
 landuse=construction [0x0c resolution 18]
 landuse=farm [0x4e resolution 18]
 landuse=farmyard [0x4e resolution 18]
+landuse=farmland [0x4e resolution 18]
 landuse=orchard [0x4e resolution 18]
 
 landuse=greenfield [0x17 resolution 18]
