@@ -9,15 +9,18 @@ family-name=OSM_PHIL
 overview-mapname=40000001
 series-name=OSM_PHIL
 description=OSM Philippines
-style-file=../styles/default
+style-file=examples/styles/default
 generate-sea=polygons,extend-sea-sectors,close-gaps=1000
 #make-poi-index
+housenumbers
+ignore-maxspeeds
 adjust-turn-headings
 drive-on-right
 report-dead-ends
-ignore-maxspeeds
 link-pois-to-ways
-location-autofill=0
+location-autofill=nearest
 road-name-pois
-remove-short-arcs=3
+overview-levels=4:17,5:16,6:15,7:14,8:12
+remove-ovm-work-files
+check-styles
 gmapsupp
