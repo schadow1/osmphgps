@@ -12,7 +12,6 @@ style-file=examples/styles/default
 generate-sea=polygons,extend-sea-sectors,close-gaps=1000
 index
 housenumbers
-ignore-maxspeeds
 adjust-turn-headings
 check-roundabouts
 drive-on-right
