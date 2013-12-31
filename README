@@ -10,6 +10,13 @@ Download maps here (choose one):
 
 Changes and updates:
 
+20131231
+ - mkgmap version 2917
+ - updated most scripts for compatibility with the new version of the compiler
+ - added appropriate road speed tagging for tollways down to residential roads better routing and time estimations using Garmin Basecamp
+ - appropriate tagging for motorways as tollways which requires fee.
+
+
 20131213
  - mkgmap version 2857
  - improved city and address search using mkgmap's compatibility with OSM's housenumbers tag
@@ -18,7 +25,8 @@ Changes and updates:
  - road reference now shown
  - improved overview map for mapsource
  
-
+== Beyond his point are changes made by Maning Sambale ==
+ 
 20110626
  - mkgmap city-region-index-r1992
  - split the whole country to 3 tiles
@@ -182,5 +190,5 @@ Data from OpenStreetMap: http://www.openstreetmap.org/copyright
 Map style: Creative Commons Attribution-ShareAlike 2.0 license.
 
 Disclaimer
-Use at your own risk. Me and the Openstreetmap community and Schadow1 Expeditions are not liable for
+Use at your own risk. The Openstreetmap community and Schadow1 Expeditions are not liable for
 any accidents while using this map.
