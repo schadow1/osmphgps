@@ -14,7 +14,8 @@ Changes and updates:
  - mkgmap version 2922
  - updated most scripts for compatibility with the new version of the compiler
  - added appropriate road speed tagging for tollways down to residential roads better routing and time estimations using Garmin Basecamp
- - appropriate tagging for motorways as tollways which requires fee.
+ - appropriate tagging for motorways as tollways which requires fee
+ - efficient map compile reducing file size to almost 5% from previous version
 
 
 20131213
