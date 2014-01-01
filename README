@@ -11,7 +11,7 @@ Download maps here (choose one):
 Changes and updates:
 
 20131231
- - mkgmap version 2917
+ - mkgmap version 2922
  - updated most scripts for compatibility with the new version of the compiler
  - added appropriate road speed tagging for tollways down to residential roads better routing and time estimations using Garmin Basecamp
  - appropriate tagging for motorways as tollways which requires fee.
