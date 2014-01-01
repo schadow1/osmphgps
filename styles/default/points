@@ -1,36 +1,13 @@
 # -------------------------------------------------------------------
-# This is the OSM-PH mkgmap style file for converting OSM nodes
+# This is the default mkgmap style file for converting OSM nodes
 # into Garmin POIs.
 # Any line prefaced with # is a comment and will not be applied.
 # Each line is a rule, of the generalised format:
-# OSM_tag(s)_to_match  [Garmin_type_code resolution]
+#  OSM_tag(s)_to_match  [Garmin_type_code resolution]
+# See http://wiki.openstreetmap.org/wiki/Mkgmap/help/style_rules
+# and http://wiki.openstreetmap.org/wiki/Mkgmap/help/Custom_styles
+# for more information.
 
-# ---------------
-# Rally Notes for this style-file:
-# This works on Mkgmap r1867: (Place-POI with same city-name but different Provinces) 
-# Doesn't work on Mkgmap r1867: Losing some of the barangay assigned with 0x2800 (for unknown reason)
-# Observed in controlled condition (testmap): 
-# 	     if Barangay-POI (0x2800) is more than 30kilometers from it's City-POI, 
-#            it becomes unsearchable in Mapsource, because it will fail to associate itself 
-#            to that City-POI.
-
-# This works on Mkgmap r1882: (all POI with place=village (etc.) works, and can be filtered using Community Category
-# Doesn't work on Mkgmap r1882 (Place-POI with same city-name but different Provinces)
-
-# REMOVE THIS TEXTS AFTER STYLE IS FOUND STABLE
-# My Experiment Notes: 20110531 
-# 111xx has no annoying nuvi default icon, searchable in nuvi, but 
-# 112xx has big font be default; adjust to smaller font. NO PRACTICAL USE - wont render/no search in Garmin device)
-# 115xx hex series has additional small green dot on nuvi255 on top of TYP icon. 
-# Hexcode 115xx 'renders' but 'not searcheable' in 76CSx. 115xx render and is searchable in Nuvi255w
-# It may be useful only as a Decorative Icon (to take advantage of the small <green dot> on Nuvi). 
-# For good measure, delete the 'name' so that the icon will not be searchable in nuvi.
-
-
-
-# ---------------
-
-# http://wiki.openstreetmap.org/wiki/Map_Features
 
 
 # POINTS STYLE DIRECTORY -- more or less in the same logical appearance of Nuvi Buttons
@@ -103,32 +80,32 @@ barrier=gate { add mkgmap:road-speed = '-1'; add mkgmap:road-speed-min = '1' }
 
 
 # DELETE all existing "is_in:country" tags (to ensure no more conflict)
-  name=* { delete is_in:country }
+ # name=* { delete is_in:country }
 
 # ---------------
 
 # STANDARDIZE SPELLINGS (fault-tolerant:to maximize searchability)
 
 # Forced-Assignment to NCR (is_in:state) all Metro Manila cities 
-( place=city | place=town ) & (is_in:region='NCR' | is_in:region='Metro Manila' ) { add is_in:state='NCR'; set is_in:state='NCR' }
+#( place=city | place=town ) & (is_in:region='NCR' | is_in:region='Metro Manila' ) { add is_in:state='NCR'; set is_in:state='NCR' }
 
 # ---------------
 
 # CITY on FLOATING-STATUS (no provincial tag): assign all of them to 'FIXME Province'  
 # Reason: easier for contributors to hunt & edit untagged cities by typing FIXME (on the province filter)
-( place=city | place=town ) &  addr:state!=* & is_in:state!=* & addr:province!=* { add is_in:state='FIXME' } 	
+#( place=city | place=town ) &  addr:state!=* & is_in:state!=* & addr:province!=* { add is_in:state='FIXME' } 	
 
 # Ensure all PLACE-POI's to be in PHL, in their respective provinces, in any state-tag format.
-( place=* | place:ph=* ) & ( is_in:state=* | addr:state=* | addr:province=* )  				 						
-{ add prov_name='${is_in:state}'; add prov_name='${addr:state}'; add prov_name='${addr:province}'; 
-  add is_in='${prov_name},,Philippines'; set is_in='${prov_name},,Philippines'; } 		#   add if it doesn't exist; or correct all wrong entries)			
+#( place=* | place:ph=* ) & ( is_in:state=* | addr:state=* | addr:province=* )  				 						
+#{ add prov_name='${is_in:state}'; add prov_name='${addr:state}'; add prov_name='${addr:province}'; 
+#  add is_in='${prov_name},,Philippines'; set is_in='${prov_name},,Philippines'; } 		#   add if it doesn't exist; or correct all wrong entries)			
 
 # ---------------
 # Fault Tolerant for Spanish Characters:Commonly mispelled city-name in both format (for place & none-place POI's) 
 # Karlsruhe schema: this only concerns searchability of Barangays/Purok/Subd and Amenity-POI, not cities) 
-	addr:city='Paranaque' {set addr:city='Parañaque'}	is_in:city='Paranaque' {set is_in:city='Parañaque'}
-	addr:city='Las Pinas' {set addr:city='Las Piñas'} 	is_in:city='Las Pinas' {set is_in:city='Las Piñas'}
-	addr:city='Dasmarinas' {set addr:city='Dasmariñas'}	is_in:city='Dasmarinas' {set is_in:city='Dasmariñas'}
+#	addr:city='Paranaque' {set addr:city='Parañaque'}	is_in:city='Paranaque' {set is_in:city='Parañaque'}
+#	addr:city='Las Pinas' {set addr:city='Las Piñas'} 	is_in:city='Las Pinas' {set is_in:city='Las Piñas'}
+#	addr:city='Dasmarinas' {set addr:city='Dasmariñas'}	is_in:city='Dasmarinas' {set is_in:city='Dasmariñas'}
 
 # CITY/TOWN POI
 ( place=city | (place=town & capital=true)) & name!=Manila [0x0400 resolution 16]		#   BIG BOLD FONT search-able (city or capital)
@@ -148,8 +125,8 @@ barrier=gate { add mkgmap:road-speed = '-1'; add mkgmap:road-speed-min = '1' }
 { set addr:city='${is_in:city}'} [0x2c12 resolution 23]			#   2c12 has no category - temporary color is pink dot (pedestrian gate)
 
 # AMENITY POI fault tolerance - convert is_in:city to Karlsruhe Schema (eg: old POI entries from jklinc)
-  place!=* & is_in:city=*  {add addr:city='${is_in:city}'}
-  place!=* & is_in:town=*  {add addr:city='${is_in:town}'}
+#  place!=* & is_in:city=*  {add addr:city='${is_in:city}'}
+#  place!=* & is_in:town=*  {add addr:city='${is_in:town}'}
 
 
 # --------------- BAND-AID SOLUTION ---------------
@@ -798,7 +775,7 @@ place=island [0x650c resolution 19]
 #	2f0f is Garmin Dealer
 	man_made=works [0x2f0f resolution 23]		# Factory / Manufacturing facility  (hex is assigned to 'garmin dealer' by default)
 	
-	# power=tower [0x640d resolution 23]	# temporary disable
+	 power=tower [0x640d resolution 23]	# temporary disable
 	# power=pole [0x640d resolution 23]	# note: assign a smaller icon	
 
 	
@@ -931,9 +908,9 @@ highway=services [0x2702 resolution 19]
 	man_made=tower [0x6411 resolution 21]
 # 	man_made=mast [0x6411 resolution 21]
 
-	man_made=survey_point [0x0206 resolution 21]
-	man_made=measurement_station [0x0206 resolution 21]
-	man_made=beacon [0x0206 resolution 21]
+	man_made=survey_point [0x1602 resolution 21]	
+    man_made=measurement_station [0x1602 resolution 21]	
+	man_made=beacon [0x1602 resolution 21]	
 	
 # BLLM, Triangulation Point
 
@@ -1916,11 +1893,18 @@ amenity=fast_food
 | shop=beverages 
 | cuisine=burger [0x2a07 resolution 23]
 
-
+#address points for non-POI address data
+addr:housenumber=* { name '${addr:housenumber} ${addr:street}' | '${addr:housename}' | '${addr:street}' } [0x660f resolution 24]
 
 # DO NOT PLACE ANY "CUISINE" or "RESTAURANT" TAG BELOW THIS LINE !!!!
 
+include 'inc/name';
+include 'inc/water_points';
+include 'inc/landuse_points';
 
-#address points for non-POI address data
-addr:housenumber=* { name '${addr:housenumber} ${addr:street}' | '${addre:housename}' | '${addr:street}' } [0x660f resolution 24]
+<finalize>
+# The finalizer section is executed for each element when a rule with an element type matches
+name=* { name '${name}' }
+include 'inc/address';
+
 
