@@ -129,6 +129,8 @@ landuse=orchard [0x4e resolution 18]
 
 landuse=greenfield [0x17 resolution 18]
 landuse=industrial [0x0c resolution 18]
+landuse=garages [0x0c resolution 18]
+landuse=allotments [0x0c resolution 18]
 landuse=meadow [0x17 resolution 18]
 landuse=quarry [0x0c resolution 18]   		#use industrial polygon typ
 landuse=vineyard [0x4e resolution 20]
