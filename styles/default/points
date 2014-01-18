@@ -910,6 +910,7 @@ highway=services [0x2702 resolution 19]
 
 	man_made=survey_point [0x1602 resolution 21]	
     man_made=measurement_station [0x1602 resolution 21]	
+	man_made=monitoring_station [0x1602 resolution 21]
 	man_made=beacon [0x1602 resolution 21]	
 	
 # BLLM, Triangulation Point
