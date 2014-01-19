@@ -106,6 +106,18 @@ junction=roundabout & highway=tertiary [0x0c road_class=1 road_speed=1 resolutio
 junction=roundabout & highway=unclassified [0x0c road_class=1 road_speed=1 resolution 21]
 junction=roundabout [0x0c road_class=0 road_speed=1 resolution 22]
 
+# Oneway highways must show way arrows
+(oneway=yes | oneway=true) & highway=trunk [0x123 resolution 22 continue]
+(oneway=yes | oneway=true) & highway=trunk_link [0x127 resolution 22 continue]
+(oneway=yes | oneway=true) & highway=primary [0x123 resolution 22 continue]
+(oneway=yes | oneway=true) & highway=primary_link [0x127 resolution 22 continue]
+(oneway=yes | oneway=true) & highway=secondary [0x124 resolution 22 continue]
+(oneway=yes | oneway=true) & highway=secondary_link [0x127 resolution 22 continue]
+(oneway=yes | oneway=true) & highway=tertiary [0x125 resolution 22 continue]
+(oneway=yes | oneway=true) & highway=tertiary_link [0x127 resolution 22 continue]
+(oneway=yes | oneway=true) & highway=unclassified [0x126 resolution 22 continue]
+(oneway=yes | oneway=true) & highway=residential [0x126 resolution 22 continue]
+
 # Ways that may or may not be useable
 
 # Treat ways under construction almost as highway=path
