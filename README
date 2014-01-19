@@ -9,7 +9,14 @@ Download maps here (choose one):
  - http://www.s1expeditions.com/p/openstreetmaps.html
 
 Changes and updates:
-
+20140119
+ - mkgmap version 2977
+ - boat docks (small island hopping/small fishing boat docks now shown on map)
+ - oneway roads now have directional arrows
+ - lotto betting locations now visible
+ - funeral services shown using the same icon used by cemeteries
+ - diving and scuba diving icon changed to snorkeling gear instead of the swimming icon
+ 
 20140118
  - mkgmap version 2971
  - polygon update: allotments and garages are now shown on map
@@ -31,7 +38,11 @@ Changes and updates:
  - road reference now shown
  - improved overview map for mapsource
  
-== Beyond his point are changes made by Maning Sambale ==
+20131115
+ - record-breaking updates on Openstreetmap Philippines data due to Typhoon Haiyan Humanitarian Activation (1M map updates in just 1 week)
+ 
+ 
+== Beyond this point are changes made by Maning Sambale ==
  
 20110626
  - mkgmap city-region-index-r1992
