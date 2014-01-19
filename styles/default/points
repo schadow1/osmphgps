@@ -319,6 +319,7 @@ place=island [0x650c resolution 19]
 		waterway:port_type=lake_port [0x4301 resolution 21]	# regular Boat Stations on Lake
 		waterway:port_type=river_port [0x4302 resolution 21]	# regular Boat Stations along river (eg. private, inter-barangay)
 		waterway:port_type=river_ferry [0x4303 resolution 21]	# Eg. Pasig River Ferry
+		waterway=dock [0x4302 resolution 21]	# minor boat stations (e.g. tourism/island hopping)
 #	note: seaport tag based on http://wiki.openstreetmap.org/wiki/Humanitarian_OSM_Tags/Humanitarian_Data_Model
 
 	amenity=harbor [0x650b resolution 16]	# provides extra protection for ships against big waves during typhoon --- it's like a 'parking space' of ships, not for transport
@@ -485,6 +486,7 @@ place=island [0x650c resolution 19]
 	
 # 2d04  Nuvi: Casino (eg.Casino & Bingo Hall & all betting stations)
 	leisure=casino | amenity=casino [0x2d04 resolution 23]
+	leisure=gambling | amenity=gambling [0x2d04 resolution 23]
 
 # 2d00  Nuvi: Other (unutilized)
 
@@ -534,8 +536,8 @@ place=island [0x650c resolution 19]
 # 2d09	Nuvi: Swimming (recreational - swim,dive_site&shops,surf,snorkel)
 	sport=swimming [0x2d09 resolution 23]
 	leisure=swimming_pool | amenity=swimming_pool [0x2d09 resolution 23]
-	sport=diving [0x2d09 resolution 23]
-	sport=scuba_diving [0x2d09 resolution 23]
+	sport=diving [0x5400 resolution 23]
+	sport=scuba_diving [0x5400 resolution 23]
 
 # 2d0a	Nuvi: Sport/Fitness Center (for practicing sport-skills & body fitness)
 #	Specific Sports:
@@ -1036,12 +1038,13 @@ highway=services [0x2702 resolution 19]
 	|shop=pest_control 
 	|amenity=slaughterhouse 
 	|shop=butcher 
-	|amenity=funeral | amenity=funeral_services 
 	[0x2f00 resolution 23]
 	shop=laundry [0x2f00 resolution 23]		 
 	shop=dry_cleaning [0x2f00 resolution 23]	
 	shop=tailor [0x2f00 resolution 23]		
 
+# Funeral Services
+	|amenity=funeral | amenity=funeral_services [0x6403 resolution 23]	
 	
 #    Professional Services (office person or group of the same profession)
  	office=it 					# must be referring I.T. solution providers
