@@ -1044,7 +1044,7 @@ highway=services [0x2702 resolution 19]
 	shop=tailor [0x2f00 resolution 23]		
 
 # Funeral Services
-	|amenity=funeral | amenity=funeral_services [0x6403 resolution 23]	
+	amenity=funeral | amenity=funeral_services | shop=funeral_directors [0x6403 resolution 23]	
 	
 #    Professional Services (office person or group of the same profession)
  	office=it 					# must be referring I.T. solution providers
@@ -1208,6 +1208,7 @@ name="8 Spices"
 |name="Seasons"
 |name="Shiok"
 |name="Siam Taste"
+|name="Strawberry Cafe"
 |name="Sukhothai Restaurant"
 |name="Thai Kitchen"
 |name="Thai Patio"
@@ -1604,6 +1605,7 @@ name="Steakhouse Boracay"
 |name="Kangaroo Jack"
 |name="Keizo"
 |name="La Maison"
+|name="Lady Christine's Baby Back Ribs"
 |name="Latitude"
 |name="Lord Byron's Back Ribs"
 |name="Mamou"
@@ -1637,6 +1639,7 @@ name="Domino's Pizza" | (name="Dominos Pizza" | name="Dominos") {set name="Domin
 name="Carlo's Pizza" | name='Carlos Pizza' {set name="Carlo's Pizza *"} [0x2a0a resolution 23] 
 name='Giacomino Pizza' | name='Brooklyn Pizza' [0x2a0a resolution 23]
 name='Joey Pepperoni Pizzeria' | name='Joey Pepperoni' [0x2a0a resolution 23]
+name="Papa John's" | name='Papa Johns' | name='Papa John' {set name="Papa John's Pizza *"}  [0x2a0a resolution 23]
 # -------------------------------------------------------------------
 # SEAFOOD (Seafood - 0x2a0b)
 name='Dalampasigan Restaurant' 
@@ -1736,6 +1739,7 @@ name="Krispy Kreme" | name="Cielo's Donuts" [0x2a0d resolution 23]
 name='Starbucks' | name='Cafe Breton' [0x2a0e resolution 23]
 name='Figaro' | (name='Figaro Coffee' | name='Figaro Coffee Company') {set name='Figaro *'} [0x2a0e resolution 23]
 name="Gloria Jean's Coffees" | (name="Gloria Jean's Coffee" | name='Gloria Jeans' | name="Gloria Jeans Coffee") {set name="Gloria Jean's Coffees *"} [0x2a0e resolution 23]
+name="Subi-Monte Cafe" | (name="Subimonte Cafe" | name='Subi-monte Cafe' | name="Subi-monte") {set name="Subimonte Cafe *"} [0x2a0e resolution 23]
 name="The Coffee and Pancake Company"
 [0x2a0e resolution 23]
 # -------------------------------------------------------------------
