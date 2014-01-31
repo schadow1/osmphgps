@@ -8,7 +8,11 @@ Routable Garmin Map based on Openstreetmap Philippines Data
 Download maps here (choose one):
  - http://www.s1expeditions.com/p/openstreetmaps.html
 
-Changes and updates:
+Changes and updates
+20140201
+ - mkgmap version 2998
+ - fix on access properties for barriers
+
 20140122
  - mkgmap version 2981
  - additional fixes on waypoints identification
