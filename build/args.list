@@ -10,6 +10,7 @@ family-name=OSM_PHIL
 overview-mapname=40000001
 style-file=examples/styles/default
 generate-sea=polygons,extend-sea-sectors,close-gaps=1000
+bounds=boundary
 index
 housenumbers
 adjust-turn-headings
@@ -18,7 +19,6 @@ drive-on-right
 check-roundabout-flares
 report-dead-ends
 link-pois-to-ways
-location-autofill=nearest
 overview-levels=4:17,5:16,6:15,7:14,8:12
 remove-ovm-work-files
 check-styles
