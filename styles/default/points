@@ -7,7 +7,6 @@
 # See http://wiki.openstreetmap.org/wiki/Mkgmap/help/style_rules
 # and http://wiki.openstreetmap.org/wiki/Mkgmap/help/Custom_styles
 # for more information.
-# Note to self: The hierarchy of this script is from below to top. Top scripts takes priority than those below. Or general rules must be at the bottom and specific rules at top - Ervin
 
 #barrier access rules
 barrier=* & bicycle=*    { set mkgmap:bicycle='${bicycle|subst:private=>no}' }
@@ -385,11 +384,7 @@ place=island [0x650c resolution 19]
 # Note: Not all Beaches should be considered resort (if there is no lodging facility). 
 #	A none-resort 'beach' may actually have a 'Campground' facility (with simple provision for waste disposals)
 
-#24 hours establishment rename
-	shop=convenience & opening_hours='24/7' {name'${name} (24h) **'}
-	amenity=restaurant & opening_hours='24/7' {name'${name} (24h) **'}
-	amenity=fast_food & opening_hours='24/7' {name'${name} (24h) **'}
-	amenity=pharmacy & opening_hours='24/7' {name '${name} (24h) ${branch}' | '${name} (24h)'} [0x2e05 resolution 23]
+
 
 ####05  SHOPPING	
 # -----------------------------------------------------------------------------------------------------------------
@@ -400,7 +395,7 @@ place=island [0x650c resolution 19]
 	name="Mini Stop" {set name="Ministop *"} [0x2e06 resolution 23]
 	name="Mightee Mart" [0x2e06 resolution 23] 
 	name="Mighty Mart" {set name="Mightee Mart *"} [0x2e06 resolution 23]
-
+	shop=convenience & operating_hours='24/7' {name'${name} (24h) **'} [0x2e03 resolution 23]
 # 	-------------------------------------------------------------------
 
 # GarminPC:Shopping:Department 0x2b01 (Anchor-Establishments inside shopping complex) <rally:RedCoatOnHanger Icon>
@@ -429,6 +424,7 @@ place=island [0x650c resolution 19]
 
 # 2b05
 # GarminPC:Shopping:Pharmacy/Chemist 0x2b05 (Mercury Watsons and small drug stores) <rally:Rx Icon>
+	amenity=pharmacy & operating_hours='24/7' { name '${name} (24h) ${branch}' | '${name} (24h)'} [0x2e05 resolution 23]
 	amenity=pharmacy { name '${name} - ${branch}' | '${name}'} [0x2e05 resolution 23]
 	shop=chemist [0x2e05 resolution 23]
 
@@ -1096,10 +1092,26 @@ highway=services [0x2702 resolution 19]
  	[0x2f00 resolution 23]				
 
 
-#Water purifier and refillers
-shop=purified_water | shop=water_refilling [0x6414 resolution 23]
+# All Else assigned to General Merchandise 0x2e03 (sari-sari stores & other merchandisers)
+shop=* [0x2e03 resolution 23]
+
+# THERE SHOULD BE NO "SHOP" TAG OR ANY FILTER BELOW THIS LINE!!!!
+# --------------------------------------------------------
 
 
+
+# GENERIC STRUCTURES & BUILDINGS & FACTORIES (300c & 300d is not on Garmin Menu but at searchable in Mapsource)
+
+	man_made=building [0x6405 resolution 23]				# (old hex was 6400) (300c,d,e,f has annoying icon on nuvi) buildings or enterprise without polygon (add building icon)
+						
+	# ALL OTHER BUILDINGS that are not food related				# used to be 6402
+	building=* & name=* & amenity!=restaurant [0x6416 resolution 24]	# add POI to named building polygon to become searchable & any named stand-alone POI with building=yes
+	building=* & name=* & amenity!=fast_food [0x6416 resolution 24]
+	building=* & name=* & amenity!=fast_court [0x6416 resolution 24]
+	building=* & name=* & amenity!=cafe [0x6416 resolution 24]
+	building=* & name=* & shop!=beverages [0x6416 resolution 24]
+	building=* & name=* & shop!=bakery [0x6416 resolution 24]
+# -------------------------------------------------------------------
 
 
 
@@ -1921,28 +1933,6 @@ amenity=fast_food
 | amenity=food_court 
 | shop=beverages 
 | cuisine=burger [0x2a07 resolution 23]
-
-
-# All Else assigned to General Merchandise 0x2e03 (sari-sari stores & other merchandisers)
-shop=* [0x2e03 resolution 23]
-
-# GENERIC STRUCTURES & BUILDINGS & FACTORIES (300c & 300d is not on Garmin Menu but at searchable in Mapsource)
-
-	man_made=building [0x6405 resolution 23]				# (old hex was 6400) (300c,d,e,f has annoying icon on nuvi) buildings or enterprise without polygon (add building icon)
-
-	
-	# ALL OTHER BUILDINGS that are not food related				# used to be 6402
-	building=* & name=* & amenity!=restaurant [0x6416 resolution 24]	# add POI to named building polygon to become searchable & any named stand-alone POI with building=yes
-	building=* & name=* & amenity!=fast_food [0x6416 resolution 24]
-	building=* & name=* & amenity!=fast_court [0x6416 resolution 24]
-	building=* & name=* & amenity!=cafe [0x6416 resolution 24]
-	building=* & name=* & shop!=beverages [0x6416 resolution 24]
-	building=* & name=* & shop!=bakery [0x6416 resolution 24]
-	
-
-# -------------------------------------------------------------------
-
-
 
 #address points for non-POI address data
 addr:housenumber=* { name '${addr:housenumber} ${addr:street}' | '${addr:housename}' | '${addr:street}' } [0x660f resolution 24]
