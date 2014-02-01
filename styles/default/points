@@ -652,7 +652,10 @@ place=island [0x650c resolution 19]
 	shop=alcohol [0x2c0a resolution 23]
 
 # 2c0c	Nuvi: HotSpring (Swimming or Dipping Pool with Natural Hot Spring)
-	natural=hot_spring [0x2c0c resolution 21]
+	natural=hot_spring 
+	| type=hot_spring 
+	| spring=hot_spring
+	[0x2c0c resolution 21]
 
 # 2c00  Nuvi: Other (assign to other touristic trivias)
 			 		
