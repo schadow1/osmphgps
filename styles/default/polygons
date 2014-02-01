@@ -53,7 +53,8 @@ leisure=* & sport=* & name!=* { add name='${sport}' }
 	contour=elevation & ele=2000 { delete natural } [0x36 resolution 16]
 	contour=elevation & ele=2500 { delete natural } [0x38 resolution 16]
 	
-	natural=water [0x3c resolution 16]   		
+	natural=water [0x3c resolution 16]   
+	leisure=swimming_pool | natural=spring [0x46 resolution 16]	
 
 	natural=glacier [0x4d resolution 16]
 	natural=marsh [0x51 resolution 20]
@@ -110,6 +111,7 @@ amenity=school [0x0a resolution 20]
 amenity=kindergarten [0x0a resolution 20]
 amenity=college [0x0a resolution 20]
 amenity=university [0x0a resolution 20]
+amenity=community_centre [0x13 resolution 20]
 
 amenity=hospital [0x0b resolution 18]
 amenity=parking [0x05 resolution 21]
