@@ -4,7 +4,8 @@
 #
 # MODULE:       osmphgarmin map build script
 #
-# AUTHOR(S):    Emmanuel Sambale esambale@yahoo.com emmanuel.sambale@gmail.com
+# AUTHOR(S):    Ervin Malicdem schadow1@s1expeditions.com
+#               Emmanuel Sambale esambale@yahoo.com emmanuel.sambale@gmail.com
 #
 # PURPOSE:      Shell script for creating Garmin maps from OSM data.
 #               Requires mkgmap, gmapi-builder python script, nsis. 
@@ -20,6 +21,8 @@ download_dir=------
 output_dir=------
 split_dir=------
 download_link=---
+download_link_osmconvert=---
+download_link_osmfilter=---
 
 
 #Nothing to change below
@@ -29,6 +32,23 @@ cd ${download_dir}
 # Download from geofabrik site
 wget -c ${download_link}
 ls -al
+
+# Download OSMConvert
+wget -O ${download_link_osmconvert}
+ls -al
+
+# Download OSMFilter
+wget -O ${download_link_osmfilter}
+ls -al
+
+#Convert OSM file to boundary file
+osmconvert philippines-latest.osm.pbf --out-o5m >philippines.o5m
+
+#Extract boundaries data
+osmfilter philippines.o5m --keep-nodes= --keep-ways-relations="boundary=administrative =postal_code postal_code=" --out-o5m > philippines-boundaries.o5m
+
+#Export boundaries data
+java -cp mkgmap.jar uk.me.parabola.mkgmap.reader.osm.boundary.BoundaryPreprocessor philippines-boundaries.o5m boundary
 
 # Split the file using splitter.jar
 java -jar splitter.jar --max-nodes=1000000  philippines.osm.pbf --output-dir=${split_dir}
