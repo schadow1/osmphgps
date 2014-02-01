@@ -9,12 +9,17 @@ Download maps here (choose one):
  - http://www.s1expeditions.com/p/openstreetmaps.html
 
 Changes and updates
+20140202
+ - mkgmap version 2998
+ - improved city and address search using both mkgmap's compatibility with OSM's housenumbers tag and pre-processed area boundaries from OSM data.
+
+
 20140201
  - mkgmap version 2998
  - fix on access properties for barriers
  - fix on waypoint script hierarchy to show proper icons for establishments embedded on buildings
  - adding 24h on establishment names that are open 24/7
- - rendering of outlines of community centers (clubhouses, reception areas
+ - rendering of outlines of community centers (clubhouses, reception areas)
  - natural springs and swimming pools outline now shown on map
  - water stations (refilling and purified drinking water establishments) now has distinguishable icons
 
