@@ -41,6 +41,9 @@ barrier=kissing_gate | barrier=stile | barrier=block
       addaccess no;
       set mkgmap:road-speed=0; }
 
+
+include 'inc/name';	  
+
 # POINTS STYLE DIRECTORY -- more or less in the same logical appearance of Nuvi Buttons
 
 # Place Tags
@@ -1949,11 +1952,11 @@ cuisine=* [0x2a00 resolution 23]
 
 
 #address points for non-POI address data
-addr:housenumber=* { name '$(addr:block_number) ${addr:housenumber} ${addr:street}' | '${addr:housenumber} ${addr:street}' | '${addr:housename}' | '${addr:street}' } [0x660f resolution 24]
+addr:housenumber=* { name 'B$(addr:block_number) L${addr:housenumber} ${addr:street}' | '${addr:housenumber} ${addr:street}' | 'B$(addr:block_number) L${addr:housenumber}' | '${addr:housename}' | '${addr:street}' } [0x660f resolution 24]
 
 # DO NOT PLACE ANY "CUISINE" or "RESTAURANT" TAG BELOW THIS LINE !!!!
 
-include 'inc/name';
+
 include 'inc/water_points';
 include 'inc/landuse_points';
 
