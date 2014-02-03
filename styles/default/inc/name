@@ -8,29 +8,7 @@
 	amenity=fuel & opening_hours='24/7' {name'${name} (24h) **'}
 	amenity=pharmacy & opening_hours='24/7' {name '${name} (24h) ${branch}' | '${name} (24h)'} [0x2e05 resolution 23]
 
-#Address Points	
 
-# address points for non-POI address data - condition that block number is available
-addr:housenumber=* & addr:block_number=* & addr:street=* {
- name 'B$(addr:block_number) L${addr:housenumber} ${addr:street}'
-} [0x660f resolution 24]
-
-# address points for non-POI address data - condition that block number is available but no street identified
-addr:housenumber=* & addr:block_number=* & addr:street!=* {
- name 'B$(addr:block_number) L${addr:housenumber}'
-} [0x660f resolution 24]
-
-# address points for non-POI address data - condition that block number is unavailable
-addr:housenumber=* & addr:block_number!=* & addr:street=* {
- name '${addr:housenumber} ${addr:street}' |
-      '${addr:housename}' |
-	  '${addr:street}'
-} [0x660f resolution 24]
-
-# address points for non-POI address data - condition that there is no available street name
-addr:housenumber=* & addr:block_number!=* & addr:street!=* {
- name '${addr:housenumber}'
-} [0x660f resolution 24]
 
 
 # Tags name, brand, operator, ref
