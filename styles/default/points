@@ -388,11 +388,7 @@ place=island [0x650c resolution 19]
 # Note: Not all Beaches should be considered resort (if there is no lodging facility). 
 #	A none-resort 'beach' may actually have a 'Campground' facility (with simple provision for waste disposals)
 
-#24 hours establishment rename
-	shop=convenience & opening_hours='24/7' {name'${name} (24h) **'}
-	amenity=restaurant & opening_hours='24/7' {name'${name} (24h) **'}
-	amenity=fast_food & opening_hours='24/7' {name'${name} (24h) **'}
-	amenity=pharmacy & opening_hours='24/7' {name '${name} (24h) ${branch}' | '${name} (24h)'} [0x2e05 resolution 23]
+
 
 ####05  SHOPPING	
 # -----------------------------------------------------------------------------------------------------------------
@@ -1951,8 +1947,6 @@ cuisine=* [0x2a00 resolution 23]
 
 
 
-#address points for non-POI address data
-addr:housenumber=* { name 'B$(addr:block_number) L${addr:housenumber} ${addr:street}' | '${addr:housenumber} ${addr:street}' | 'B$(addr:block_number) L${addr:housenumber}' | '${addr:housename}' | '${addr:street}' } [0x660f resolution 24]
 
 # DO NOT PLACE ANY "CUISINE" or "RESTAURANT" TAG BELOW THIS LINE !!!!
 
