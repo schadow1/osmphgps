@@ -9,6 +9,12 @@ Download maps here (choose one):
  - http://www.s1expeditions.com/p/openstreetmaps.html
 
 Changes and updates
+
+20140308
+ - mkgmap version 3072
+ - added ramp and tunnel hints. (e.g. GPS device will prompt you on the right lane when approaching a multi-lane road)
+
+ 
 20140202
  - mkgmap version 2998
  - improved city and address search using both mkgmap's compatibility with OSM's housenumbers tag and pre-processed area boundaries from OSM data.
