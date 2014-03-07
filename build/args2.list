@@ -11,13 +11,16 @@ series-name=OSM_PHIL
 description=OSM Philippines
 style-file=examples/styles/default
 generate-sea=polygons,extend-sea-sectors,close-gaps=1000
-bounds=boundary
+bounds=../osm-output/boundary
 index
 housenumbers
 adjust-turn-headings
+process-exits
+process-destination
 drive-on-right
 report-dead-ends
 link-pois-to-ways
+location-autofill=nearest
 road-name-pois
 overview-levels=4:17,5:16,6:15,7:14,8:12
 remove-ovm-work-files
