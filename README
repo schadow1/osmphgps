@@ -10,6 +10,13 @@ Download maps here (choose one):
 
 Changes and updates
 
+20140318
+ - mkgmap version 3072
+ - new TYP (visual improvements, s1expeditions.typ)
+ - new road color scheme, matching OSM Mapnik
+ - new circular-type icons or POIs
+ - additional icons for Philippine local setting compliance (transportation, cuisine, water stations, services)
+
 20140308
  - mkgmap version 3072
  - added ramp and tunnel hints. (e.g. GPS device will prompt you on the right lane when approaching a multi-lane road)
@@ -230,7 +237,6 @@ Known bugs:
 - POIs, provincial boundaries
 
 Data from OpenStreetMap: http://www.openstreetmap.org/copyright
-Map style: Creative Commons Attribution-ShareAlike 2.0 license.
 
 Disclaimer
 Use at your own risk. The Openstreetmap community and Schadow1 Expeditions are not liable for
