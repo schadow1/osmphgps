@@ -281,8 +281,8 @@ place=island [0x650c resolution 19]
 # 2f08/11008	Nuvi: Ground Transportation (eg. Bus Station, Bus Stop, PUJ, FX, Taxi)
 	amenity=bus_station [0x2f08 resolution 18]
 	highway=bus_stop [0x2f08 resolution 23 default_name 'PUV Stop']
-	amenity=fx_station [0x2f08 resolution 21 default_name 'FX station']
-	amenity=jeepney_station [0x2f08 resolution 21 default_name 'PUJ station']
+	amenity=fx_station [0x1104 resolution 21 default_name 'FX station']
+	amenity=jeepney_station [0x1105 resolution 21 default_name 'PUJ station']
 	amenity=taxi [0x2f08 resolution 21 default_name 'Taxi']
 
 # 2f17/11017 	Nuvi: Transit Service (Mass_Transit, Ligh Rail, PNR Station, Ferry Terminals) - Assign as insivisible icon
@@ -1006,7 +1006,7 @@ highway=services [0x2702 resolution 19]
 
 # Maybe Essential for Travellers on Foot / Jump-Off Points / Survival (32xx are not searchable, & must be paired with searchable hex)
 	highway=trailhead [0x6412 resolution 19]				#default at 6412 https://spreadsheets.google.com/ccc?key=0Am70fsptsPF2dGdSaEwwTUx5eGtzSFdPbmZPQlpBTEE&hl=en&pli=1#gid=1
-	amenity=drinking_water [0x6414 resolution 21 default_name 'Water']	#eg.public-deepwell, open well, or water refilling stations
+	amenity=drinking_water [0x5000 resolution 21 default_name 'Water']	#eg.public-deepwell, open well, or water refilling stations
 
 # -o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-
 
@@ -1140,7 +1140,6 @@ name="8 Spices"
 |name="Bali Hai Restaurant"
 |name="Banana Leaf Asian Cafe"
 |name="Banana Leaf"
-|name="Barrio Fiesta"
 |name="Basix"
 |name="Benjarong Royal Thai Restaurant"
 |name="Bistro Cinco"
@@ -1149,10 +1148,6 @@ name="8 Spices"
 |name="Blue Petals Catering"
 |name="Buma Seafood Market and Restaurant"
 |name="Cabalen"
-|name="Cafe Alfonso"
-|name="Cafe Bocobo"
-|name="Cafe Feliz"
-|name="Cafe Juanita"
 |name="Cambusa"
 |name="Celsius Gastrolounge"
 |name="Cha Gio"
@@ -1160,30 +1155,18 @@ name="8 Spices"
 |name="Chang Mai"
 |name="Chibooze Bar and Restaurant"
 |name="Chicken Ginger"
-|name="Chili's Bar and Grill"
-|name="Cilantro Resto Bar"
-|name="Club Phi Restobar"
 |name="Coco Lime Restaurant"
 |name="Contempo New Asia Cuisine"
-|name="Corky's Sizzling n Grills"
 |name="Crustasia"
-|name="Cucina Gayuma"
-|name="Diner's DreamHaus"
 |name="Dusit Thani"
-|name="Eat and Go"
+
 |name="El Botin"
 |name="Elbow Room"
 |name="Felah Restaurant"
 |name="Felix"
-|name="Fely J's Restaurant"
 |name="Fire Lake Grill"
-|name="Food Galore Fun Dining"
 |name="Hai Phong"
 |name="Hai Pong Authentic Vietnamese Cuisine"
-|name="Hizon's Catering"
-|name="Hungry Marlin Grill and Restaurant"
-|name="Ila Puti"
-|name="Indulgence Deli Cafe"
 |name="Ippon Yari"
 |name="Jatujak"
 |name="Jill's"
@@ -1197,7 +1180,6 @@ name="8 Spices"
 |name="Krung Thai"
 |name="Kutchara"
 |name="Latasia Fusion"
-|name="Le Bistro"
 |name="Little Asia"
 |name="M2M (Morning to Midnight)"
 |name="Mag:net Cafe"
@@ -1221,16 +1203,12 @@ name="8 Spices"
 |name="Prana Restaurant"
 |name="Qasa 61"
 |name="Rasa"
-|name="Recipes by Cafe Metro"
-|name="Restaurant 5"
 |name="SOMS Noodle House"
 |name="SR Thai"
 |name="Sa Neh Thai"
 |name="Sakon Thai Resto"
-|name="Seasons"
 |name="Shiok"
 |name="Siam Taste"
-|name="Strawberry Cafe"
 |name="Sukhothai Restaurant"
 |name="Thai Kitchen"
 |name="Thai Patio"
@@ -1247,15 +1225,12 @@ name="8 Spices"
 # VEGETARIAN (Asian - 0x2a02)
 |name="Cantinetta"
 |name="Bodhi"
-|name="Oh my Gulay"
 |name="Chimara Neo-Vegan Cafe"
 |name="Bliss Cafe"
 |name="Greens"
 |name="Healthy Kitchen"
 |name="Brown Sugar Muffin"
 |name="Conways"
-|name="Corner Tree Cafe"
-|name="Kahayag Cafe"
 |name="Latasia Fusion"
 |name="Royal Lotus Cafe"
 [0x2a02 resolution 23]
@@ -1765,9 +1740,35 @@ name="Subi-Monte Cafe" | (name="Subimonte Cafe" | name='Subi-monte Cafe' | name=
 name="The Coffee and Pancake Company"
 [0x2a0e resolution 23]
 # -------------------------------------------------------------------
-# FILIPINO (Others - 0x2a00)
+# FILIPINO (Others - 0x2a13)
 name="Hizon's"
-[0x2a00 resolution 23]
+|name="Barrio Fiesta"
+|name="Cafe Alfonso"
+|name="Cafe Bocobo"
+|name="Cafe Feliz"
+|name="Cafe Juanita"
+|name="Chili's Bar and Grill"
+|name="Cilantro Resto Bar"
+|name="Club Phi Restobar"
+|name="Corky's Sizzling n Grills"
+|name="Cucina Gayuma"
+|name="Diner's DreamHaus"
+|name="Eat and Go"
+|name="Fely J's Restaurant"
+|name="Food Galore Fun Dining"
+|name="Hizon's Catering"
+|name="Hungry Marlin Grill and Restaurant"
+|name="Ila Puti"
+|name="Indulgence Deli Cafe"
+|name="Le Bistro"
+|name="Recipes by Cafe Metro"
+|name="Restaurant 5"
+|name="Seasons"
+|name="Strawberry Cafe"
+|name="Oh my Gulay"
+|name="Corner Tree Cafe"
+|name="Kahayag Cafe"
+[0x2a13 resolution 23]
 # -------------------------------------------------------------------
 # -------------------------------------------------------------------
 # -------------------------------------------------------------------
@@ -1783,12 +1784,15 @@ name="Hizon's"
 cuisine=american 
 [0x2a01 resolution 23]
 
+# 1A  Filipino - 0x2a13
+cuisine=filipino
+[0x2a13 resolution 23]
+
 # 2  Asian - 0x2a02
 cuisine=asian 
 | cuisine=japanese | cuisine=sushi
 | cuisine=korean 
 | cuisine=thai 
-| cuisine=filipino 
 | cuisine=indonesian 
 | cuisine=malaysian
 | cuisine=singaporean
@@ -1915,7 +1919,7 @@ amenity=fast_food
 | cuisine=burger [0x2a07 resolution 23]
 
 # Water purifier and refillers
-#shop=purified_water | shop=water_refilling [0x6414 resolution 23] #using this icon seems to destroy the address tag of the waypoint. must find fix
+shop=purified_water | shop=water_refilling [0x5000 resolution 23] #using this icon seems to destroy the address tag of the waypoint. must find fix
 
 
 # Below this line are GENERICS --------------------------------
