@@ -7,7 +7,7 @@
 !define PRODUCT_PUBLISHER "Schadow1 Expeditions"
 !define MAP_EMAIL "schadow1@s1expeditions.com"
 !define MAP_ID "7F02"
-!define TYP "S1EXPEDITIONS.TYP"  
+!define TYP "SCHADOW.TYP"  
 !define PRODUCT_WEB_SITE "http://www.s1expeditions.com/p/openstreetmaps.html"
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
@@ -78,7 +78,7 @@ Section -Post
   
   ;MapSource
   WriteRegBin   HKLM "SOFTWARE\Garmin\MapSource\Families\OSM_PHIL" "ID" ${MAP_ID}
-  WriteRegStr   HKLM "SOFTWARE\Garmin\MapSource\Families\OSM_PHIL" "TYP" "$INSTDIR\S1EXPEDITIONS.TYP"
+  WriteRegStr   HKLM "SOFTWARE\Garmin\MapSource\Families\OSM_PHIL" "TYP" "$INSTDIR\SCHADOW.TYP"
   WriteRegStr HKLM "SOFTWARE\Garmin\MapSource\Families\OSM_PHIL\1" "LOC" "$INSTDIR"
   WriteRegStr HKLM "SOFTWARE\Garmin\MapSource\Families\OSM_PHIL\1" "BMAP" "$INSTDIR\40000001.img"
   WriteRegStr HKLM "SOFTWARE\Garmin\MapSource\Families\OSM_PHIL\1" "TDB" "$INSTDIR\40000001.tdb"

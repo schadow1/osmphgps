@@ -61,7 +61,7 @@ time java -Xmx2012m -jar mkgmap.jar --read-config=args.list --series-name="OSM P
 
 
 # gmapsupp.img generation
-time java -Xmx2012m -jar mkgmap.jar --read-config=args2.list ~/osm/routable_garmin/dev/split/*.osm.pbf ~/osm/routable_garmin/dev/MINIMAL.TYP
+time java -Xmx2012m -jar mkgmap.jar --read-config=args2.list ~/osm/routable_garmin/dev/split/*.osm.pbf ~/osm/routable_garmin/dev/SCHADOW.TYP
 
 ls -al
 
@@ -69,7 +69,7 @@ zip osmph_img_latest_dev.zip gmapsupp.img
 
 
 # Gmapi for Mac Roadtrip installer
-python gmapi-builder -t ${output_dir}/40000001.tdb -b ${output_dir}/40000001.img -s ${output_dir}/MINIMAL.TYP -i ${output_dir}/40000001.mdx -m ${output_dir}/40000001_mdr.img ${output_dir}/*.img
+python gmapi-builder -t ${output_dir}/40000001.tdb -b ${output_dir}/40000001.img -s ${output_dir}/SCHADOW.TYP -i ${output_dir}/40000001.mdx -m ${output_dir}/40000001_mdr.img ${output_dir}/*.img
 
 ls -al
 zip -r osmph_macroadtrip_latest_dev.zip "OSM Philippines $(date +%Y%m%d).gmapi"

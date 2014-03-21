@@ -281,8 +281,8 @@ place=island [0x650c resolution 19]
 # 2f08/11008	Nuvi: Ground Transportation (eg. Bus Station, Bus Stop, PUJ, FX, Taxi)
 	amenity=bus_station [0x2f08 resolution 18]
 	highway=bus_stop [0x2f08 resolution 23 default_name 'PUV Stop']
-	amenity=fx_station [0x1104 resolution 21 default_name 'FX station']
-	amenity=jeepney_station [0x1105 resolution 21 default_name 'PUJ station']
+	amenity=fx_station [0x11004 resolution 21 default_name 'FX station']
+	amenity=jeepney_station [0x11005 resolution 21 default_name 'PUJ station']
 	amenity=taxi [0x2f08 resolution 21 default_name 'Taxi']
 
 # 2f17/11017 	Nuvi: Transit Service (Mass_Transit, Ligh Rail, PNR Station, Ferry Terminals) - Assign as insivisible icon
@@ -1884,6 +1884,7 @@ cuisine=pizza
 
 # 0B Seafood - 0x2a0b - Fresh Seafood normally "Paluto" or Resto or Bar or Grill which especializes in Tuna, Bangus, Oyster and alikes
 cuisine=sea_food 
+| cuisine=seafood 
 [0x2a0b resolution 23]
 
 # 0C Steak - 0x2a0c
@@ -1915,8 +1916,8 @@ cuisine=french
 # 7 Fastfood 0x2a07 - pay-as-you-order (lower priority than cuisine)
 amenity=fast_food
 | amenity=food_court 
-| shop=beverages 
 | cuisine=burger [0x2a07 resolution 23]
+shop=beverages [0x2300 resolution 23]
 
 # Water purifier and refillers
 shop=purified_water | shop=water_refilling [0x5000 resolution 23] #using this icon seems to destroy the address tag of the waypoint. must find fix
