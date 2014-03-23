@@ -245,7 +245,18 @@ place=island [0x650c resolution 19]
 ####02  FUEL (Nuvi: 2e06/10f06 2f01/11001 2f16/11016)  - looks like a stupid garmin idea (not applicable in PH - not universal)
 # -----------------------------------------------------------------------------------------------------------------
 # 2f01  Nuvi: Fuel
-	amenity=fuel [0x2f01 resolution 18]
+amenity=fuel { name '${operator}: ${name}' | '${name}' | '${operator}' }
+[0x2f01 resolution 18 continue]													#generic invisible fuel icon
+amenity=fuel & brand="Petron" {delete name} [0x10f06 resolution 18]
+amenity=fuel & brand="Shell" {delete name} [0x11001 resolution 18]
+amenity=fuel & brand="Caltex" {delete name} [0x11016 resolution 18]
+amenity=fuel & brand="Total" {delete name} [0x11502 resolution 18]
+amenity=fuel & brand="Phoenix" {delete  name}[0x11503 resolution 18]
+amenity=fuel & brand="Seaoil" {delete name} [0x11504 resolution 18]
+amenity=fuel & brand="Jetti" {delete name} [0x11505 resolution 18]
+amenity=fuel & brand="Flying V" {delete name} [0x11506 resolution 18]
+amenity=fuel & brand!=* {delete name} [0x11507 resolution 18]
+
 
 # 2f16	Nuvi: Truck Stop (see AUTO SERVICES below)
 
@@ -413,12 +424,14 @@ place=island [0x650c resolution 19]
 # 2e03/10f03
 # GarminPC:Shopping:General Merchandise 0x2e03 (sari-sari, LPG dealer, daisu, japanhome, ukay-ukay, books, stationary shops) <rally:Green Bag Icon>
 
-	shop=convenience  [0x2e03 resolution 23]	# Set 'SARI-SARI' (suking tindahan not 24hour operation) to General Merchandise
-	shop=variety_store [0x2e03 resolution 23]
-	shop=general | shop=general_merchandise [0x2e03 resolution 23]
-	amenity=retail [0x2e03 resolution 23]
-	shop=books [0x2e0a resolution 23]
-	shop=stationery [0x2e0a resolution 23]
+	shop=convenience  [0x2e03 resolution 23 continue]	# Set 'SARI-SARI' (suking tindahan not 24hour operation) to General Merchandise
+	shop=variety_store [0x2e03 resolution 23 continue]
+	shop=general | shop=general_merchandise [0x2e03 resolution 23 continue]
+	amenity=retail [0x2e03 resolution 23 continue]
+	shop=books [0x2e03 resolution 23 continue]
+	shop=stationery [0x2e03 resolution 23 continue]
+	shop=purified_water | shop=water_refilling [0x2e03 resolution 23 continue]
+	shop=purified_water | shop=water_refilling {delete name} [0x5000 resolution 23]
 	
 # 2b04 
 # GarminPC:Shopping:Shopping Center 0x2b04 (malls and shopping complex covering big land area) <rally:Yellow Bag Icon>
@@ -1918,9 +1931,6 @@ amenity=fast_food
 | amenity=food_court 
 | cuisine=burger [0x2a07 resolution 23]
 shop=beverages [0x2300 resolution 23]
-
-# Water purifier and refillers
-shop=purified_water | shop=water_refilling [0x5000 resolution 23] #using this icon seems to destroy the address tag of the waypoint. must find fix
 
 
 # Below this line are GENERICS --------------------------------
