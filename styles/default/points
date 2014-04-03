@@ -255,7 +255,7 @@ amenity=fuel & brand="Phoenix" {delete  name}[0x11503 resolution 18]
 amenity=fuel & brand="Seaoil" {delete name} [0x11504 resolution 18]
 amenity=fuel & brand="Jetti" {delete name} [0x11505 resolution 18]
 amenity=fuel & brand="Flying V" {delete name} [0x11506 resolution 18]
-amenity=fuel & brand!=* {delete name} [0x11507 resolution 18]
+amenity=fuel & brand!=* [0x11507 resolution 18]
 
 
 # 2f16	Nuvi: Truck Stop (see AUTO SERVICES below)
@@ -431,7 +431,7 @@ amenity=fuel & brand!=* {delete name} [0x11507 resolution 18]
 	shop=books [0x2e03 resolution 23 continue]
 	shop=stationery [0x2e03 resolution 23 continue]
 	shop=purified_water | shop=water_refilling [0x2e03 resolution 23 continue]
-	shop=purified_water | shop=water_refilling {delete name} [0x5000 resolution 23]
+	shop=purified_water | shop=water_refilling [0x5000 resolution 23]
 	
 # 2b04 
 # GarminPC:Shopping:Shopping Center 0x2b04 (malls and shopping complex covering big land area) <rally:Yellow Bag Icon>
