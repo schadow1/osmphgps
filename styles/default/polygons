@@ -44,6 +44,9 @@ leisure=* & sport=* & name!=* { add name='${sport}' }
 	natural:ph=mountain3 						   { delete natural } [0x1e resolution 18]
 	natural:ph=mountain4 | natural:ph=summit | natural:ph=mountain_top { delete natural } [0x1d resolution 18]
 	
+	natural=bare_rock | natural=rocks | natural=cliff [0x5400 resolution 18]
+	natural=subsea | natural=reef | natural=corals [0x5500 resolution 18]
+	
 	contour=elevation & ele=300 { delete natural } [0x2a resolution 16]
 	contour=elevation & ele=500 { delete natural } [0x2c resolution 16]
 	contour=elevation & ele=700 { delete natural } [0x2e resolution 16]
