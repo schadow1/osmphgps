@@ -32,6 +32,10 @@ highway=* & oneway=yes & (access=private|access=no)
 #highway=motorway_link & oneway!=yes & oneway!=no { echo "motorway_link lacks oneway" }
 highway=motorway|highway=motorway_link { add oneway=yes }
 
+#Bridge and Tunnel Name
+	bridge=yes & highway=* {name '${bridge:name}'}
+	tunnel=yes & highway=* {name '${tunnel:name}'}
+
 # Set highway names to include the reference if there is one
 highway=motorway { name '${ref|highway-symbol:hbox} ${name}' | '${ref|highway-symbol:hbox}' | '${name}' }
 
@@ -96,6 +100,14 @@ junction=roundabout & highway=tertiary [0x0c road_class=1 road_speed=1 resolutio
 junction=roundabout & highway=unclassified [0x0c road_class=1 road_speed=1 resolution 21]
 junction=roundabout [0x0c road_class=0 road_speed=1 resolution 22]
 
+# Tunnels
+tunnel=yes & highway=trunk [0x12 road_class=3 road_speed=2 resolution 18]
+tunnel=yes & highway=primary [0x12 road_class=3 road_speed=2 resolution 19]
+tunnel=yes & highway=secondary [0x12 road_class=2 road_speed=2 resolution 20]
+tunnel=yes & highway=tertiary [0x12 road_class=1 road_speed=1 resolution 21]
+tunnel=yes & highway=unclassified [0x12 road_class=1 road_speed=1 resolution 21]
+tunnel=yes [0x12 road_class=0 road_speed=1 resolution 22]
+
 # Oneway highways must show way arrows
 (oneway=yes | oneway=true) & highway=trunk [0x123 resolution 22 continue]
 (oneway=yes | oneway=true) & highway=trunk_link [0x127 resolution 22 continue]
@@ -107,6 +119,13 @@ junction=roundabout [0x0c road_class=0 road_speed=1 resolution 22]
 (oneway=yes | oneway=true) & highway=tertiary_link [0x127 resolution 22 continue]
 (oneway=yes | oneway=true) & highway=unclassified [0x126 resolution 22 continue]
 (oneway=yes | oneway=true) & highway=residential [0x126 resolution 22 continue]
+
+# Bridges
+bridge=yes & highway=trunk [0x128 road_class=3 road_speed=2 resolution 18 continue]
+bridge=yes & highway=primary [0x129 road_class=3 road_speed=2 resolution 19 continue]
+bridge=yes & highway=secondary [0x130 road_class=2 road_speed=2 resolution 20 continue]
+bridge=yes & highway=tertiary [0x131 road_class=1 road_speed=1 resolution 21 continue]
+bridge=yes & highway=unclassified [0x132 road_class=1 road_speed=1 resolution 21 continue]
 
 # Ways that may or may not be useable
 
@@ -220,6 +239,7 @@ include 'inc/address';
 include 'inc/roadspeed'; 
 # calculate the access rules
 include 'inc/access';
+
 
 name=* { name '${name}' }
 
