@@ -10,6 +10,10 @@ Download maps here (choose one):
 
 Changes and updates
 
+20141002
+ - mkgmap version 3336
+ - Added Scarborough (Panatag) Shoal
+
 20140807
  - mkgmap version 3330
  - Fix for Barriers (gates) that are closed but are still routable.
