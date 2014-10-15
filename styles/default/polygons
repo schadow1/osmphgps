@@ -77,7 +77,8 @@ leisure=* & sport=* & name!=* { add name='${sport}' }
 	
 	aeroway=airport [0x07 resolution 18]
 	aeroway=aerodrome [0x07 resolution 18]
-	aeroway=apron [0x07 resolution 18]
+	aeroway=helipad [0x07 resolution 18]
+	aeroway=apron [0x50 resolution 18]
 	military=airfield [0x16 resolution 18]
 
 	landuse=military | military=base [0x04 resolution 18]
