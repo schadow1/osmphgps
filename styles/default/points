@@ -286,7 +286,7 @@ amenity=fuel & brand!=* {delete name} [0x11507 resolution 18]
 		| name="Zamboanga International Airport"
 		) [0x2f04 resolution 16]
 	aeroway=aerodrome [0x2f04 resolution 18]
-	aeroway=helipad [0x2f04 resolution 18]
+	aeroway=helipad [0x5904 resolution 18]
 	aeroway=airport [0x2f04 resolution 18]
 	aeroway=terminal [0x2f04 resolution 20]
 
@@ -1101,14 +1101,16 @@ highway=services [0x2702 resolution 19]
 	
 #    Professional Services (office person or group of the same profession)
  	office=it 					# must be referring I.T. solution providers
-        |office=accountant 	
+    |office=accountant 	
  	|office=architect  	
  	|office=employment_agency 
  	|office=estate_agent 	
  	|office=lawyer | shop=lawyer
  	|office=travel_agent | shop=travel_agency 
 	|office=research	
- 	|office=insurance	
+ 	|office=insurance
+	|office=company
+	|office=association
  	[0x2f00 resolution 23]				
 
 
