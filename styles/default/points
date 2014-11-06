@@ -1030,15 +1030,34 @@ highway=services [0x2702 resolution 19]
 # -o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-
 
 # -------------------------------------------------------------------
-# OFFICE TAGS from OSM (not a free-standing building, but a locator on a commercial space)
+# OFFICE TAGS not related to computers or IT services.
 
-	
-#
-#	office=administrative
-#	office=government
-#	office=company
-#	office=newspaper
-#	office=quango		#(Quasi NGO)
+ 	office=educational_institution 
+    |office=association
+	|office=estate	
+ 	|office=architect  	
+ 	|office=employment_agency 
+ 	|office=estate_agent 	
+ 	|office=forestry
+ 	|office=foundation
+	|office=government	
+ 	|office=research
+	|office=guide
+	|office=lawyer
+	|office=newspaper
+	|office=ngo
+	|office=notary
+	|office=political_party
+	|office=private_investigator
+	|office=quango
+	|office=realtor
+	|office=real_estate_agent
+	|office=register
+	|office=tax
+	|office=travel_agent
+	|office=water_utility	
+ 	[0x2f11 resolution 23]	
+
 
 
 # MISC
@@ -1101,16 +1120,8 @@ highway=services [0x2702 resolution 19]
 	
 #    Professional Services (office person or group of the same profession)
  	office=it 					# must be referring I.T. solution providers
-    |office=accountant 	
- 	|office=architect  	
- 	|office=employment_agency 
- 	|office=estate_agent 	
- 	|office=lawyer | shop=lawyer
- 	|office=travel_agent | shop=travel_agency 
-	|office=research	
- 	|office=insurance
-	|office=company
-	|office=association
+    |office=accountant
+	|office=insurance
  	[0x2f00 resolution 23]				
 
 
