@@ -885,7 +885,6 @@ amenity=fuel & brand!=* {delete name} [0x11507 resolution 18]
 	amenity=truck_scale [0x2f16 resolution 23]
 	amenity=truck_stop [0x2f16 resolution 23]
 
-
           
 
 
@@ -922,6 +921,8 @@ amenity=fuel & brand!=* {delete name} [0x11507 resolution 18]
 	historic=km_marker [0x2f18 resolution 23]		# eg. Death March KM marker
 
 	highway=traffic_signals [0x11a0f resolution 23] 	# no render no search on nuvi (doesnt matter); renders on mapsource & 76csx
+	
+	railway=crossing [0x11b02 resolution 23]
 		
 	
 # -------------------------------------------------------------------
