@@ -7,9 +7,11 @@
 	amenity=fast_food & opening_hours='24/7' {name'${name} (24h) **'}
 	amenity=fuel & opening_hours='24/7' {name'${name} (24h) **'}
 	amenity=pharmacy & opening_hours='24/7' {name '${name} (24h) ${branch}' | '${name} (24h)'} [0x2e05 resolution 23]
-
-
-
+	
+#Evacuation Center rename
+	evacuation_centre=yes | evacuation_center=yes {name'${name} (Evac Center) **'} [0x11C02 resolution 23]
+	
+	
 
 # Tags name, brand, operator, ref
 
