@@ -10,6 +10,13 @@ Download maps here (choose one):
 
 Changes and updates
 
+20150128
+ - mkgmap version 3419
+ - General POI searchability fixes and improvements.
+ - Evacuation Centers are identified with name extensions on normal times. Original POI types unchanged.
+ - Evacuation Centers icon identified with name extensions plus icon
+	and becomes searcheable under Community\Police category during humanitarian activations.
+
 20141205
  - mkgmap version 3358
  - Evacuation Centers now identified on the map using international standard icon.
