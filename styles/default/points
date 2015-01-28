@@ -219,7 +219,7 @@ place=island &
 | name="Pamalican Island" | name="Manamoc Island" | name="Cuyo Island" | (name="Pandan Island" & is_in:state="Palawan")
 | name="Caluya Island" | name="Semirara Island" | (name="Sibay Island" & is_in:state="Antique")
 | name="Siargao Island" | name="Dinagat Island" | name="Bucas Islands"
-| name="Polillo Island" | name="Patnanongan Island" | name="Jomalig Island" | name="Cabalete Island" | name="Alabat Island" | name="Pagbilao Grande Island"
+| name="Polillo Island" | name="Patnanungan Island" | name="Jomalig Island" | name="Cagbalete Island" | name="Alabat Island" | name="Pagbilao Grande Island"
 | name="Palaui Island" | name="Babuyan Island" | name="Batan Island" | name="Sabtang Island"| name="Calayan Island" | name="Fuga Island" | name="Itbayat Island"
 | (name="Samal Island" & is_in:state="Davao del Norte") | name="Talikud Island" 
 | name="Sarangani Islands" 
@@ -255,6 +255,9 @@ amenity=fuel & brand="Phoenix" {delete  name}[0x11503 resolution 18]
 amenity=fuel & brand="Seaoil" | brand="Sea Oil" | brand="Sea-Oil" {delete name} [0x11504 resolution 18]
 amenity=fuel & brand="Jetti" {delete name} [0x11505 resolution 18]
 amenity=fuel & brand="Flying V" {delete name} [0x11506 resolution 18]
+amenity=fuel & brand="UniOil" {delete name} [0x11507 resolution 18]
+amenity=fuel & brand="PTT" {delete name} [0x11507 resolution 18]
+amenity=fuel & brand="Uno" {delete name} [0x11507 resolution 18]
 amenity=fuel & brand!=* {delete name} [0x11507 resolution 18]
 
 
@@ -268,9 +271,9 @@ amenity=fuel & brand!=* {delete name} [0x11507 resolution 18]
 ####03  TRANSIT (Nuvi:2f02 2f04 2f08 2f17) For-Hire & Public / Mass Transport 
 # -----------------------------------------------------------------------------------------------------------------
 
-# 2f02/11002	Nuvi: Auto Rental (since relatively unused in PH; may be combined with for-hire services such as tricycles)
+# 2f02	Nuvi: Auto Rental (since relatively unused in PH; may be combined with for-hire services such as tricycles)
 	amenity=car_rental [0x2f02 resolution 23 default_name 'rent-a-car'] 
-	amenity=tricycle_station {delete addr:street} [0x11002 resolution 23 default_name 'Tricycle'] 		
+	 		
 	
 
 # 2f04/11004	Nuvi: Air Transportation 			# (should include distinct air-terminal icon, (how about helipad, airbase for emergency landings?) 
@@ -290,12 +293,13 @@ amenity=fuel & brand!=* {delete name} [0x11507 resolution 18]
 	aeroway=airport [0x2f04 resolution 18]
 	aeroway=terminal [0x2f04 resolution 20]
 
-# 2f08/11008	Nuvi: Ground Transportation (eg. Bus Station, Bus Stop, PUJ, FX, Taxi)
+# 2f08/11008/11002	Nuvi: Ground Transportation (eg. Bus Station, Bus Stop, PUJ, FX, Taxi)
 	amenity=bus_station [0x2f08 resolution 18]
 	highway=bus_stop [0x2f08 resolution 23 default_name 'PUV Stop']
 	amenity=fx_station [0x11004 resolution 21 default_name 'FX station']
 	amenity=jeepney_station [0x11005 resolution 21 default_name 'PUJ station']
 	amenity=taxi [0x2f08 resolution 21 default_name 'Taxi']
+	amenity=tricycle_station {delete addr:street} [0x11002 resolution 21 default_name 'Tricycle']
 
 # 2f17/11017 	Nuvi: Transit Service (Mass_Transit, Ligh Rail, PNR Station, Ferry Terminals) - Assign as insivisible icon
 	
@@ -425,12 +429,13 @@ amenity=fuel & brand!=* {delete name} [0x11507 resolution 18]
 # 2e03/10f03
 # GarminPC:Shopping:General Merchandise 0x2e03 (sari-sari, LPG dealer, daisu, japanhome, ukay-ukay, books, stationary shops) <rally:Green Bag Icon>
 
-	shop=convenience  [0x2e03 resolution 23 continue]	# Set 'SARI-SARI' (suking tindahan not 24hour operation) to General Merchandise
-	shop=variety_store [0x2e03 resolution 23 continue]
-	shop=general | shop=general_merchandise [0x2e03 resolution 23 continue]
-	amenity=retail [0x2e03 resolution 23 continue]
-	shop=books [0x2e03 resolution 23 continue]
-	shop=stationery [0x2e03 resolution 23 continue]
+	shop=convenience  [0x2e03 resolution 23]	# Set 'SARI-SARI' (suking tindahan not 24hour operation) to General Merchandise
+	shop=variety_store [0x2e03 resolution 23]
+	shop=general | shop=general_merchandise [0x2e03 resolution 23]
+	amenity=retail [0x2e03 resolution 23]
+	shop=books [0x2e03 resolution 23]
+	shop=stationery [0x2e03 resolution 23]
+	shop=butcher [0x2e03 resolution 23]
 	shop=purified_water | shop=water_refilling [0x2e03 resolution 23 continue]
 	shop=purified_water | shop=water_refilling {delete name} [0x5000 resolution 23]
 	
@@ -684,12 +689,18 @@ amenity=fuel & brand!=* {delete name} [0x11507 resolution 18]
 ####11  HOSPITALS (Hospital Clinic Maternity Dentist Albularyo Drug_Rehab Lab_Diagnostic_Center Veterinary RedCross)
 # -----------------------------------------------------------------------------------------------------------------
 # 3002 	Nuvi: Hospital
-	amenity=hospital [0x3002 resolution 18 continue]
+	amenity=hospital [0x3002 resolution 18 continue]	#generic invisible hospital icon
+	amenity=hospital {delete name} [0x11702 resolution 18]
 	
-	amenity=clinic [0x11102 resolution 23]
-	amenity=dentist [0x11102 resolution 23]
-	amenity=doctors | amenity=doctor [0x11102 resolution 23]
-
+	amenity=clinic [0x3002 resolution 18 continue] 
+	amenity=clinic {delete name} [0x11102 resolution 18]
+	
+	amenity=dentist [0x3002 resolution 18 continue]
+	amenity=dentist {delete name} [0x11102 resolution 18]
+	
+	amenity=doctors | amenity=doctor [0x3002 resolution 18 continue]
+	amenity=doctors | amenity=doctor {delete name} [0x11102 resolution 18]
+	
 #	Note: during emergencies, after giving first-aids, Red Cross ambulances always ask where are the nearest hospitals in the area
 #	temporarily put them under one search category, instead of social/humanitarian org --- proposed - not yet implemented
 	name='Philippine Red Cross' | name='Philippine National Red Cross'  [0x3009 resolution 18]
@@ -1088,7 +1099,7 @@ highway=services [0x2702 resolution 19]
 	
 
 # 2f11 Business Service (print, copy, pawnshop, remit, courier, photography, events -- if you want your 'item' processed) <rally:YellowPages Icon>
-	amenity=business_center [0x2f11 resolution 23]
+	amenity=business_center | amenity=business_services [0x2f11 resolution 23]
 	shop=money_changer | amenity=bureau_de_change [0x2f11 resolution 23]
 	shop=pawnbroker | shop=pawnshop [0x2f11 resolution 23]	#osm
 	shop=printing [0x2f11 resolution 23]
@@ -1112,7 +1123,6 @@ highway=services [0x2702 resolution 19]
 	|shop=photo 
 	|shop=pest_control 
 	|amenity=slaughterhouse 
-	|shop=butcher 
 	[0x2f00 resolution 23]
 	shop=laundry [0x2f00 resolution 23]		 
 	shop=dry_cleaning [0x2f00 resolution 23]	
