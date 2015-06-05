@@ -10,9 +10,15 @@ Download maps here (choose one):
 
 Changes and updates
 
+<<<<<<< HEAD
 20150606
  - mkgmap version 3602
  - added Negros Island Region
+=======
+20150321
+ - mkgmap version 3498
+ - Road speed calculation enhancements for Philippine setting.
+>>>>>>> origin/master
 
 20150128
  - mkgmap version 3419
