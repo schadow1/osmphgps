@@ -10,13 +10,11 @@ overview-mapname=40000001
 series-name=OSM_PHIL
 description=OSM Philippines
 style-file=examples/styles/default
-generate-sea=polygons,extend-sea-sectors,close-gaps=1000
+generate-sea=multipolygon,extend-sea-sectors,floodblocker,fbgap=40
 bounds=../osm-output/boundary
 index
 housenumbers
 adjust-turn-headings
-process-exits
-process-destination
 drive-on-right
 report-dead-ends
 link-pois-to-ways
