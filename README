@@ -10,6 +10,11 @@ Download maps here (choose one):
 
 Changes and updates
 
+20150814
+ - mkgmap version 3627
+ - disable rendering of buildings that do not contain information
+ - visual improvements for areas where buildings are not rendered
+
 20150717
  - mkgmap version 3622
  - fix Luzon "flooding" rendering issue

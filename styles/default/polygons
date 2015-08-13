@@ -144,6 +144,11 @@ landuse=grass [0x17 resolution 20]
 landuse=recreation_ground [0x19 resolution 18]
 landuse=retail [0x08 resolution 20]
 
+
+building!=* & amenity=restaurant 
+| amenity=cafe
+| amenity=fast_food [0x08 resolution 20]
+
 leisure=water_park [0x09 resolution 18]    	#resort with fun/recreational facilities 
 leisure=golf_course [0x18 resolution 20]   	#NOTE: golf_course before village_green (just in case village green is also applied on golf_course)
 landuse=village_green [0x17 resolution 18]
@@ -197,8 +202,18 @@ amenity=fuel [0x08 resolution 20]
 # Process 1st - GOVERNMENT BUILDING (building over 'places of interest') --- currently uses generic building polygon
 amenity=townhall | amenity=public_building  {add public=yes} [0x13 resolution 22]
 
-# Process 2nd: (all else remaining) NONE-GOVERNMENT structures including Museum, Public Market etc 
-building=* [0x13 resolution 24]		
+# Process 2nd -  NONE-GOVERNMENT structures including Museum, Public Market etc (disable when require rendering all buildings)
+building=* & craft=*
+| amenity=*
+| tourism=*
+| shop=*
+[0x13 resolution 24]	
+
+
+# Process 3rd:  all else remaining
+building=* & name=* [0x13 resolution 24]
+building=* & addr:housenumber=* [0x13 resolution 24]
+# building=* [0x13 resolution 24]		#(replace when when rendering all buildings)
 
 # Dump all polygons in this temp poly hex to enable search as POI
 place=* | landuse=residential | man_made=* | leisure=* | tourism=* | amenity=* [0x10 resolution 23-18]
