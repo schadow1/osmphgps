@@ -10,6 +10,10 @@ Download maps here (choose one):
 
 Changes and updates
 
+20151102
+ - mkgmap version 3649
+ - changed road colors matching OSM Carto 2.36
+
 20150814
  - mkgmap version 3627
  - disable rendering of buildings that do not contain information
