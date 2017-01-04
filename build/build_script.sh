@@ -51,7 +51,7 @@ osmfilter philippines.o5m --keep-nodes= --keep-ways-relations="boundary=administ
 java -cp mkgmap.jar uk.me.parabola.mkgmap.reader.osm.boundary.BoundaryPreprocessor philippines-boundaries.o5m boundary
 
 # Split the file using splitter.jar
-java -jar splitter.jar --max-nodes=1000000  philippines.osm.pbf --output-dir=${split_dir}
+java -jar splitter.jar --max-nodes=1000000 --keep-complete=false --mixed  philippines.osm.pbf --output-dir=${split_dir}
 
 ls -al
 

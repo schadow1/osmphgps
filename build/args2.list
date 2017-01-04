@@ -1,7 +1,9 @@
 code-page=1252
+license-file=license-ccbynd.txt
 latin1
 country-abbr=PHL
 country-name=PHILIPPINES
+copyright-message: 2013-2017 s1expeditions.com All rights reserved
 route
 add-pois-to-areas
 family-id=639

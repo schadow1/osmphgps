@@ -10,6 +10,10 @@ Download maps here (choose one):
 
 Changes and updates
 
+20170104
+ - mkgmap version 3742
+ - attempt in fixing routing errors on some devices
+
 20151102
  - mkgmap version 3649
  - changed road colors matching OSM Carto 2.36
