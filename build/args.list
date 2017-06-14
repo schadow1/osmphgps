@@ -11,7 +11,11 @@ family-id=639
 family-name=OSM_PHIL
 overview-mapname=40000001
 style-file=examples/styles/default
-generate-sea=multipolygon,extend-sea-sectors,floodblocker,fbgap=40
+reduce-point-density = 4
+reduce-point-density-polygon = 5.6
+merge-lines
+remove-short-arcs
+generate-sea = extend-sea-sectors,floodblocker
 bounds=../osm-output/boundary
 draw-priority=25
 index

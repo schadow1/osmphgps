@@ -10,6 +10,10 @@ Download maps here (choose one):
 
 Changes and updates
 
+20170614
+ - mkgmap version 3972
+ - fix distorted boundaries and cut-off routes
+
 20170104
  - mkgmap version 3742
  - attempt in fixing routing errors on some devices
