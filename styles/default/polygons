@@ -67,6 +67,7 @@ leisure=* & sport=* & name!=* { add name='${sport}' }
  	natural=mud [0x4c resolution 20]
 	natural=beach {set natural=sand} [0x53 resolution 18]	# convert beach to sand ---> that means any beach with no separate POI will not be searchable
 	natural=sand [0x53 resolution 18]
+	natural=shoal [0x53 resolution 18]
 
 	natural=scrub [0x4f resolution 18]
 	# leisure=nature_reserve [0x16 resolution 18]
