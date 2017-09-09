@@ -10,6 +10,11 @@ Download maps here (choose one):
 
 Changes and updates
 
+20170909
+ - mkgmap version 3994
+ - rendering of administrative boundaries
+ - polygon optimization
+
 20170726
  - mkgmap version 3974
  - Shoals now rendered as beaches
