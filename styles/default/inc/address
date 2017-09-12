@@ -13,7 +13,7 @@ mkgmap:country!=* & is_in:country=* { set mkgmap:country='${is_in:country}' }
 
 # Philippines = PHL
 mkgmap:country=PHL & mkgmap:region!=* & mkgmap:admin_level4=* { set mkgmap:region='${mkgmap:admin_level4}' }
-mkgmap:country=PHL & mkgmap:city!=* & mkgmap:admin_level10=* { set mkgmap:city='${mkgmap:admin_level10}' }
+# mkgmap:country=PHL & mkgmap:city!=* & mkgmap:admin_level10=* { set mkgmap:city='${mkgmap:admin_level10}' }
 mkgmap:country=PHL & mkgmap:city!=* & mkgmap:admin_level6=* { set mkgmap:city='${mkgmap:admin_level6}' }
 
 # Netherlands = NLD
@@ -83,6 +83,9 @@ mkgmap:city!=* & mkgmap:admin_level9=* { set mkgmap:city='${mkgmap:admin_level9}
 mkgmap:city!=* & mkgmap:admin_level10=* { set mkgmap:city='${mkgmap:admin_level10}' } 
 mkgmap:city!=* & is_in:city=* { set mkgmap:city='${is_in:city}' }
 mkgmap:city!=* & addr:city=* { set mkgmap:city='${addr:city}' }
+
+opening_hours=* {set mkgmap:region='${opening_hours}'}
+website=* {set mkgmap:region='${mkgmap:region}   ${website}'}
 
 mkgmap:postal_code!=* & mkgmap:postcode=* { set mkgmap:postal_code='${mkgmap:postcode}' } 
 mkgmap:postal_code!=* & addr:postcode=* { set mkgmap:postal_code='${addr:postcode}' } 
