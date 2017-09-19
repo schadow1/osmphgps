@@ -150,12 +150,12 @@ barrier=gate { add mkgmap:road-speed = '-1'; add mkgmap:road-speed-min = '1' }
 # objective: so that appears on Mapsource earlier than usual without the Icon, until the lowest zoom level
 ( place=village | place:ph=barangay ) [0x640a resolution 18 continue] 	#   SMALL FONT - NO ICON {searchable} - Barangays 
 ( place=suburb | place=locality ) [0x640a resolution 23 continue]	#   SMALL FONT - NO ICON {searchable} - Districts & none-LGU units & none 
-( place=hamlet | place=subdivision | place:ph=purok | place=purok | 
+( place=hamlet | place=subdivision | place=neighbourhood | place:ph=purok | place=purok | 
   place:ph=sitio | place=sitio | landuse=residential ) { set addr:city='${is_in:city}'} 
   [0x640a resolution 21 continue]        				#   SMALL FONT - NO ICON {searchable} - Purok / Sub-Barangay / Subdivisions
 									#   640a (locale) is searchable but invisible with brown font
 ( place=village | place:ph=barangay | place=suburb | place=locality |  
-  place=hamlet | place=subdivision | place:ph=purok | place=purok | place:ph=sitio | place=sitio | landuse=residential )
+  place=hamlet | place=subdivision | place=neighbourhood | place:ph=purok | place=purok | place:ph=sitio | place=sitio | landuse=residential )
 { set addr:city='${is_in:city}'} [0x2c12 resolution 23]			#   2c12 has no category - temporary color is pink dot (pedestrian gate)
 
 # AMENITY POI fault tolerance - convert is_in:city to Karlsruhe Schema (eg: old POI entries from jklinc)
@@ -1016,7 +1016,6 @@ highway=services [0x2702 resolution 19]
 	natural=beach [0x6604 resolution 21]
 	natural=cave [0x6619 resolution 21]
 	natural=cave_entrance [0x6619 resolution 21]
-	natural=cliff [0x6607 resolution 18]
 	natural=peak [0x6616 resolution 19]
 	natural=peak & tourism=* [0x6616 resolution 18]
 	natural=volcano [0x6616 resolution 19]

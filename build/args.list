@@ -7,15 +7,16 @@ country-name=PHILIPPINES
 copyright-message: 2013-2017 s1expeditions.com All rights reserved. 
 route
 add-pois-to-areas
+add-pois-to-lines
 family-id=639
 family-name=OSM_PHIL
 overview-mapname=40000001
 style-file=examples/styles/default
-reduce-point-density = 4
-reduce-point-density-polygon = 5.6
+min-size-polygon=8
+polygon-size-limits=24:12, 18:10, 16:8, 14:4, 12:2, 11:0
 merge-lines
 remove-short-arcs
-generate-sea = extend-sea-sectors,floodblocker
+generate-sea = extend-sea-sectors,close-gaps=6000,floodblocker
 bounds=../osm-output/boundary
 draw-priority=25
 index

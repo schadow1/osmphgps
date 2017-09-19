@@ -7,16 +7,19 @@
 	amenity=fast_food & opening_hours='24/7' {name'${name} (24h) **'}
 	amenity=fuel & opening_hours='24/7' {name'${name} (24h) **'}
 	amenity=pharmacy & opening_hours='24/7' {name '${name} (24h) ${branch}' | '${name} (24h)'} [0x2e05 resolution 23]
+
+#peak with elevation
+    natural=peak & ele!=0 {name'${name} ${ele|def:}'}
 	
 #Evacuation Center rename
-	evacuation_centre='yes' | evacuation_center='yes' {name'${name} (Evacuation Center) **'} #Normal mode. POIs that can be evacuation centers have extended labels but are still searchable as their original type.
-	#evacuation_centre='yes' | evacuation_center='yes' {name'${name} (Evacuation Center) **'} [0x3009 resolution 18] #Enable only during humanitarian activation. Searchable under Community\Police
+	 evacuation_centre='yes' | evacuation_center='yes' {name'${name} (Evacuation Center) **'} #Normal mode. POIs that can be evacuation centers have extended labels but are still searchable as their original type.
+	# evacuation_centre='yes' | evacuation_center='yes' {name'${name} (Evacuation Center) **'} [0x3009 resolution 18] #Enable only during humanitarian activation. Searchable under Community\Police
 	
 
 # Tags name, brand, operator, ref
 
 # None of operator, brand given
-#ref=* & (operator!=* & brand!=*) { name '${ref} ${name}' | '${ref}' }
+# ref=* & (operator!=* & brand!=*) { name '${ref} ${name}' | '${ref}' }
 
 # Both operator and brand given in exception of fuel
 operator=* & brand=* & amenity!=fuel {
