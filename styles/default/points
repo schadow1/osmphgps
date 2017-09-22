@@ -733,14 +733,14 @@ amenity=fuel & brand!=* {delete name} [0x11507 resolution 18]
 		barrier=gate & access=permissive {delete name} [0x11602 resolution 23]
 		barrier=gate & access=pedestrian {delete name} [0x11603 resolution 23]
 		barrier=gate & access=closed {delete name} [0x11604 resolution 23]		# NO EXIT / PERMANENTLY CLOSED
-
+					
 		barrier=gate | highway=gate{delete name}[0x11600 resolution 23]
 		barrier=sally_port {delete name} [0x11600 resolution 23]
 		barrier=bollard | barrier=bus_trap {delete name} [0x11603 resolution 23]
 		barrier=block | barrier=cycle_barier | barrier=stile | barrier=kissing_gate {delete name} [0x11603 resolution 23]
 		
-		
-
+		barrier=gate | barrier=lift_gate & access=destination [0x3006 resolution 23 continue]                      # Gates that require sticker for access
+			barrier=gate | barrier=lift_gate & access=destination {name '${name} Sticker Required ${access:conditional} **' | 'Sticker Required ${access:conditional} **'} [0x11602 resolution 23]
 		
 
 # 3003	Nuvi: City Hall (use for City Hall, Town Halls & Provincial Halls) --- possibly include Barangay Halls

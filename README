@@ -10,12 +10,17 @@ Download maps here (choose one):
 
 Changes and updates
 
+20170923
+ - mkgmap version 3996
+ - Sticker required gates and time open for traffic is indicated
+
 20170919
  - rendering of power lines and cliffs
  - peaks with elevation information now displayed
  - POI search optimization
 
 20170912
+ - Major Version 3
  - add business hours and websites info of establishments
 
 20170909
@@ -44,6 +49,7 @@ Changes and updates
  - attempt in fixing routing errors on some devices
 
 20151102
+ - Major Version 2
  - mkgmap version 3649
  - changed road colors matching OSM Carto 2.36
 
@@ -177,6 +183,7 @@ Changes and updates
 
 
 20131213
+ - Major Version 1
  - mkgmap version 2857
  - improved city and address search using mkgmap's compatibility with OSM's housenumbers tag
  - manmade: added visibility of pipelines, powerlines, geographic survey points, and monitoring stations
