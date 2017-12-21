@@ -76,19 +76,19 @@ leisure=* & sport=* & name!=* { add name='${sport}' }
 	# NOTES: wood/forest is currently assigned to isolated 'urban park' or 'managed forests' & alikes
 	
 	
-	aeroway=airport [0x07 resolution 18]
-	aeroway=aerodrome [0x07 resolution 18]
-	aeroway=helipad [0x07 resolution 18]
-	aeroway=apron [0x05 resolution 18]
-	military=airfield [0x16 resolution 18]
+	aeroway=airport [0x07 resolution 20]
+	aeroway=aerodrome [0x07 resolution 20]
+	aeroway=helipad [0x07 resolution 20]
+	aeroway=apron [0x05 resolution 20]
+	military=airfield [0x16 resolution 20]
 
-	landuse=military | military=base [0x04 resolution 18]
-	military=air_base [0x04 resolution 18]
-	military=naval_base [0x04 resolution 18]
+	landuse=military | military=base [0x04 resolution 20]
+	military=air_base [0x04 resolution 20]
+	military=naval_base [0x04 resolution 20]
 
-	military=danger_area [0x04 resolution 18]
-	military=range [0x04 resolution 18]
-	military=barracks {set building=yes} [0x13 resolution 20]
+	military=danger_area [0x04 resolution 20]
+	military=range [0x04 resolution 20]
+	military=barracks {set building=yes} [0x13 resolution 23]
 	
 	man_made=pier [0x0c resolution 16]
 	
@@ -112,46 +112,46 @@ leisure=* & sport=* & name!=* { add name='${sport}' }
 
 aeroway=terminal [0x13 resolution 20]				# ordinary building
 
-amenity=school [0x0a resolution 20]
-amenity=kindergarten [0x0a resolution 20]
-amenity=college [0x0a resolution 20]
-amenity=university [0x0a resolution 20]
-amenity=community_centre [0x13 resolution 20]
+amenity=school [0x0a resolution 22]
+amenity=kindergarten [0x0a resolution 22]
+amenity=college [0x0a resolution 21]
+amenity=university [0x0a resolution 21]
+amenity=community_centre [0x13 resolution 21]
 
-amenity=hospital [0x0b resolution 18]
-amenity=parking [0x05 resolution 21]
-amenity=supermarket [0x08 resolution 21]
-amenity=grave_yard [0x1a resolution 18]
-landuse=cemetery [0x1a resolution 18]
+amenity=hospital [0x0b resolution 20]
+amenity=parking [0x05 resolution 22]
+amenity=supermarket [0x08 resolution 22]
+amenity=grave_yard [0x1a resolution 22]
+landuse=cemetery [0x1a resolution 22]
 
 landuse=basin [0x3f resolution 16]
 
 landuse=allotments [0x4e resolution 20]		# 4e is orchard or plantation, http://wiki.openstreetmap.org/wiki/Tag:landuse%3Dallotments
-landuse=commercial [0x08 resolution 18]
-landuse=construction [0x0c resolution 18]
+landuse=commercial [0x08 resolution 20]
+landuse=construction [0x0c resolution 20]
 landuse=farm [0x4e resolution 18]
 landuse=farmyard [0x4e resolution 18]
 landuse=farmland [0x4e resolution 18]
-landuse=orchard [0x4e resolution 18]
+landuse=orchard [0x4e resolution 20]
 
-landuse=greenfield [0x17 resolution 18]
+landuse=greenfield [0x17 resolution 20]
 landuse=industrial [0x0c resolution 18]
-landuse=garages [0x0c resolution 18]
-landuse=allotments [0x0c resolution 18]
+landuse=garages [0x0c resolution 20]
+landuse=allotments [0x0c resolution 20]
 landuse=meadow [0x17 resolution 18]
-landuse=quarry [0x0c resolution 18]   		#use industrial polygon typ
+landuse=quarry [0x0c resolution 20]   		#use industrial polygon typ
 landuse=vineyard [0x4e resolution 20]
 landuse=grass [0x17 resolution 20]
-landuse=recreation_ground [0x19 resolution 18]
-landuse=retail [0x08 resolution 20]
+landuse=recreation_ground [0x19 resolution 20]
+landuse=retail [0x08 resolution 19]
 
 
 building!=* & amenity=restaurant 
 | amenity=cafe
-| amenity=fast_food [0x08 resolution 20]
+| amenity=fast_food [0x08 resolution 22]
 
-leisure=water_park [0x09 resolution 18]    	#resort with fun/recreational facilities 
-leisure=golf_course [0x18 resolution 20]   	#NOTE: golf_course before village_green (just in case village green is also applied on golf_course)
+leisure=water_park [0x09 resolution 22]    	#resort with fun/recreational facilities 
+leisure=golf_course [0x18 resolution 22]   	#NOTE: golf_course before village_green (just in case village green is also applied on golf_course)
 landuse=village_green [0x17 resolution 18]
 leisure=common [0x17 resolution 20]
 leisure=garden [0x17 resolution 20]
@@ -159,8 +159,8 @@ leisure=marina [0x09 resolution 20]
 
 # INLAND Water Body
 
-landuse=reservoir  [0x3c resolution 19] 					# dont use [0x3f resolution 18] - won't work on top of Village Green
-landuse=swimming_pool | landuse=pool | landuse=pond [0x3c resolution 19] 	# dont use [0x40 resolution 18] - won't work on top of Village Green
+landuse=reservoir  [0x3c resolution 22] 					# dont use [0x3f resolution 18] - won't work on top of Village Green
+landuse=swimming_pool | landuse=pool | landuse=pond [0x3c resolution 22] 	# dont use [0x40 resolution 18] - won't work on top of Village Green
 waterway=riverbank [0x46 resolution 16]
 
 man_made=breakwater [0x0c resolution 16]

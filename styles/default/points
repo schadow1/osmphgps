@@ -148,7 +148,7 @@ barrier=gate { add mkgmap:road-speed = '-1'; add mkgmap:road-speed-min = '1' }
 # HACK BARANGAY & SUB-UNITS POI (searchable under COMMUNITY Category) --- note the varying resolution level of 640a, while 2c12 provides the icon
 # assign none-city spare HexCode (2c12) and convert to Karlsruhe Schema (addr:city) 
 # objective: so that appears on Mapsource earlier than usual without the Icon, until the lowest zoom level
-( place=village | place:ph=barangay ) [0x640a resolution 18 continue] 	#   SMALL FONT - NO ICON {searchable} - Barangays 
+( place=village | place:ph=barangay ) [0x640a resolution 22 continue] 	#   SMALL FONT - NO ICON {searchable} - Barangays 
 ( place=suburb | place=locality ) [0x640a resolution 23 continue]	#   SMALL FONT - NO ICON {searchable} - Districts & none-LGU units & none 
 ( place=hamlet | place=subdivision | place=neighbourhood | place:ph=purok | place=purok | 
   place:ph=sitio | place=sitio | landuse=residential ) { set addr:city='${is_in:city}'} 
@@ -234,7 +234,7 @@ place=island &
 | name="Hundred Islands"
 ) [0x650c resolution 16] 
 
-place=island [0x650c resolution 19]
+place=island [0x650c resolution 20]
 
 # START OF POI FILTERS AND HEX ASSIGNMENTS ==========================
 
@@ -246,19 +246,19 @@ place=island [0x650c resolution 19]
 # -----------------------------------------------------------------------------------------------------------------
 # 2f01  Nuvi: Fuel
 amenity=fuel { name '${operator}: ${name}' | '${name}' | '${operator}' }
-[0x2f01 resolution 18 continue]													#generic invisible fuel icon
-amenity=fuel & brand="Petron" {delete name} [0x10f06 resolution 18]
-amenity=fuel & brand="Shell" {delete name} [0x11001 resolution 18]
-amenity=fuel & brand="Caltex" {delete name} [0x11016 resolution 18]
-amenity=fuel & brand="Total" {delete name} [0x11502 resolution 18]
-amenity=fuel & brand="Phoenix" {delete  name}[0x11503 resolution 18]
+[0x2f01 resolution 23 continue]													#generic invisible fuel icon
+amenity=fuel & brand="Petron" {delete name} [0x10f06 resolution 23]
+amenity=fuel & brand="Shell" {delete name} [0x11001 resolution 23]
+amenity=fuel & brand="Caltex" {delete name} [0x11016 resolution 23]
+amenity=fuel & brand="Total" {delete name} [0x11502 resolution 23]
+amenity=fuel & brand="Phoenix" {delete  name}[0x11503 resolution 23]
 amenity=fuel & brand="Seaoil" | brand="Sea Oil" | brand="Sea-Oil" {delete name} [0x11504 resolution 18]
-amenity=fuel & brand="Jetti" {delete name} [0x11505 resolution 18]
-amenity=fuel & brand="Flying V" {delete name} [0x11506 resolution 18]
-amenity=fuel & brand="UniOil" {delete name} [0x11507 resolution 18]
-amenity=fuel & brand="PTT" {delete name} [0x11507 resolution 18]
-amenity=fuel & brand="Uno" {delete name} [0x11507 resolution 18]
-amenity=fuel & brand!=* {delete name} [0x11507 resolution 18]
+amenity=fuel & brand="Jetti" {delete name} [0x11505 resolution 23]
+amenity=fuel & brand="Flying V" {delete name} [0x11506 resolution 23]
+amenity=fuel & brand="UniOil" {delete name} [0x11507 resolution 23]
+amenity=fuel & brand="PTT" {delete name} [0x11507 resolution 23]
+amenity=fuel & brand="Uno" {delete name} [0x11507 resolution 23]
+amenity=fuel & brand!=* {delete name} [0x11507 resolution 23]
 
 
 # 2f16	Nuvi: Truck Stop (see AUTO SERVICES below)
@@ -294,12 +294,12 @@ amenity=fuel & brand!=* {delete name} [0x11507 resolution 18]
 	aeroway=terminal [0x2f04 resolution 20]
 
 # 2f08/11008/11002	Nuvi: Ground Transportation (eg. Bus Station, Bus Stop, PUJ, FX, Taxi)
-	amenity=bus_station [0x2f08 resolution 18]
+	amenity=bus_station [0x2f08 resolution 23]
 	highway=bus_stop [0x2f08 resolution 23 default_name 'PUV Stop']
-	amenity=fx_station [0x11004 resolution 21 default_name 'FX station']
-	amenity=jeepney_station [0x11005 resolution 21 default_name 'PUJ station']
-	amenity=taxi [0x2f08 resolution 21 default_name 'Taxi']
-	amenity=tricycle_station {delete addr:street} [0x11002 resolution 21 default_name 'Tricycle']
+	amenity=fx_station [0x11004 resolution 23 default_name 'FX station']
+	amenity=jeepney_station [0x11005 resolution 23 default_name 'PUJ station']
+	amenity=taxi [0x2f08 resolution 23 default_name 'Taxi']
+	amenity=tricycle_station {delete addr:street} [0x11002 resolution 23 default_name 'Tricycle']
 
 # 2f17/11017 	Nuvi: Transit Service (Mass_Transit, Ligh Rail, PNR Station, Ferry Terminals) - Assign as insivisible icon
 	
@@ -338,7 +338,7 @@ amenity=fuel & brand!=* {delete name} [0x11507 resolution 18]
 	railway=halt | railway=tram_stop [0x300b resolution 21]				 # is there an applicable tram_stop in PH?
 
 # 	SEA PORTS (the hack - doesn't seem to work on gpsr. On 76csx, the pier is only visible at 120m.
-	amenity=ferry_terminal [0x2f17 resolution 18 continue] 		# assigned to 'Transit Service' instead of 'Marina'
+	amenity=ferry_terminal [0x2f17 resolution 22 continue] 		# assigned to 'Transit Service' instead of 'Marina'
 #	   Major Ports (International)
 		amenity=ferry_terminal & 					# this line and the following identify Major/International Seaports
 		( name="Batangas Pier" 					# International Port
@@ -363,17 +363,17 @@ amenity=fuel & brand!=* {delete name} [0x11507 resolution 18]
 		waterway:port_type=sea_port [0x4300 resolution 17]	# big sea_ports that can handle big ships
 #	 	note: Major Ports based on: http://wiki.answers.com/Q/What_are_the_major_ports_in_the_Philippines & http://en.wikipedia.org/wiki/Transportation_in_the_Philippines
 #	    Minor Ports (HARBOR / MARINA / RIVER_FERRY) - temporary assign all other minor ports & ferry terminals to resolution 18 
-		man_made=pier & name=* {add waterway:port_type=sea_port; set waterway:port_type=sea_port} [0x2f17 resolution 21 continue]
+		man_made=pier & name=* {add waterway:port_type=sea_port; set waterway:port_type=sea_port} [0x2f17 resolution 22 continue]
 		amenity=ferry_terminal {add waterway:port_type=sea_port; set waterway:port_type=sea_port}
-		waterway:port_type=sea_port [0x4300 resolution 21]	# minor sea_ports  - for inter-island travel
-		waterway:port_type=lake_port [0x4301 resolution 21]	# regular Boat Stations on Lake
-		waterway:port_type=river_port [0x4302 resolution 21]	# regular Boat Stations along river (eg. private, inter-barangay)
-		waterway:port_type=river_ferry [0x4303 resolution 21]	# Eg. Pasig River Ferry
-		waterway=dock [0x4302 resolution 21]	# minor boat stations (e.g. tourism/island hopping)
+		waterway:port_type=sea_port [0x4300 resolution 22]	# minor sea_ports  - for inter-island travel
+		waterway:port_type=lake_port [0x4301 resolution 22]	# regular Boat Stations on Lake
+		waterway:port_type=river_port [0x4302 resolution 22]	# regular Boat Stations along river (eg. private, inter-barangay)
+		waterway:port_type=river_ferry [0x4303 resolution 22]	# Eg. Pasig River Ferry
+		waterway=dock [0x4302 resolution 22]	# minor boat stations (e.g. tourism/island hopping)
 #	note: seaport tag based on http://wiki.openstreetmap.org/wiki/Humanitarian_OSM_Tags/Humanitarian_Data_Model
 
-	amenity=harbor [0x650b resolution 16]	# provides extra protection for ships against big waves during typhoon --- it's like a 'parking space' of ships, not for transport
-	leisure=marina [0x2f09 resolution 18]	# for leisure/private use - not for mass/public transport (no category on nuvi) - Appears on Other>Marina/Repair&Storage on 76CSx
+	amenity=harbor [0x650b resolution 22]	# provides extra protection for ships against big waves during typhoon --- it's like a 'parking space' of ships, not for transport
+	leisure=marina [0x2f09 resolution 22]	# for leisure/private use - not for mass/public transport (no category on nuvi) - Appears on Other>Marina/Repair&Storage on 76CSx
 
 
 
@@ -423,32 +423,32 @@ amenity=fuel & brand!=* {delete name} [0x11507 resolution 18]
 
 # 2e02/10f02
 # NOT on GarminPC menu:Supermarket 0x2e02 (Hypermart-Supermarket-MembershipShopping-WarehouseClubs-Big airconditioned groceries with no flies) <rally:Yellow Push Cart Icon>
-	amenity=supermarket [0x2e02 resolution 22]
-	shop=supermarket [0x2e02 resolution 22]
+	amenity=supermarket [0x2e02 resolution 24]
+	shop=supermarket [0x2e02 resolution 24]
 
 # 2e03/10f03
 # GarminPC:Shopping:General Merchandise 0x2e03 (sari-sari, LPG dealer, daisu, japanhome, ukay-ukay, books, stationary shops) <rally:Green Bag Icon>
 
-	shop=convenience  [0x2e03 resolution 23]	# Set 'SARI-SARI' (suking tindahan not 24hour operation) to General Merchandise
-	shop=variety_store [0x2e03 resolution 23]
+	shop=convenience  [0x2e03 resolution 24]	# Set 'SARI-SARI' (suking tindahan not 24hour operation) to General Merchandise
+	shop=variety_store [0x2e03 resolution 24]
 	shop=general | shop=general_merchandise [0x2e03 resolution 23]
-	amenity=retail [0x2e03 resolution 23]
-	shop=books [0x2e03 resolution 23]
-	shop=stationery [0x2e03 resolution 23]
-	shop=butcher [0x2e03 resolution 23]
-	shop=purified_water | shop=water_refilling [0x2e03 resolution 23 continue]
-	shop=purified_water | shop=water_refilling {delete name} [0x5000 resolution 23]
+	amenity=retail [0x2e03 resolution 24]
+	shop=books [0x2e03 resolution 24]
+	shop=stationery [0x2e03 resolution 24]
+	shop=butcher [0x2e03 resolution 24]
+	shop=purified_water | shop=water_refilling [0x2e03 resolution 24 continue]
+	shop=purified_water | shop=water_refilling {delete name} [0x5000 resolution 24]
 	
 # 2b04 
 # GarminPC:Shopping:Shopping Center 0x2b04 (malls and shopping complex covering big land area) <rally:Yellow Bag Icon>
-	amenity=mall [0x2e04 resolution 21]
-	shop=shopping_centre [0x2e04 resolution 21]
-	shop=mall [0x2e04 resolution 21]
+	amenity=mall [0x2e04 resolution 23]
+	shop=shopping_centre [0x2e04 resolution 23]
+	shop=mall [0x2e04 resolution 23]
 
 # 2b05
 # GarminPC:Shopping:Pharmacy/Chemist 0x2b05 (Mercury Watsons and small drug stores) <rally:Rx Icon>
-	amenity=pharmacy { name '${name} - ${branch}' | '${name}'} [0x2e05 resolution 23]
-	shop=chemist [0x2e05 resolution 23]
+	amenity=pharmacy { name '${name} - ${branch}' | '${name}'} [0x2e05 resolution 24]
+	shop=chemist [0x2e05 resolution 24]
 
 
 #amenity=atm { name '${name} - ${branch}' | '${name}' | '${operator}' }
@@ -459,86 +459,86 @@ amenity=fuel & brand!=* {delete name} [0x11507 resolution 18]
 #	shop=convenience [0x2e06 resolution 23]			# useless because of Pre-Filter & Gen.Merchandise filter above
 
 # 2e07/10f07	Nuvi: GarminPC:Shopping:Apparel 0x2e07 <rally:Coat Icon>
-	shop=apparel [0x2e07 resolution 23]
-	shop=clothes [0x2e07 resolution 23]
-	shop=fashion [0x2e07 resolution 23]
-	shop=shoes [0x2e07 resolution 23]
+	shop=apparel [0x2e07 resolution 24]
+	shop=clothes [0x2e07 resolution 24]
+	shop=fashion [0x2e07 resolution 24]
+	shop=shoes [0x2e07 resolution 24]
 
 # 2e08/10f08
 # GarminPC:Shopping:House and Garden 0x2e08 (DIY, Hardware, Lumber and Construction) <rally:Handyman Icon>
-	shop=hardware [0x2e08 resolution 23]
-	shop=doityourself [0x2e08 resolution 23]
-	shop=lumber [0x2e08 resolution 23]
-	shop=garden [0x2e08 resolution 23]
-	shop=garden_center | shop=garden_centre [0x2e08 resolution 23]
+	shop=hardware [0x2e08 resolution 24]
+	shop=doityourself [0x2e08 resolution 24]
+	shop=lumber [0x2e08 resolution 24]
+	shop=garden [0x2e08 resolution 24]
+	shop=garden_center | shop=garden_centre [0x2e08 resolution 24]
 
 # 2e09/10f09
 # GarminPC:Shopping:Home Furnishings 0x2e09 <rally:Chair Icon>
-	shop=furniture [0x2e09 resolution 23]
-	shop=home_furnishing [0x2e09 resolution 23]
+	shop=furniture [0x2e09 resolution 24]
+	shop=home_furnishing [0x2e09 resolution 24]
 
 # 2e0a/010f0a
 # GarminPC:Shopping:Specialty Retail 0x2e0a (specialty shops) <rally:Pink Bag Icon>
-	shop=antique [0x2e0a resolution 23]
-	shop=antiques [0x2e0a resolution 23]
-	shop=florist [0x2e0a resolution 23]
-	shop=newsagent [0x2e0a resolution 23]
-	shop=optician [0x2e0a resolution 23]
-	shop=outdoor [0x2e0a resolution 23]
-	shop=scuba [0x2e0a resolution 23]
-	shop=sports [0x2e0a resolution 23]
-	shop=toys [0x2e0a resolution 23]
-	shop=video [0x2e0a resolution 23]
+	shop=antique [0x2e0a resolution 24]
+	shop=antiques [0x2e0a resolution 24]
+	shop=florist [0x2e0a resolution 24]
+	shop=newsagent [0x2e0a resolution 24]
+	shop=optician [0x2e0a resolution 24]
+	shop=outdoor [0x2e0a resolution 24]
+	shop=scuba [0x2e0a resolution 24]
+	shop=sports [0x2e0a resolution 24]
+	shop=toys [0x2e0a resolution 24]
+	shop=video [0x2e0a resolution 24]
 
 # 2e0b/10f0b
 # GarminPC:Shopping:Computer/Software 0x2e0b (normally computer shops + electronics DIYs) <rally:Computer Icon>
-	shop=computer [0x2e0b resolution 23]
-	shop=electronics [0x2e0b resolution 23]
+	shop=computer [0x2e0b resolution 24]
+	shop=electronics [0x2e0b resolution 24]
 
 # 2e00/10f00
 # GarminPC:Shopping:Other 0x2e00 <rally:Green Push Cart Icon>
 # 	(WaterStore or Tube Ice, Market/Talipapa with flies or Local FoodMart/MiniMart or Small Local Grocery Store) 
-	shop=grocery [0x2e00 resolution 21]
-	amenity=marketplace | amenity=market | shop=market [0x2e00 resolution 21]
-	amenity=public_market | shop=public_market [0x2e00 resolution 21]
+	shop=grocery [0x2e00 resolution 24]
+	amenity=marketplace | amenity=market | shop=market [0x2e00 resolution 23]
+	amenity=public_market | shop=public_market [0x2e00 resolution 23]
 	shop=farm [0x2e00 resolution 23]
-	amenity=iceplant [0x2e00 resolution 23]
-	shop=water_refilling [0x2e00 resolution 23]
+	amenity=iceplant [0x2e00 resolution 24]
+	shop=water_refilling [0x2e00 resolution 24]
 
 
 ####06  BANK/ATM
 # -----------------------------------------------------------------------------------------------------------------
 # 2f06/11006	Nuvi: Bank/ATM
-	amenity=atm { name '${name} - ${branch}' | '${name}' | '${operator}' } [0x2f06 resolution 23]
-	amenity=bank { name '${name} - ${branch}' | '${name}' | '${operator}' } [0x2f06 resolution 23]
+	amenity=atm { name '${name} - ${branch}' | '${name}' | '${operator}' } [0x2f06 resolution 24]
+	amenity=bank { name '${name} - ${branch}' | '${name}' | '${operator}' } [0x2f06 resolution 24]
 
 
 ####07	PARKING
 # -----------------------------------------------------------------------------------------------------------------
 # 2f0b/1100b
-	amenity=parking [0x2f0b resolution 22 default_name='carpark']
-	amenity=bicycle_parking [0x2f0b resolution 22 default_name 'bikepark']
+	amenity=parking [0x2f0b resolution 24 default_name='carpark']
+	amenity=bicycle_parking [0x2f0b resolution 24 default_name 'bikepark']
 
 
 
 ####08  ENTERTAINMENT (Nuvi: 2d00 2d01 2d02 2d03 2d04)  
 # -----------------------------------------------------------------------------------------------------------------
 # 2d01 	Nuvi: Live Theater (eg. Ampitheater,Live Theater,CCP,FolkArts,PacoPark,Opera House - primarily for cultural live presentations)
-	amenity=theatre [0x2d01 resolution 23]
-	leisure=concert_hall [0x2d01 resolution 23]
+	amenity=theatre [0x2d01 resolution 24]
+	leisure=concert_hall [0x2d01 resolution 24]
 
 # 2d02 	Nuvi: Bar/NightClub (eg. pub,beerhouse,adult entertainment,bar) 
-	amenity=pub [0x2d02 resolution 23]
-	amenity=bar [0x2d02 resolution 23]
-	amenity=biergarten [0x2d02 resolution 23]
-	amenity=nightclub [0x2d02 resolution 23]
+	amenity=pub [0x2d02 resolution 24]
+	amenity=bar [0x2d02 resolution 24]
+	amenity=biergarten [0x2d02 resolution 24]
+	amenity=nightclub [0x2d02 resolution 24]
 
 # 2d03	Nuvi: Movie Theater
-	amenity=cinema [0x2d03 resolution 22]
+	amenity=cinema [0x2d03 resolution 24]
 	
 # 2d04  Nuvi: Casino (eg.Casino & Bingo Hall & all betting stations)
-	leisure=casino | amenity=casino [0x2d04 resolution 23]
-	leisure=gambling | amenity=gambling [0x2d04 resolution 23]
+	leisure=casino | amenity=casino [0x2d04 resolution 24]
+	leisure=gambling | amenity=gambling [0x2d04 resolution 24]
 
 # 2d00  Nuvi: Other (unutilized)
 
@@ -547,66 +547,66 @@ amenity=fuel & brand!=* {delete name} [0x11507 resolution 18]
 ####09	RECREATION (Nuvi: 2c01 2c06 2c08 2d05 2d06 2d07 2d08 2d09 2d0a 2d0b) - More on Physical Entertainment / Exertions
 # -----------------------------------------------------------------------------------------------------------------
 # 2c01	Nuvi: Amusement/Theme Park (eg.Theme Park,KiddyRides,Water Park,Zipline/WallClimb/Bungee,TreeTopAdventures,VideoArcade,BoatRide)
-	tourism=theme_park [0x2c01 resolution 21]	#amusement are with kiddie rides, etc
-	leisure=water_park [0x2c01 resolution 21] 	#day-trip "amusement: with water slides, recreational swimming pools and dressing rooms. -- don't use for spa & mountain resorts  
+	tourism=theme_park [0x2c01 resolution 24]	#amusement are with kiddie rides, etc
+	leisure=water_park [0x2c01 resolution 24] 	#day-trip "amusement: with water slides, recreational swimming pools and dressing rooms. -- don't use for spa & mountain resorts  
 		
 # 2c06	Nuvi: Park/Garden
-	leisure=garden [0x2c06 resolution 22]
-	leisure=common [0x2c06 resolution 22]		# where public can walk anywhere
+	leisure=garden [0x2c06 resolution 24]
+	leisure=common [0x2c06 resolution 24]		# where public can walk anywhere
 	
-	leisure=park [0x2c06 resolution 22 continue]	# invisible
-	leisure=park [0x320e resolution 23]		# 
+	leisure=park [0x2c06 resolution 24 continue]	# invisible
+	leisure=park [0x320e resolution 24]		# 
 			
-	tourism=picnic_site | leisure=fishing [0x2c06 resolution 23 continue]
-	tourism=picnic_site [0x320e resolution 21]	# proposed: combine with park [0x2c06 resolution 21]
-	leisure=fishing [0x4100 resolution 23]		# THIS IS NOT SEARCHABLE - combine with 2c06
+	tourism=picnic_site | leisure=fishing [0x2c06 resolution 24 continue]
+	tourism=picnic_site [0x320e resolution 21]	# proposed: combine with park [0x2c06 resolution 24]
+	leisure=fishing [0x4100 resolution 24]		# THIS IS NOT SEARCHABLE - combine with 2c06
 	
 # 2c08	Nuvi: Arena/Track (area for physical competition: Cockpit,HorseTrack,RacingTrack,Track&FieldOval,SportsComplex,GoKart)
-	leisure=stadium [0x2c08 resolution 21]
-	leisure=track [0x2c08 resolution 22]
-	sport=cockfighting [0x2c08 resolution 20]
- 	sport=horse_racing [0x2c08 resolution 20]
- 	leisure=pitch [0x2d0a resolution 23]		#baseball field, soccer field
+	leisure=stadium [0x2c08 resolution 24]
+	leisure=track [0x2c08 resolution 24]
+	sport=cockfighting [0x2c08 resolution 24]
+ 	sport=horse_racing [0x2c08 resolution 24]
+ 	leisure=pitch [0x2d0a resolution 24]		#baseball field, soccer field
 	
 # 2d05 	Nuvi: Golf Course
-	leisure=golf_course [0x2d05 resolution 22]
-	sport=golf [0x2d05 resolution 21]
-	leisure=miniature_golf [0x2d05 resolution 21]
+	leisure=golf_course [0x2d05 resolution 24]
+	sport=golf [0x2d05 resolution 24]
+	leisure=miniature_golf [0x2d05 resolution 24]
 
 # 2d06	Nuvi: Skiing Center/Resort
-	sport=skiing [0x2d06 resolution 23]
+	sport=skiing [0x2d06 resolution 24]
 
 # 2d07  Nuvi: Bowling Center
-	sport=bowling [0x2d07 resolution 23]
-	sport=10pin [0x2d07 resolution 23]
-	sport=9pin [0x2d07 resolution 23]
+	sport=bowling [0x2d07 resolution 24]
+	sport=10pin [0x2d07 resolution 24]
+	sport=9pin [0x2d07 resolution 24]
 
 # 2d08	Nuvi: Ice Skating
-	leisure=ice_rink [0x2d08 resolution 23]
-	sport=skating [0x2d08 resolution 23]
+	leisure=ice_rink [0x2d08 resolution 24]
+	sport=skating [0x2d08 resolution 24]
 
 # 2d09	Nuvi: Swimming (recreational - swim,dive_site&shops,surf,snorkel)
-	sport=swimming [0x2d09 resolution 23]
+	sport=swimming [0x2d09 resolution 24]
 	leisure=swimming_pool | amenity=swimming_pool [0x2d09 resolution 23]
-	sport=diving [0x5400 resolution 23]
-	sport=scuba_diving [0x5400 resolution 23]
+	sport=diving [0x5400 resolution 24]
+	sport=scuba_diving [0x5400 resolution 24]
 
 # 2d0a	Nuvi: Sport/Fitness Center (for practicing sport-skills & body fitness)
 #	Specific Sports:
-		sport=basketball [0x2d0a resolution 23]
-	 	sport=racquet [0x2d0a resolution 23]
-	 	sport=tennis [0x2d0a resolution 23]
-	 	sport=waterskiing [0x2d0a resolution 23]
-	 	sport=badminton [0x2d0a resolution 23]
-	 	sport=basketball [0x2d0a resolution 23]
-# 		sport=* [0x resolution 20]
+		sport=basketball [0x2d0a resolution 24]
+	 	sport=racquet [0x2d0a resolution 24]
+	 	sport=tennis [0x2d0a resolution 24]
+	 	sport=waterskiing [0x2d0a resolution 24]
+	 	sport=badminton [0x2d0a resolution 24]
+	 	sport=basketball [0x2d0a resolution 24]
+# 		sport=* [0x resolution 24]
 
-	amenity=fitness_center [0x2d0a resolution 23]
-	leisure=sports_centre | leisure=sports_center [0x2d0a resolution 21]
-	sport=multi [0x2d0a resolution 21]
+	amenity=fitness_center [0x2d0a resolution 24]
+	leisure=sports_centre | leisure=sports_center [0x2d0a resolution 24]
+	sport=multi [0x2d0a resolution 24]
 
 # 2d0b  Nuvi: Public Sport Airport
-	sport=airport [0x2d0b resolution 23]		# eg. rentable plane & light-planes for recreation/sightseeing
+	sport=airport [0x2d0b resolution 24]		# eg. rentable plane & light-planes for recreation/sightseeing
 
 
 
@@ -615,8 +615,8 @@ amenity=fuel & brand!=* {delete name} [0x11507 resolution 18]
 # 2c01	Nuvi: Amusement/Theme Park (see RECREATION above)
 
 # 2c02	Nuvi: Museum/Historical (eg.Museum,Historical Markers,Monuments,Ruin,Art_Gallery/Center) --- Think CULTURE, HERITAGE & ARTS (2c02 is invisible)
-	historic=museum | tourism=museum [0x2c02 resolution 23 continue] 
-	historic=museum | tourism=museum {delete name} [0x3200 resolution 23]
+	historic=museum | tourism=museum [0x2c02 resolution 24 continue] 
+	historic=museum | tourism=museum {delete name} [0x3200 resolution 24]
 
 	historic=memorial [0x2c02 resolution 23 continue] 			# like a monument (but smaller). Might range from a WWII memorial to a simple plate on a wall. 
 	historic=memorial {delete name} [0x3201 resolution 23]
@@ -624,56 +624,56 @@ amenity=fuel & brand!=* {delete name} [0x11507 resolution 18]
 	historic=monument [0x2c02 resolution 23 continue]			# Symbolic Structure or Statue in honor of somebody
 	historic=monument {delete name} [0x3202 resolution 23]
 	
-	historic=ruins | historic=archaeological_site [0x2c02 resolution 23 continue]
-	historic=ruins | historic=archaeological_site {delete name}  [0x3203 resolution 23]
+	historic=ruins | historic=archaeological_site [0x2c02 resolution 24 continue]
+	historic=ruins | historic=archaeological_site {delete name}  [0x3203 resolution 24]
 	
-	historic=marker [0x2c02 resolution 23 continue] 			# National Historic Commission (Plate Marker) --- find all and replace with 'memorial'
-	historic=marker {delete name} [0x3204 resolution 23]
+	historic=marker [0x2c02 resolution 24 continue] 			# National Historic Commission (Plate Marker) --- find all and replace with 'memorial'
+	historic=marker {delete name} [0x3204 resolution 24]
 
-	amenity=arts_centre [0x2c02 resolution 23 continue]			# Art Gallery - houses a collection of art pieces
-	amenity=arts_centre {delete name} [0x3205 resolution 23]
+	amenity=arts_centre [0x2c02 resolution 24 continue]			# Art Gallery - houses a collection of art pieces
+	amenity=arts_centre {delete name} [0x3205 resolution 24]
 	
 # 2c04	Nuvi: Landmark (eg.Lion's Head,HwayHighestPoint,Picture,Viewsite,None-historical Artworks) the position of this tag is tricky (this needs fool proofing)
 	
-	tourism=artwork [0x2c04 resolution 23 continue]
-	tourism=artwork {delete name} [0x3206 resolution 23]	
-	tourism=viewpoint [0x2c04 resolution 23 continue] 	
-	tourism=viewpoint {delete name} [0x3207 resolution 23]	
-	man_made=lighthouse [0x2c04 resolution 18 default_name 'lighthouse' continue]
-	man_made=lighthouse [0x1707 resolution 21]		
-	amenity=fountain [0x6511 resolution 23 default_name 'fountain'] 	#6511 is Water Feature>spring	# but this is Decorative Fountain - Same Icon as natural Mountain Spring icon
+	tourism=artwork [0x2c04 resolution 24 continue]
+	tourism=artwork {delete name} [0x3206 resolution 24]	
+	tourism=viewpoint [0x2c04 resolution 24 continue] 	
+	tourism=viewpoint {delete name} [0x3207 resolution 24]	
+	man_made=lighthouse [0x2c04 resolution 24 default_name 'lighthouse' continue]
+	man_made=lighthouse [0x1707 resolution 24]		
+	amenity=fountain [0x6511 resolution 24 default_name 'fountain'] 	#6511 is Water Feature>spring	# but this is Decorative Fountain - Same Icon as natural Mountain Spring icon
 	amenity=clock {add tourism=attraction}
 
-	name=* & tourism=attraction [0x2c04 resolution 21 continue]
-	name=* & tourism=attraction {delete name} [0x320a resolution 23]
-	historic=* & tourism=attraction [0x2c04 resolution 19 continue]
+	name=* & tourism=attraction [0x2c04 resolution 24 continue]
+	name=* & tourism=attraction {delete name} [0x320a resolution 24]
+	historic=* & tourism=attraction [0x2c04 resolution 23 continue]
 	historic=* & tourism=attraction {delete name} [0x320a resolution 23]
 		
 # 2c06	Nuvi: Park/Garden (see RECREATION above)
 
 # 2c07	Nuvi: Zoo/Aquarium (eg.Zoo,Aquarium,Aviary,has live animals for viewing - Alligator Farm)
-	tourism=zoo | amenity=zoo & name=* [0x2c07 resolution 21]
+	tourism=zoo | amenity=zoo & name=* [0x2c07 resolution 24]
 
 # 2c08	Nuvi: Arena/Track (see RECREATION above)
 
 # 2c09	Nuvi: Hall/Auditorium (Convention Center,Exhibition Hall,Function Hall,MultiPurpose Big Dome,Events Venue)
-	amenity=concert_hall [0x2c09 resolution 23]
-	amenity=conference_centre [0x2c09 resolution 23]
-	amenity=convention_center [0x2c09 resolution 23]
-	amenity=event_venue [0x2c09 resolution 23]
-	leisure=dance [0x2c09 resolution 23]
+	amenity=concert_hall [0x2c09 resolution 24]
+	amenity=conference_centre [0x2c09 resolution 24]
+	amenity=convention_center [0x2c09 resolution 24]
+	amenity=event_venue [0x2c09 resolution 24]
+	leisure=dance [0x2c09 resolution 24]
 
 # 2c0a	Nuvi: Winery (any place that has wine or alcohol) - just assign to exclusive wine/alcohol shops - since we don't have many winery attractions in PH 
-	shop=wine [0x2c0a resolution 23]
-	tourism=wine_cellar [0x2c0a resolution 21]
-	amenity=winery [0x2c0a resolution 23]
-	shop=alcohol [0x2c0a resolution 23]
+	shop=wine [0x2c0a resolution 24]
+	tourism=wine_cellar [0x2c0a resolution 24]
+	amenity=winery [0x2c0a resolution 24]
+	shop=alcohol [0x2c0a resolution 24]
 
 # 2c0c	Nuvi: HotSpring (Swimming or Dipping Pool with Natural Hot Spring)
 	natural=hot_spring 
 	| type=hot_spring 
 	| spring=hot_spring
-	[0x2c0c resolution 21]
+	[0x2c0c resolution 23]
 
 # 2c00  Nuvi: Other (assign to other touristic trivias)
 			 		
@@ -689,23 +689,23 @@ amenity=fuel & brand!=* {delete name} [0x11507 resolution 18]
 ####11  HOSPITALS (Hospital Clinic Maternity Dentist Albularyo Drug_Rehab Lab_Diagnostic_Center Veterinary RedCross)
 # -----------------------------------------------------------------------------------------------------------------
 # 3002 	Nuvi: Hospital
-	amenity=hospital [0x3002 resolution 18 continue]	#generic invisible hospital icon
-	amenity=hospital {delete name} [0x11702 resolution 18]
+	amenity=hospital [0x3002 resolution 22 continue]	#generic invisible hospital icon
+	amenity=hospital {delete name} [0x11702 resolution 22]
 	
-	amenity=clinic [0x3002 resolution 18 continue] 
-	amenity=clinic {delete name} [0x11102 resolution 18]
+	amenity=clinic [0x3002 resolution 23 continue] 
+	amenity=clinic {delete name} [0x11102 resolution 23]
 	
-	amenity=dentist [0x3002 resolution 18 continue]
-	amenity=dentist {delete name} [0x11102 resolution 18]
+	amenity=dentist [0x3002 resolution 23 continue]
+	amenity=dentist {delete name} [0x11102 resolution 23]
 	
-	amenity=doctors | amenity=doctor [0x3002 resolution 18 continue]
-	amenity=doctors | amenity=doctor {delete name} [0x11102 resolution 18]
+	amenity=doctors | amenity=doctor [0x3002 resolution 23 continue]
+	amenity=doctors | amenity=doctor {delete name} [0x11102 resolution 23]
 	
 #	Note: during emergencies, after giving first-aids, Red Cross ambulances always ask where are the nearest hospitals in the area
 #	temporarily put them under one search category, instead of social/humanitarian org --- proposed - not yet implemented
 	name='Philippine Red Cross' | name='Philippine National Red Cross'  [0x3009 resolution 18]
-	red_cross_loc=office [0x3009 resolution 18]
-	humanitarian=red_cross [0x3009 resolution 18]
+	red_cross_loc=office [0x3009 resolution 22]
+	humanitarian=red_cross [0x3009 resolution 22]
 
 
 
@@ -714,101 +714,103 @@ amenity=fuel & brand!=* {delete name} [0x11507 resolution 18]
 # 2f06	Nuvi: Bank/ATM (see BANK/ATM above)
 
 # 3006  Nuvi: Border Crossing (not applicable in PH) -- just use this to show highway border, city limits, barangay boundaries
-	traffic_sign=city_limit | man_made=highway_boundary | man_made=arch [0x3006 resolution 23 continue]
+	traffic_sign=city_limit | man_made=highway_boundary | man_made=arch [0x3006 resolution 21 continue]
 	traffic_sign=city_limit {delete name} [0x320c resolution 21]				# City & Provincial Boundaries
 	man_made=highway_boundary {delete name} [0x320b resolution 21]				# Barangay Boundary	
 	man_made=arch {delete name} [0x320b resolution 21]					# http://www.huffingtonpost.com/2010/12/16/worlds-most-beautiful-man_n_797829.html#s209720&title=Arc_de_Triomf
 
 # 	TRANSPORTATION - Miscellaneous
-		highway=crossing & name=* [0x3006 resolution 21 continue]
-	       	highway=crossing & name=* {delete name} [0x320d resolution 21]				#Junction / Intersection
-		railway=level_crossing [0x320d resolution 23]
+		highway=crossing & name=* [0x3006 resolution 24 continue]
+	       	highway=crossing & name=* {delete name} [0x320d resolution 24]				#Junction / Intersection
+		railway=level_crossing [0x320d resolution 24]
 
 # 	GATES --- This should indicate <Gate No> & Name of Subdivision/Compound 
 # 	opinion: gate may be assigned to searchable none-nuvi-rendering hex (eg. 11aXX) -- to save on hex codes
 #       or use 116xx (with small dot nuvi) but delete name so that it will not be searchable by itself & prevent conflict with 3006 
 		
-		barrier=gate | barrier=sally_port | highway=gate [0x3006 resolution 23 continue]	# this will classify it under border category
+		barrier=gate | barrier=sally_port | highway=gate | barrier=lift_gate [0x3006 resolution 23 continue]	# this will classify it under border category
 		barrier=gate & access=private {delete name} [0x11601 resolution 23]
 		barrier=gate & access=permissive {delete name} [0x11602 resolution 23]
 		barrier=gate & access=pedestrian {delete name} [0x11603 resolution 23]
 		barrier=gate & access=closed {delete name} [0x11604 resolution 23]		# NO EXIT / PERMANENTLY CLOSED
-					
-		barrier=gate | highway=gate{delete name}[0x11600 resolution 23]
+				
+		access=destination & barrier=lift_gate | barrier=gate {name '${name} Sticker Required ${access:conditional} **' 	 # Gates that require sticker for access
+																		| 'Sticker Required ${access:conditional} **' 
+																		| 'Sticker Required **'} [0x11602 resolution 23]	
+		
 		barrier=sally_port {delete name} [0x11600 resolution 23]
 		barrier=bollard | barrier=bus_trap {delete name} [0x11603 resolution 23]
 		barrier=block | barrier=cycle_barier | barrier=stile | barrier=kissing_gate {delete name} [0x11603 resolution 23]
 		
-		barrier=gate | barrier=lift_gate & access=destination [0x3006 resolution 23 continue]                      # Gates that require sticker for access
-			barrier=gate | barrier=lift_gate & access=destination {name '${name} Sticker Required ${access:conditional} **' | 'Sticker Required ${access:conditional} **'} [0x11602 resolution 23]
-		
+
+
 
 # 3003	Nuvi: City Hall (use for City Hall, Town Halls & Provincial Halls) --- possibly include Barangay Halls
-	amenity=townhall | amenity=town_hall [0x3003 resolution 18]
+	amenity=townhall | amenity=town_hall [0x3003 resolution 20]
 
 # 3005 	Nuvi: Community Center (covered space for community meetings, festivities & celebrations) -- eg. multipurpose covered court, subdivision clubhouse?)  
 
-	amenity=community_centre | amenity=community_center [0x3005 resolution 23]
+	amenity=community_centre | amenity=community_center [0x3005 resolution 20]
 	
 # 3004 	Nuvi: Court House
-	amenity=courthouse [0x3004 resolution 21]
+	amenity=courthouse [0x3004 resolution 23]
 
 # 3008	Nuvi: Fire Department (assign to those capable of Extracting People out of Fire/Wreckage/Flood/Collapsed_Structures)
 	amenity=fire_station [0x3008 resolution 21]
 	amenity=rescue [0x3008 resolution 23]
 
 # 3007	Nuvi: Government Office (any free-standing none-townhall government building, or Government_Office within a public building or private building) 
-	amenity=public_building [0x3007 resolution 22]
+	amenity=public_building [0x3007 resolution 23]
 	
-	amenity=embassy & country=* { name '${country} ${name|def:}' } [0x3000 resolution 18]	
-	amenity=embassy & country!=* [0x3000 resolution 18 default_name 'Embassy']
+	amenity=embassy & country=* { name '${country} ${name|def:}' } [0x3000 resolution 22]	
+	amenity=embassy & country!=* [0x3000 resolution 22 default_name 'Embassy']
 
 # 2c03	Nuvi: Library (any private or public building (or room within a building) with collection of books & reference materials for academic studies)	
 	amenity=library [0x2c03 resolution 23]
 
 # 2c0d	Nuvi: Place of Worship (Protestants & none-sectarian Christians, Aglipay, Iglesia Ni Cristo, Mormon, Jehovah's Witness, Jewish)  
-	name='Iglesia Ni Cristo' |  denomination=iglesia_ni_cristo [0x2c0d resolution 21]
-	name='Iglesia ni Cristo' | name='Iglesia ni Kristo' | name='Iglesia ni Christo' | name='Iglesia' {set name='Iglesia Ni Cristo *'} [0x2c0d resolution 21]
-        name='Dating Daan' | name='Ang Dating Daan' [0x2c0d resolution 21]
+	name='Iglesia Ni Cristo' |  denomination=iglesia_ni_cristo [0x2c0d resolution 23]
+	name='Iglesia ni Cristo' | name='Iglesia ni Kristo' | name='Iglesia ni Christo' | name='Iglesia' {set name='Iglesia Ni Cristo *'} [0x2c0d resolution 23]
+        name='Dating Daan' | name='Ang Dating Daan' [0x2c0d resolution 23]
         denomination=aglipay | denomination=aglipayan | religion=aglipayan 
         | name='Philippine Independent Church' | name='Aglipay'  
         | name='Aglipayan Church' | name='Aglipay Memorial Church'  
         | name='Iglesia Filipina Independiente' | name='Iglesia Independiente Filipinas' 
-          [0x2c0d resolution 21] 
+          [0x2c0d resolution 23] 
         denomination=protestant |
 	denomination=baptist | denomination=anglican | denomination=evangelical |  denomination=lutheran | 
-	denomination=methodist | denomination=orthodox | denomination=pentecostal | denomination=presbyterian  [0x2c0d resolution 21]
+	denomination=methodist | denomination=orthodox | denomination=pentecostal | denomination=presbyterian  [0x2c0d resolution 23]
 	name='Iglesia Ng Dios' | name='Iglesia Ng Dios Kay Cristo Jesus' | name='Iglesia Watawat Ng Lahi' |
-	name='Church of Christ' | name='Church of Jesus Christ' | name='Church of God' [0x2c0d resolution 21]
-	denomination=mormon [0x2c0d resolution 21]
+	name='Church of Christ' | name='Church of Jesus Christ' | name='Church of God' [0x2c0d resolution 23]
+	denomination=mormon [0x2c0d resolution 23]
 	name='Church of Jesus Christ of Latter Day Saints'	 
 	| name='Church of Jesus Christ of Latter Days Saint' 
 	| name='Church of Latter Days Saints' 
 	| name='Church of Jesus Christ of Later-Day Saints' 
-	{set name='Church of Jesus Christ of Latter Day Saints *'} [0x2c0d resolution 21] 	#either no 'denomination' or 'wrong spelling'
-	denomination=jehovahs_witness [0x2c0d resolution 21]
-	religion=jewish [0x2c0d resolution 21 default_name 'Jewish temple']
+	{set name='Church of Jesus Christ of Latter Day Saints *'} [0x2c0d resolution 23] 	#either no 'denomination' or 'wrong spelling'
+	denomination=jehovahs_witness [0x2c0d resolution 23]
+	religion=jewish [0x2c0d resolution 23 default_name 'Jewish temple']
 	
 # 2c0e	Nuvi: Place of Worship (Muslim) 
-	religion=muslim | name="Mosque" [0x2c0e resolution 21 default_name 'Mosque']
+	religion=muslim | name="Mosque" [0x2c0e resolution 23 default_name 'Mosque']
 
 # 2c0f	Nuvi: Place of Worship (none-christian temple or lodge: Taoist, Buddist, Hindu & other east asian beliefs + masonic) 
-	religion=taoist [0x2c0f resolution 21]
-	religion=buddhist [0x2c0f resolution 21]
-	religion=hindu [0x2c0f resolution 21]
-	religion=sikh [0x2c0f resolution 21]
-	religion=masonic [0x2c0f resolution 21]
+	religion=taoist [0x2c0f resolution 23]
+	religion=buddhist [0x2c0f resolution 23]
+	religion=hindu [0x2c0f resolution 23]
+	religion=sikh [0x2c0f resolution 23]
+	religion=masonic [0x2c0f resolution 23]
 
 # 2c10	Nuvi: Place of Worship - None-Church (wayside shrine / grotto / religious statue) -- inappropriate tag - not historic - propose a new one 
-	amenity=grotto [0x2c10 resolution 21]
-	historic=wayside_cross [0x2c10 resolution 21]					# http://wiki.openstreetmap.org/wiki/Tag:historic%3Dwayside_cross
-	historic=wayside_shrine [0x2c10 resolution 21]					# http://en.wikipedia.org/wiki/Wayside_shrine
+	amenity=grotto [0x2c10 resolution 23]
+	historic=wayside_cross [0x2c10 resolution 23]					# http://wiki.openstreetmap.org/wiki/Tag:historic%3Dwayside_cross
+	historic=wayside_shrine [0x2c10 resolution 23]					# http://en.wikipedia.org/wiki/Wayside_shrine
 
 # 2c0b	Nuvi: Place of Worship (Roman Catholic)	# Keep this line below Protestant etc.
-	denomination=catholic | denomination=roman_catholic [0x2c0b resolution 21]
+	denomination=catholic | denomination=roman_catholic [0x2c0b resolution 23]
 
 # 	ALL other generic "Place of Worship" are temporarily assigned to 2c0b (catholic's assigned hexcode) - for further checking
-	amenity=place_of_worship [0x2c0b resolution 21]
+	amenity=place_of_worship [0x2c0b resolution 23]
 
 # 3001	Nuvi: Police Station
 	amenity=police [0x3001 resolution 21]
@@ -816,14 +818,14 @@ amenity=fuel & brand!=* {delete name} [0x11507 resolution 18]
 #	military=* | landuse=military {delete addr:street} [0x11101 resolution 18]	# searchable in Nuvi under Police - not searchable in Mapsource
 	
 # 2f05	Nuvi: Post Office
-	amenity=post_office [0x2f05 resolution 21]
-	shop=courier [0x11005 resolution 23]				# while LBC also do remittance, it's primary business is delivery
+	amenity=post_office [0x2f05 resolution 23]
+	shop=courier [0x11005 resolution 24]				# while LBC also do remittance, it's primary business is delivery
 
 # 2c05	Nuvi: School
 	amenity=school [0x2c05 resolution 23]
 	amenity=preschool [0x2c05 resolution 23]
 	amenity=kindergarten [0x2c05 resolution 23]
-	amenity=college [0x2c05 resolution 21]
+	amenity=college [0x2c05 resolution 22]
 	amenity=university [0x2c05 resolution 22]
 
 # 2f15	Nuvi: Utility (Garmin must be refering to the Power & Water Providers' business centers, not the powerplant or waterworks - since it is under Community)
@@ -839,28 +841,28 @@ amenity=fuel & brand!=* {delete name} [0x11507 resolution 18]
 
 # Factory / Industrial Facilities / Power Plants POI's
 #	2f0f is Garmin Dealer
-	man_made=works [0x2f0f resolution 23]		# Factory / Manufacturing facility  (hex is assigned to 'garmin dealer' by default)
+	man_made=works [0x2f0f resolution 24]		# Factory / Manufacturing facility  (hex is assigned to 'garmin dealer' by default)
 	
-	 power=tower [0x640d resolution 23]	# temporary disable
-	# power=pole [0x640d resolution 23]	# note: assign a smaller icon	
+	 power=tower [0x640d resolution 24]	# temporary disable
+	# power=pole [0x640d resolution 24]	# note: assign a smaller icon	
 
 	
 # Recycled Products / 2nd Hand Items
-	amenity=recycling [0x2e10 resolution 23]
-	shop=junkshop [0x2e10 resolution 23]
-	shop=surplus [0x2e10 resolution 23]
+	amenity=recycling [0x2e10 resolution 24]
+	shop=junkshop [0x2e10 resolution 24]
+	shop=surplus [0x2e10 resolution 24]
 
 
 	
 # Man-Made Landmarks/Leisure/Tourism Related
-	leisure=playground [0x3209 resolution 23]	
+	leisure=playground [0x3209 resolution 24]	
 	
 	amenity=shelter [0x6418 resolution 24]		# temporary generic tag for: eg. villas of resort, multipurpose covered court 
 							# 6418 becomes an 'open circle'	when zoomed-in on nuvi255W (no problem) 
 
 # SEARCHABLE but no Category 
 	
-	amenity=prison [0x3013 resolution 21]		# Leave this hanging & under no Category
+	amenity=prison [0x3013 resolution 23]		# Leave this hanging & under no Category
 
 
 
@@ -874,15 +876,15 @@ amenity=fuel & brand!=* {delete name} [0x11507 resolution 18]
 	shop=tyres | shop=tires | shop=vulcanizing [0x11003 resolution 23]
 
 # 2f07/11007	Nuvi: Dealer/Auto Parts				# Assign exclusively for Car/Motorcycle Dealers & Car-Exchange
-	shop=car [0x2f07 resolution 22]
-	shop=car_dealer [0x2f07 resolution 22]
+	shop=car [0x2f07 resolution 23]
+	shop=car_dealer [0x2f07 resolution 23]
 
 # 2f0a/1100a	Nuvi: Wrecker Service				# MMDA/Private Wreckers/MMDA Disaster Equipments
 	amenity=wrecker_service [0x2f0a resolution 23]
 
 # 2f0c/1100c	Nuvi: Rest Area / Tourist Info
-	amenity=toilets [0x2f0c resolution 20 default_name 'Toilets']
-	tourism=information | information=office [0x1100c resolution 21 default_name 'Information'] 	# this makes tourist=information searchable - but will be using invisible color
+	amenity=toilets [0x2f0c resolution 22 default_name 'Toilets']
+	tourism=information | information=office [0x1100c resolution 22 default_name 'Information'] 	# this makes tourist=information searchable - but will be using invisible color
 
 # 2f0e/1100e	Nuvi: Car Wash
 	amenity=car_wash [0x2f0e resolution 23]
@@ -903,9 +905,9 @@ amenity=fuel & brand!=* {delete name} [0x11507 resolution 18]
 # -----------------------------------------------------------------------------------------------------------------
 # 2f14/11014	76CSX:Other-SocialService (Prioritize Red Cross)
 
-	amenity=social_centre 	[0x2f14 resolution 21]		#social_center= a place for free and not for-profit activities
-	amenity=social_facility [0x2f14 resolution 21]
-	amenity=civic_org [0x2f14 resolution 21]
+	amenity=social_centre 	[0x2f14 resolution 23]		#social_center= a place for free and not for-profit activities
+	amenity=social_facility [0x2f14 resolution 23]
+	amenity=civic_org [0x2f14 resolution 23]
        
 
 
@@ -916,8 +918,8 @@ amenity=fuel & brand!=* {delete name} [0x11507 resolution 18]
 
 # Animal Shop/Health Related
 	amenity=veterinary [0x3011 resolution 23]
-	shop=pet_store | shop=pet_supply [0x3011 resolution 23]
-	shop=livestock_supply | shop=animal_health [0x3011 resolution 23]
+	shop=pet_store | shop=pet_supply [0x3011 resolution 24]
+	shop=livestock_supply | shop=animal_health [0x3011 resolution 24]
 
 
 
@@ -942,16 +944,16 @@ amenity=fuel & brand!=* {delete name} [0x11507 resolution 18]
 # -------------------------------------------------------------------
 
 # Expressway Toll Booth 
-barrier=toll_booth [0x2500 resolution 23 default_name 'Toll']
-highway=toll_booth [0x2501 resolution 19 default_name 'Toll']
+barrier=toll_booth [0x2500 resolution 24 default_name 'Toll']
+highway=toll_booth [0x2501 resolution 20 default_name 'Toll']
 
 # Motorway Exit Point (junction)
 highway=motorway_junction { name '${ref} ${name}' | '${ref}' | '${name}' } 
-highway=motorway_junction [0x2701 resolution 19 default_name 'Exit Point']
+highway=motorway_junction [0x2701 resolution 20 default_name 'Exit Point']
 
 # Sevice Exit Point (StopOver) for Fuel / Restroom / Shops
 highway=services { name '${ref} ${name}' | '${ref}' | '${name}' }
-highway=services [0x2702 resolution 19]
+highway=services [0x2702 resolution 20]
 
 
 
@@ -959,32 +961,32 @@ highway=services [0x2702 resolution 19]
 # MAN_MADE - ENGINEERING WONDERS/ICONS (Attractions)
 # typ 114xx has annoying green dot similar to city)
 
-	man_made=windmill | power_source=wind | generator:source=wind [0x6417 resolution 21]
+	man_made=windmill | power_source=wind | generator:source=wind [0x6417 resolution 23]
 
-	man_made=tunnel [0x6413 resolution 21]
-	man_made=tunnel_entrance [0x6413 resolution 21]
+	man_made=tunnel [0x6413 resolution 23]
+	man_made=tunnel_entrance [0x6413 resolution 23]
 
 # 	Scenic & Historical Bridges
 	
-	bridge=yes & tourism=attraction [0x6401 resolution 18]
-	bridge=yes & historic=* [0x6401 resolution 18]
-	man_made=dam [0x6407 resolution 16]
-	waterway=dam [0x6407 resolution 16]
+	bridge=yes & tourism=attraction [0x6401 resolution 21]
+	bridge=yes & historic=* [0x6401 resolution 21]
+	man_made=dam [0x6407 resolution 21]
+	waterway=dam [0x6407 resolution 21]
 
 	
-	man_made=tower [0x6411 resolution 21]
-# 	man_made=mast [0x6411 resolution 21]
+	man_made=tower [0x6411 resolution 24]
+# 	man_made=mast [0x6411 resolution 24]
 
-	man_made=survey_point [0x1602 resolution 21]	
-    man_made=measurement_station [0x1602 resolution 21]	
-	man_made=monitoring_station [0x1602 resolution 21]
-	man_made=beacon [0x1602 resolution 21]	
+	man_made=survey_point [0x1602 resolution 23]	
+    man_made=measurement_station [0x1602 resolution 23]	
+	man_made=monitoring_station [0x1602 resolution 23]
+	man_made=beacon [0x1602 resolution 23]	
 	
 # BLLM, Triangulation Point
 
 #       Landuse for Industrial Farming or Mining
-	landuse=quarry [0x640c resolution 18]
-	landuse=aquaculture [0x4100 resolution 18]
+	landuse=quarry [0x640c resolution 21]
+	landuse=aquaculture [0x4100 resolution 21]
 #	aquaculture=fish ...oyster/shrimp/mussels
 
 	landuse=cemetery [0x6403 resolution 23]		#ph connection with the deceased...might as well transfer category from Man-Made to Community?? 
@@ -996,11 +998,11 @@ highway=services [0x2702 resolution 19]
 # -------------------------------------------------------------------
 # WATER FEATURES (typ 115 has no annoying dot)
 
-	natural=falls [0x6508 resolution 18]
-	waterway=waterfall [0x6508 resolution 18] 
+	natural=falls [0x6508 resolution 20]
+	waterway=waterfall [0x6508 resolution 20] 
 	natural=spring [0x6511 resolution 20]		# natural spring (not man-made eg. open well)
 	natural=stream [0x6512 resolution 21]
-	natural=channel [0x6506 resolution 18] 
+	natural=channel [0x6506 resolution 20] 
 #	natural=wetland [0x6513 resolution 21]
 	natural=bay | natural=cove [0x6503 resolution 19]
 #	natural=cove [0x6507 resolution 18]		# redundant for purpose of casual travel & mobile device
@@ -1013,20 +1015,20 @@ highway=services [0x2702 resolution 19]
 # LAND FEATURES (typ 116xx has a small gray dot visible even at zoom out)
 
 	natural=wood [0x6618 resolution 21] 
-	natural=beach [0x6604 resolution 21]
-	natural=cave [0x6619 resolution 21]
-	natural=cave_entrance [0x6619 resolution 21]
-	natural=peak [0x6616 resolution 19]
-	natural=peak & tourism=* [0x6616 resolution 18]
-	natural=volcano [0x6616 resolution 19]
-	natural=volcano & tourism=* [0x6616 resolution 18]
+	natural=beach [0x6604 resolution 20]
+	natural=cave [0x6619 resolution 20]
+	natural=cave_entrance [0x6619 resolution 20]
+	natural=peak [0x6616 resolution 20]
+	natural=peak & tourism=* [0x6616 resolution 19]
+	natural=volcano [0x6616 resolution 20]
+	natural=volcano & tourism=* [0x6616 resolution 19]
 
 
 
 # Leisure Features & Amenities
-	amenity=shower [0x11a0c resolution 23] 	# not visible but searchable in nuvi - find solution
-	amenity=bench [0x11a0d resolution 23 continue] 
-	amenity=bench [0x320f resolution 23] 	# visible but not searchable in nuvi - find solution	
+	amenity=shower [0x11a0c resolution 24] 	# not visible but searchable in nuvi - find solution
+	amenity=bench [0x11a0d resolution 24 continue] 
+	amenity=bench [0x320f resolution 24] 	# visible but not searchable in nuvi - find solution	
 	
 
 # Maybe Essential for Travellers on Foot / Jump-Off Points / Survival (32xx are not searchable, & must be paired with searchable hex)
@@ -1089,31 +1091,31 @@ highway=services [0x2702 resolution 19]
 # -------------------------------------------------------------------
 
 # 2f10 Personal Service (wellness, spa, personal wellbeing, pampering, salon, haircut, beauty, aesthetic, yoga and local massage or may sell organic products) 
-	shop=hairdresser [0x2f10 resolution 20]
-	amenity=beauty_center [0x2f10 resolution 20]
-	shop=spa | amenity=spa | amenity=wellness | shop=wellness [0x2f10 resolution 20]
-	shop=massage [0x2f10 resolution 20]
-	shop=organic [0x2f10 resolution 20]	#this is just a specialty retail
+	shop=hairdresser [0x2f10 resolution 24]
+	amenity=beauty_center [0x2f10 resolution 24]
+	shop=spa | amenity=spa | amenity=wellness | shop=wellness [0x2f10 resolution 24]
+	shop=massage [0x2f10 resolution 24]
+	shop=organic [0x2f10 resolution 24]	#this is just a specialty retail
 
 	
 
 # 2f11 Business Service (print, copy, pawnshop, remit, courier, photography, events -- if you want your 'item' processed) <rally:YellowPages Icon>
-	amenity=business_center | amenity=business_services [0x2f11 resolution 23]
-	shop=money_changer | amenity=bureau_de_change [0x2f11 resolution 23]
-	shop=pawnbroker | shop=pawnshop [0x2f11 resolution 23]	#osm
-	shop=printing [0x2f11 resolution 23]
-	shop=copyshop [0x2f11 resolution 23]			#osm
-	craft=* [0x2f11 resolution 20]
+	amenity=business_center | amenity=business_services [0x2f11 resolution 24]
+	shop=money_changer | amenity=bureau_de_change [0x2f11 resolution 24]
+	shop=pawnbroker | shop=pawnshop [0x2f11 resolution 24]	#osm
+	shop=printing [0x2f11 resolution 24]
+	shop=copyshop [0x2f11 resolution 24]			#osm
+	craft=* [0x2f11 resolution 24]
 
 # 2f12 Communications - 76CSx: Others>Communication
-	office=telecommunication [0x2f12 resolution 23]				 # business center for telecom subscribers, otherwise it's just office=company
-	shop=telecommunication [0x2f12 resolution 23]				 # 
-	amenity=emergency_phone [0x11012 resolution 23 default_name 'Emergency'] # SOS Emergency Phone; do not use annoying [0x5100] 
+	office=telecommunication [0x2f12 resolution 24]				 # business center for telecom subscribers, otherwise it's just office=company
+	shop=telecommunication [0x2f12 resolution 24]				 # 
+	amenity=emergency_phone [0x11012 resolution 22 default_name 'Emergency'] # SOS Emergency Phone; do not use annoying [0x5100] 
 	amenity=telephone [0x11012 resolution 23 default_name 'Telephone'] 	 # Pay Phone / Public Phone Booth
 
 # 2f13 Repair Sevice (limited to electronic & electrical service center, locksmith) <rally:Wrench Icon>
-	shop=repair_service [0x2f13 resolution 21]
-	shop=locksmith [0x2f13 resolution 21 default_name 'Locksmith']
+	shop=repair_service [0x2f13 resolution 22]
+	shop=locksmith [0x2f13 resolution 24 default_name 'Locksmith']
 
 
 
@@ -1123,18 +1125,18 @@ highway=services [0x2702 resolution 19]
 	|shop=pest_control 
 	|amenity=slaughterhouse 
 	[0x2f00 resolution 23]
-	shop=laundry [0x2f00 resolution 23]		 
-	shop=dry_cleaning [0x2f00 resolution 23]	
-	shop=tailor [0x2f00 resolution 23]		
+	shop=laundry [0x2f00 resolution 24]		 
+	shop=dry_cleaning [0x2f00 resolution 24]	
+	shop=tailor [0x2f00 resolution 24]		
 
 # Funeral Services
-	amenity=funeral | amenity=funeral_services | shop=funeral_directors [0x6403 resolution 23]	
+	amenity=funeral | amenity=funeral_services | shop=funeral_directors [0x6403 resolution 24]	
 	
 #    Professional Services (office person or group of the same profession)
  	office=it 					# must be referring I.T. solution providers
     |office=accountant
 	|office=insurance
- 	[0x2f00 resolution 23]				
+ 	[0x2f00 resolution 24]				
 
 
 
@@ -1167,7 +1169,7 @@ highway=services [0x2702 resolution 19]
 # Observation: Most of the time this namefilter will not work because "name" appears to be case-sensitive
 # -------------------------------------------------------------------
 # AMERICAN (American - 0x2a01) (american food that is NOT (primarily) selling burgers, or has 'pizza' on it's name brand)
-#name='American' | name='Burger' {set name="Greenwich *"} [0x2a0a resolution 23]
+#name='American' | name='Burger' {set name="Greenwich *"} [0x2a0a resolution 24]
 # -------------------------------------------------------------------
 # ASIAN # THAI # SINGAPOREAN # MALAYSIAN # VIETNAMESE # INDONESIAN (Asian - 0x2a02)
 name="8 Spices"
@@ -1276,10 +1278,10 @@ name="8 Spices"
 # -------------------------------------------------------------------
 # GRILLED (Barbecue and Grill - 0x2a03)
 name="Dencio's Bar and Grill" | (name="Dencio's" | name="Dencios") {set name="Dencio's Bar and Grill *"} [0x2a03 resolution 23]
-name="Colasa's" | name="Colasa's Barbecue" {set name="Colasa's *"} [0x2a03 resolution 23]
-name="Andok's"| ( name='Andoks' | name="Andok's Chicken" | name='Andoks Chicken Fast Food' | name='Andoks Lechon' | name="Andok's Lechon" | name="Andok's Litson" | name="Andok's Litson Manok") {set name="Andok's *"} [0x2a03 resolution 23]
-name='Baliwag Lechon Manok' | (name='Baliwag'|name="Baliwag Chicken" | name='Baliwag Litson'|name='Baliwag Lechon') {set name='Baliwag Lechon Manok *'} [0x2a03 resolution 23]
-name="Banok's Barbecue" | name="Banoks" {set name="Banok's Barbecue *"} [0x2a03 resolution 23]
+name="Colasa's" | name="Colasa's Barbecue" {set name="Colasa's *"} [0x2a03 resolution 24]
+name="Andok's"| ( name='Andoks' | name="Andok's Chicken" | name='Andoks Chicken Fast Food' | name='Andoks Lechon' | name="Andok's Lechon" | name="Andok's Litson" | name="Andok's Litson Manok") {set name="Andok's *"} [0x2a03 resolution 24]
+name='Baliwag Lechon Manok' | (name='Baliwag'|name="Baliwag Chicken" | name='Baliwag Litson'|name='Baliwag Lechon') {set name='Baliwag Lechon Manok *'} [0x2a03 resolution 24]
+name="Banok's Barbecue" | name="Banoks" {set name="Banok's Barbecue *"} [0x2a03 resolution 24]
 name='Mang Inasal' | name='Bacolod Chicken Inasal' [0x2a03 resolution 23]
 name="Ankie's Bar Resto & Grill"
 |name="121 Grill and Restaurant"
@@ -1337,13 +1339,13 @@ name="Ankie's Bar Resto & Grill"
 |name="Hula-Hula"
 |name="Big Kahuna"
 |name="Hawaiian Barbecue"
-[0x2a03 resolution 23]
+[0x2a03 resolution 24]
 # -------------------------------------------------------------------
 # CHINESE # DIM SUM (Chinese - 0x2a04)
-name="Hap Chan Tea House" | name="Hap Chan" {set name="Hap Chan Tea House *"} [0x2a04 resolution 23]
-name="North Park" | name="Northpark" {set name="North Park *"} [0x2a04 resolution 23]
-name='Hen Lin' | name='Hen-Lin' {set name='Hen Lin *'} [0x2a07 resolution 23]
-name="Dimsum N' Dumplings" | name="Dimsum N Dumplings" {set name="Dimsum N' Dumplings *"} [0x2a07 resolution 23]
+name="Hap Chan Tea House" | name="Hap Chan" {set name="Hap Chan Tea House *"} [0x2a04 resolution 24]
+name="North Park" | name="Northpark" {set name="North Park *"} [0x2a04 resolution 24]
+name='Hen Lin' | name='Hen-Lin' {set name='Hen Lin *'} [0x2a07 resolution 24]
+name="Dimsum N' Dumplings" | name="Dimsum N Dumplings" {set name="Dimsum N' Dumplings *"} [0x2a07 resolution 24]
 name="Gloria Maris" 
 |name="Dimples"
 |name="Good Earth Tea Room"
@@ -1358,15 +1360,15 @@ name="Gloria Maris"
 |name='Ma Mon Luk'
 |name='Mandarin Tea Garden' 
 |name='Mandarin' 
-[0x2a04 resolution 23]
+[0x2a04 resolution 24]
 # -------------------------------------------------------------------
 # DELI (Deli/Bakers - 0x2a05)
-name='Red Ribbon' | name='Delifrance' [0x2a05 resolution 23]
-name='Cravings' | (name='Cravings Bakeshop & Restaurant' | name="Craving's") {set name='Cravings *'} [0x2a05 resolution 23]
-name="Conti's" | name="Conti's Pastry Shop and Restaurant" [0x2a05 resolution 23]
+name='Red Ribbon' | name='Delifrance' [0x2a05 resolution 24]
+name='Cravings' | (name='Cravings Bakeshop & Restaurant' | name="Craving's") {set name='Cravings *'} [0x2a05 resolution 24]
+name="Conti's" | name="Conti's Pastry Shop and Restaurant" [0x2a05 resolution 24]
 name="Aurely's Bakeshop" | name="Aurely's Bake Shop" {set name="Aurely's Bakeshop *"} [0x2a05 resolution 23]
-name='Eurobake' [0x2a05 resolution 23]
-name='Goldilocks Bakeshop' | (name='Goldilocks' | name='Goldi Locks') {set name='Goldilocks Bakeshop *'} [0x2a05 resolution 23]
+name='Eurobake' [0x2a05 resolution 24]
+name='Goldilocks Bakeshop' | (name='Goldilocks' | name='Goldi Locks') {set name='Goldilocks Bakeshop *'} [0x2a05 resolution 24]
 name="Alexa's Deli Cafe and Wine Bar"
 |name="Apartment 1B"
 |name="Au Bon Pain"
@@ -1384,7 +1386,7 @@ name="Alexa's Deli Cafe and Wine Bar"
 |name="Rafa's Deli and Cafe"
 |name="Salud! Stopover Deli & Cafe"
 |name="Santis Deli"
-[0x2a05 resolution 23]
+[0x2a05 resolution 24]
 # -------------------------------------------------------------------
 # INTERNATIONAL # CONTINENTAL # EUROPEAN # SWISS (International Food - 0x2a06)
 name="Chef & Brewer"
@@ -1537,23 +1539,23 @@ name="Chef & Brewer"
 |name="Tea & Therapy"
 |name="The Tivoli"
 |name="Upper East"
-[0x2a06 resolution 23]
+[0x2a06 resolution 24]
 # -------------------------------------------------------------------
 # BURGERS & Quick Chinese & Eatery (Fastfood - 0x2a07) normally pay-as-you-order 
-name='Burger King' | name='Burger Machine' [0x2a07 resolution 23]
-name='Brothers Burger' | name="Brother's Burger" {set name='Brothers Burger *'} [0x2a07 resolution 23]
-name="McDonald's" | (name='McDonalds'| name='McDonald'| name="Mc Donald's" | name='Mc Donalds' | name='McDo') {set name="McDonald's *"} [0x2a07 resolution 23]  
-name='Jollibee' | (name='Jolibee' | name='Jollybee') {set name='Jollibee *'} [0x2a07 resolution 23]
-name='Chowking' | name='Chow King' {set name='Chowking *'} [0x2a07 resolution 23]
-name='KFC'| name='Kentucky Fried Chicken' {set name='KFC *'} [0x2a07 resolution 23]
-name='Goodah' [0x2a07 resolution 23]
-name="Good Burgers" [0x2a07 resolution 23]
+name='Burger King' | name='Burger Machine' [0x2a07 resolution 24]
+name='Brothers Burger' | name="Brother's Burger" {set name='Brothers Burger *'} [0x2a07 resolution 24]
+name="McDonald's" | (name='McDonalds'| name='McDonald'| name="Mc Donald's" | name='Mc Donalds' | name='McDo') {set name="McDonald's *"} [0x2a07 resolution 24]  
+name='Jollibee' | (name='Jolibee' | name='Jollybee') {set name='Jollibee *'} [0x2a07 resolution 24]
+name='Chowking' | name='Chow King' {set name='Chowking *'} [0x2a07 resolution 24]
+name='KFC'| name='Kentucky Fried Chicken' {set name='KFC *'} [0x2a07 resolution 24]
+name='Goodah' [0x2a07 resolution 24]
+name="Good Burgers" [0x2a07 resolution 24]
 # -------------------------------------------------------------------
 # ITALIAN (Italian / Pasta - 0x2a08)
 name="Amici" 
 |name="Adora Cafe"
 |name="Lusso"
-[0x2a08 resolution 23]
+[0x2a08 resolution 24]
 # -------------------------------------------------------------------
 # SPANISH # PORTUGESE (Spanish/Mexican - 0x2a09)
 # MEXICAN # TEX-MEX
@@ -1568,7 +1570,7 @@ name="Taco Bell"
 |name="Cuba Libre Bar and Restaurant"
 |name="Inagiku"
 |name="Paseo de Bahamas"
-[0x2a09 resolution 23]
+[0x2a09 resolution 24]
 # -------------------------------------------------------------------
 # GERMAN # AUSTRIAN (German-Austrian - 0x2a10)
 name="Mama's Restaurant Bar and Chillout Lounge"
@@ -1578,14 +1580,14 @@ name="Mama's Restaurant Bar and Chillout Lounge"
 |name="Konig's Bar"
 |name="Schwarzwalder"
 |name="Treffpunkt"
-[0x2a10 resolution 23]
+[0x2a10 resolution 24]
 # -------------------------------------------------------------------
 # ENGLISH # IRISH (Britain Isle - 0x2a11)
 name="Union Jack Tavern"
 |name="Bowler Restaurant and Bar"
 |name="Nueus Vienna Kaffehaus"
 |name="The London Pub"
-[0x2a11 resolution 23]
+[0x2a11 resolution 24]
 # -------------------------------------------------------------------
 # FRENCH (French - 0x2a0f) 
 name="The Goose Station"
@@ -1613,7 +1615,7 @@ name="The Goose Station"
 |name="The Flying Pig"
 |name="Voulez-Vous"
 |name="Yats Restaurant"
-[0x2a0f resolution 23] 
+[0x2a0f resolution 24] 
 # -------------------------------------------------------------------
 # STEAKS (Steak - 0x2a0c)
 name="Steakhouse Boracay"
@@ -1665,17 +1667,17 @@ name="Steakhouse Boracay"
 |name="The Steak House"
 |name="Tony Roma's Restaurant"
 |name="Valhalla Steakhouse"
-[0x2a0c resolution 23]
+[0x2a0c resolution 24]
 # -------------------------------------------------------------------
 # PIZZA (Pizza House - 0x2a0a)
-name='Greenwich' | name='Greenwich Pizza' {set name="Greenwich *"} [0x2a0a resolution 23]
-name='Pizza Hut' | name='Shakeys' [0x2a0a resolution 23]
-name="Don Henrico's" | name='Don Henricos' {set name="Don Henrico's *"}  [0x2a0a resolution 23]
+name='Greenwich' | name='Greenwich Pizza' {set name="Greenwich *"} [0x2a0a resolution 24]
+name='Pizza Hut' | name='Shakeys' [0x2a0a resolution 24]
+name="Don Henrico's" | name='Don Henricos' {set name="Don Henrico's *"}  [0x2a0a resolution 24]
 name="Domino's Pizza" | (name="Dominos Pizza" | name="Dominos") {set name="Domino's Pizza *"} [0x2a0a resolution 23]
 name="Carlo's Pizza" | name='Carlos Pizza' {set name="Carlo's Pizza *"} [0x2a0a resolution 23] 
-name='Giacomino Pizza' | name='Brooklyn Pizza' [0x2a0a resolution 23]
-name='Joey Pepperoni Pizzeria' | name='Joey Pepperoni' [0x2a0a resolution 23]
-name="Papa John's" | name='Papa Johns' | name='Papa John' {set name="Papa John's Pizza *"}  [0x2a0a resolution 23]
+name='Giacomino Pizza' | name='Brooklyn Pizza' [0x2a0a resolution 24]
+name='Joey Pepperoni Pizzeria' | name='Joey Pepperoni' [0x2a0a resolution 24]
+name="Papa John's" | name='Papa Johns' | name='Papa John' {set name="Papa John's Pizza *"}  [0x2a0a resolution 24]
 # -------------------------------------------------------------------
 # SEAFOOD (Seafood - 0x2a0b)
 name='Dalampasigan Restaurant' 
@@ -1763,21 +1765,21 @@ name='Dalampasigan Restaurant'
 |name="Villa Regatta"
 |name="Wok with Joe Seafood Restaurant"
 |name="Yam Cha Sea Food"
-[0x2a0b resolution 23]
+[0x2a0b resolution 24]
 # -------------------------------------------------------------------
 # DONUTS (Donuts - 0x2a0d)
-name="Mister Donut" [0x2a0d resolution 23]
-name="Dunkin Donuts" | name="Dunkin Donut" {set name="Dunkin Donuts *"} [0x2a0d resolution 23]
-name="Go Nuts Donuts"| name="Gonuts Donuts" {set name="Go Nuts Donuts *"} [0x2a0d resolution 23]
-name="Krispy Kreme" | name="Cielo's Donuts" [0x2a0d resolution 23]
+name="Mister Donut" [0x2a0d resolution 24]
+name="Dunkin Donuts" | name="Dunkin Donut" {set name="Dunkin Donuts *"} [0x2a0d resolution 24]
+name="Go Nuts Donuts"| name="Gonuts Donuts" {set name="Go Nuts Donuts *"} [0x2a0d resolution 24]
+name="Krispy Kreme" | name="Cielo's Donuts" [0x2a0d resolution 24]
 # -------------------------------------------------------------------
 # CAFE/COFFEE_SHOP (Cafe/Diner/Coffee_Shop - 0x2a0e)
-name='Starbucks' | name='Cafe Breton' [0x2a0e resolution 23]
-name='Figaro' | (name='Figaro Coffee' | name='Figaro Coffee Company') {set name='Figaro *'} [0x2a0e resolution 23]
-name="Gloria Jean's Coffees" | (name="Gloria Jean's Coffee" | name='Gloria Jeans' | name="Gloria Jeans Coffee") {set name="Gloria Jean's Coffees *"} [0x2a0e resolution 23]
-name="Subi-Monte Cafe" | (name="Subimonte Cafe" | name='Subi-monte Cafe' | name="Subi-monte") {set name="Subimonte Cafe *"} [0x2a0e resolution 23]
+name='Starbucks' | name='Cafe Breton' [0x2a0e resolution 24]
+name='Figaro' | (name='Figaro Coffee' | name='Figaro Coffee Company') {set name='Figaro *'} [0x2a0e resolution 24]
+name="Gloria Jean's Coffees" | (name="Gloria Jean's Coffee" | name='Gloria Jeans' | name="Gloria Jeans Coffee") {set name="Gloria Jean's Coffees *"} [0x2a0e resolution 24]
+name="Subi-Monte Cafe" | (name="Subimonte Cafe" | name='Subi-monte Cafe' | name="Subi-monte") {set name="Subimonte Cafe *"} [0x2a0e resolution 24]
 name="The Coffee and Pancake Company"
-[0x2a0e resolution 23]
+[0x2a0e resolution 24]
 # -------------------------------------------------------------------
 # FILIPINO (Others - 0x2a13)
 name="Hizon's"
@@ -1821,11 +1823,11 @@ name="Hizon's"
 
 # 1  American - 0x2a01
 cuisine=american 
-[0x2a01 resolution 23]
+[0x2a01 resolution 24]
 
 # 1A  Filipino - 0x2a13
 cuisine=filipino
-[0x2a13 resolution 23]
+[0x2a13 resolution 24]
 
 # 2  Asian - 0x2a02
 cuisine=asian 
@@ -1838,7 +1840,7 @@ cuisine=asian
 | cuisine=vietnamese
 | cuisine=vegetarian
 | cuisine=vegan
-[0x2a02 resolution 23]
+[0x2a02 resolution 24]
 
 # 3  Barbecue and Grill - 0x2a03 - (note:cooked on direct flame)
 cuisine=barbecue
@@ -1847,11 +1849,11 @@ cuisine=barbecue
 | cuisine=rotisserie
 | cuisine=hawaiian
 | cuisine=chicken
-[0x2a03 resolution 23]
+[0x2a03 resolution 24]
 
 # 4  Chinese - 0x2a04
 cuisine=chinese 
-[0x2a04 resolution 23]
+[0x2a04 resolution 24]
 
 # 5  Bread and Flour Food - 0x2a05 - (Deli / Bakeshop / Sandwich ) but not donutshop & local panaderia
 #    GarminPC:Food&Drink:Deli/Bakery 0x2a05 <rally:Pink Fork & Knife Icon>
@@ -1861,7 +1863,7 @@ cuisine=deli
 | cuisine=pie
 | cuisine=sandwich
 | cuisine=savory_pancakes
-[0x2a05 resolution 23]
+[0x2a05 resolution 24]
 
 # 6  International Food - 0x2a06
 cuisine=international  
@@ -1873,7 +1875,7 @@ cuisine=international
 | cuisine=indian | cuisine=curry
 | cuisine=mongolian
 | cuisine=fusion
-[0x2a06 resolution 23]
+[0x2a06 resolution 24]
 
 # 7  Fastfood - 0x2a07 - pay-as-you-order (overpriced softdrink on plastic cup with lots of ice) 
 # GarminPC:Food&Drink:Fastfood <rally:Disposable Plastic Cup Icon>  
@@ -1882,7 +1884,7 @@ cuisine=international
 # 8  Italian / Pasta - 0x2a08 - (primarily italian pasta, but may include pizzas)
 cuisine=italian 
 |cuisine=pasta 
-[0x2a08 resolution 23]
+[0x2a08 resolution 24]
 
 # 9  Spanish/Mexican, Portugese, Latin Americans - 0x2a09 - mostly spicy tacos, burritos, chilli, jalapeno, taske 
 cuisine=latin_american | cuisine='latin american'
@@ -1894,13 +1896,13 @@ cuisine=latin_american | cuisine='latin american'
 | cuisine=cuban
 | cuisine=brazilian
 | cuisine=portugese 
-[0x2a09 resolution 23]
+[0x2a09 resolution 24]
 
 # 10 German / Austrian - 0x2a10 (most likely about sausages - i guess)
 #    Note: may appear on Mapsource Place Category but not on GarminPC
 cuisine=german 
 | cuisine=austrian
-[0x2a10 resolution 23]
+[0x2a10 resolution 24]
 
 # 11 Britain Isle & Ireland - 0x2a11
 #    GarminPC:Food&Drink:British Isle 0x2a11 <rally:Purple Fork&Knife Icon>
@@ -1908,34 +1910,34 @@ cuisine=german
 cuisine=british
 |cuisine=english
 |cuisine=irish
-[0x2a11 resolution 23]
+[0x2a11 resolution 24]
 
 # 12 Specialty Food Products - 0x2a12
 #    GarminPC:Food&Drink:Specialty Food Products (or all pakwan, bagoong, daing, etc) <rally:Brown Paper Bag Icon>
 shop=specialty_food_products | shop=specialty_food_product
 | shop=pasalubong 
-[0x2a12 resolution 23]
+[0x2a12 resolution 24]
 
 # 0A Pizza Resto / Pizza Delivery / Pizza Fastfood - 0x2a0a
 cuisine=pizza 
 | cuisine='pizza;kebab' 
-[0x2a0a resolution 23]
+[0x2a0a resolution 24]
 
 # 0B Seafood - 0x2a0b - Fresh Seafood normally "Paluto" or Resto or Bar or Grill which especializes in Tuna, Bangus, Oyster and alikes
 cuisine=sea_food 
 | cuisine=seafood 
-[0x2a0b resolution 23]
+[0x2a0b resolution 24]
 
 # 0C Steak - 0x2a0c
 cuisine=steak | cuisine=steak_house 
-[0x2a0c resolution 23]
+[0x2a0c resolution 24]
 
 # 0D Donuts/Bagels - 0x2a0d (Donuts & local pan de sal stores)
 #    GarminPC: Donuts/Bagels <rally:Donuts Icon>
 cuisine=donut
 | cuisine=bagel 
 | shop=bakery
-[0x2a0d resolution 23]
+[0x2a0d resolution 24]
 
 # 0E Cafe/Diner/Coffee_Shop - 0x2a0e
 #    GarminPC:Food&Drink:Cafe/Diner 0x2a0e <rally:Coffee Icon>
@@ -1943,31 +1945,31 @@ cuisine=donut
 amenity=coffee_shop 
 | amenity=cafe
 | cuisine='cafe/diner' 
-[0x2a0e resolution 23]
+[0x2a0e resolution 24]
 
 # 0F French - 0x2a0f
 #    GarminPC:Food&Drink:French 0x2a0e <rally:Blue & Red Fork&Knife Icon>
 #    Note: may not appear on old Mapsource Place Category
 cuisine=french 
-[0x2a0f resolution 23]
+[0x2a0f resolution 24]
 
 
 # 7 Fastfood 0x2a07 - pay-as-you-order (lower priority than cuisine)
 amenity=fast_food
 | amenity=food_court 
-| cuisine=burger [0x2a07 resolution 23]
-shop=beverages [0x2300 resolution 23]
+| cuisine=burger [0x2a07 resolution 24]
+shop=beverages [0x2300 resolution 24]
 
 
 # Below this line are GENERICS --------------------------------
 
 
 # All Else assigned to General Merchandise 0x2e03 (sari-sari stores & other merchandisers)
-shop=* [0x2e03 resolution 23]
+shop=* [0x2e03 resolution 24]
 
 # GENERIC FOOD TAGS
-amenity=restaurant [0x2a00 resolution 23]
-cuisine=speciality [0x2a00 resolution 23]
+amenity=restaurant [0x2a00 resolution 24]
+cuisine=speciality [0x2a00 resolution 24]
 cuisine=* [0x2a00 resolution 23]
 
 # GENERIC STRUCTURES & BUILDINGS & FACTORIES (300c & 300d is not on Garmin Menu but at searchable in Mapsource)

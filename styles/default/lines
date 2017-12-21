@@ -39,13 +39,13 @@ highway=motorway|highway=motorway_link { add oneway=yes }
 # Set highway names to include the reference if there is one
 highway=motorway { name '${ref|highway-symbol:hbox} ${name}' | '${ref|highway-symbol:hbox}' | '${name}' }
 
-(highway=motorway_link | highway=trunk_link) & mkgmap:exit_hint=true & mkgmap:dest_hint=true
+(highway=motorway_link | highway=trunk_link) & mkgmap:exit_hint=true & mkgmap:dest_hint=*
   { name '${destination|subst:;=> |subst:/=> }' | 
          'Exit ${mkgmap:exit_hint_name}' | 
          'Exit ${mkgmap:exit_hint_exit_to}'
        }
 
-(highway=motorway_link | highway=trunk_link) & mkgmap:exit_hint!=* & mkgmap:dest_hint=true
+(highway=motorway_link | highway=trunk_link) & mkgmap:exit_hint!=* & mkgmap:dest_hint=*
   { name '${destination|subst:;=> |subst:/=> }'
        }
 
@@ -97,7 +97,7 @@ junction=roundabout & highway=trunk [0x0c road_class=3 road_speed=2 resolution 1
 junction=roundabout & highway=primary [0x0c road_class=3 road_speed=2 resolution 19]
 junction=roundabout & highway=secondary [0x0c road_class=2 road_speed=2 resolution 20]
 junction=roundabout & highway=tertiary [0x0c road_class=1 road_speed=1 resolution 21]
-junction=roundabout & highway=unclassified [0x0c road_class=1 road_speed=1 resolution 21]
+junction=roundabout & highway=unclassified [0x0c road_class=1 road_speed=1 resolution 22]
 junction=roundabout [0x0c road_class=0 road_speed=1 resolution 22]
 
 # Tunnels
@@ -105,18 +105,18 @@ tunnel=yes & highway=trunk [0x12 road_class=3 road_speed=2 resolution 18]
 tunnel=yes & highway=primary [0x12 road_class=3 road_speed=2 resolution 19]
 tunnel=yes & highway=secondary [0x12 road_class=2 road_speed=2 resolution 20]
 tunnel=yes & highway=tertiary [0x12 road_class=1 road_speed=1 resolution 21]
-tunnel=yes & highway=unclassified [0x12 road_class=1 road_speed=1 resolution 21]
+tunnel=yes & highway=unclassified [0x12 road_class=1 road_speed=1 resolution 22]
 tunnel=yes [0x12 road_class=0 road_speed=1 resolution 22]
 
 # Oneway highways must show way arrows
-(oneway=yes | oneway=true) & highway=trunk [0x123 resolution 22 continue]
-(oneway=yes | oneway=true) & highway=trunk_link [0x127 resolution 22 continue]
-(oneway=yes | oneway=true) & highway=primary [0x123 resolution 22 continue]
-(oneway=yes | oneway=true) & highway=primary_link [0x127 resolution 22 continue]
-(oneway=yes | oneway=true) & highway=secondary [0x124 resolution 22 continue]
-(oneway=yes | oneway=true) & highway=secondary_link [0x127 resolution 22 continue]
-(oneway=yes | oneway=true) & highway=tertiary [0x125 resolution 22 continue]
-(oneway=yes | oneway=true) & highway=tertiary_link [0x127 resolution 22 continue]
+(oneway=yes | oneway=true) & highway=trunk [0x123 resolution 18 continue]
+(oneway=yes | oneway=true) & highway=trunk_link [0x127 resolution 18 continue]
+(oneway=yes | oneway=true) & highway=primary [0x123 resolution 19 continue]
+(oneway=yes | oneway=true) & highway=primary_link [0x127 resolution 19 continue]
+(oneway=yes | oneway=true) & highway=secondary [0x124 resolution 20 continue]
+(oneway=yes | oneway=true) & highway=secondary_link [0x127 resolution 20 continue]
+(oneway=yes | oneway=true) & highway=tertiary [0x125 resolution 21 continue]
+(oneway=yes | oneway=true) & highway=tertiary_link [0x127 resolution 21 continue]
 (oneway=yes | oneway=true) & highway=unclassified [0x126 resolution 22 continue]
 (oneway=yes | oneway=true) & highway=residential [0x126 resolution 22 continue]
 
@@ -125,7 +125,7 @@ bridge=yes & highway=trunk [0x128 road_class=3 road_speed=2 resolution 18 contin
 bridge=yes & highway=primary [0x129 road_class=3 road_speed=2 resolution 19 continue]
 bridge=yes & highway=secondary [0x130 road_class=2 road_speed=2 resolution 20 continue]
 bridge=yes & highway=tertiary [0x131 road_class=1 road_speed=1 resolution 21 continue]
-bridge=yes & highway=unclassified [0x132 road_class=1 road_speed=1 resolution 21 continue]
+bridge=yes & highway=unclassified [0x132 road_class=1 road_speed=1 resolution 22 continue]
 
 # Ways that may or may not be useable
 
@@ -141,11 +141,11 @@ highway=* & disused=yes & maxspeed!=* { add mkgmap:road-speed = '-2' }
 # Ways sorted roughly by descending order of class
 highway=motorway & network=e-road [0x01 resolution 14-14 continue]
 highway=motorway  [0x01 road_class=4 road_speed=6 resolution 15]
-highway=motorway_link & (mkgmap:exit_hint=true | mkgmap:dest_hint=true) [0x06 road_class=3 road_speed=2 resolution 20]
+highway=motorway_link & (mkgmap:exit_hint=true | mkgmap:dest_hint=*) [0x06 road_class=3 road_speed=2 resolution 20]
 highway=motorway_link [0x09 road_class=3 road_speed=2 resolution 20]
 highway=trunk & ( network=e-road | int_ref=* ) [0x02 resolution 15-17 continue]
 highway=trunk [0x02 road_class=4 road_speed=3 resolution 18]
-highway=trunk_link & (mkgmap:exit_hint=true | mkgmap:dest_hint=true) [0x06 road_class=3 road_speed=2 resolution 20]
+highway=trunk_link & (mkgmap:exit_hint=true | mkgmap:dest_hint=*) [0x06 road_class=3 road_speed=2 resolution 20]
 highway=trunk_link [0x09 road_class=3 road_speed=2 resolution 20]
 highway=* & highway!=proposed & motorroad=yes [0x02 road_class=4 road_speed=4 resolution 18]
 highway=primary & ( network=e-road | int_ref=* ) [0x03 resolution 17-18 continue]
@@ -156,8 +156,8 @@ highway=secondary [0x04 road_class=2 road_speed=2 resolution 20]
 highway=secondary_link [0x08 road_class=2 road_speed=1 resolution 22]
 highway=tertiary [0x05 road_class=1 road_speed=2 resolution 20]
 highway=tertiary_link [0x08 road_class=1 road_speed=1 resolution 22]
-highway=minor [0x06 road_class=1 road_speed=2 resolution 21]
-highway=unclassified [0x06 road_class=0 road_speed=2 resolution 21]
+highway=minor [0x06 road_class=1 road_speed=2 resolution 22]
+highway=unclassified [0x06 road_class=0 road_speed=2 resolution 22]
 
 #hiking
 route=mtb | mtb:name=* [0x13 resolution 23 continue]
@@ -188,7 +188,7 @@ highway=* & highway!=proposed & area!=yes [0x07 road_class=0 road_speed=0 resolu
 natural=coastline [0x15 resolution 12]
 power=line {delete name} [0x29 resolution 21]
 power=minor_line {delete name} [0x29 resolution 24]
-natural=cliff [0x23 resolution 24]
+natural=cliff [0x23 resolution 23]
 barrier=fence | fenced=yes [0x24 resolution 24]
 
 railway=abandoned [0x0a road_class=0 road_speed=1 resolution 22]
