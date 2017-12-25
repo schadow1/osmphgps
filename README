@@ -10,29 +10,39 @@ Download maps here (choose one):
 
 Changes and updates
 
-20171222
+20171225 v4.0 beta
+ - mkgmap version 4019
+ - 3D Terrain using SRTM3 Global 1 arc-second
+ - 3D routing capability compatible for both Garmin 3D Terrain and Hillshade
+ 
+20171221 v4.0 alpha
+ - mkgmap version 4005
+ - 3D Terrain using SRTM3 Global 3 arc-second
+ - Compatible for Garmin Hillshade 
+
+20171222 v3.3
  - mkgmap version 4000
  - optimization of elements on different zoom levels
 
-20170923
+20170923 v3.2
  - mkgmap version 3996
  - Sticker required gates and time open for traffic is indicated
 
-20170919
+20170919 v3.1
  - rendering of power lines and cliffs
  - peaks with elevation information now displayed
  - POI search optimization
 
-20170912
+20170912 v3.0
  - Major Version 3
  - add business hours and websites info of establishments
 
-20170909
+20170909 v2.4
  - mkgmap version 3994
  - rendering of administrative boundaries
  - polygon optimization
 
-20170726
+20170726 v2.3
  - mkgmap version 3974
  - Shoals now rendered as beaches
  - 4th year since Schadow1 Expeditions started serving and improving the OSMPH Garmin Map
@@ -44,113 +54,113 @@ Changes and updates
  - 16,757 gasoline stations
  - 1,273 evacuation centers
  
-20170614
+20170614 v2.2
  - mkgmap version 3972
  - fix distorted boundaries and cut-off routes
 
-20170104
+20170104 v2.1
  - mkgmap version 3742
  - attempt in fixing routing errors on some devices
 
-20151102
+20151102 v2.0
  - Major Version 2
  - mkgmap version 3649
  - changed road colors matching OSM Carto 2.36
 
-20150814
+20150814 v1.24
  - mkgmap version 3627
  - disable rendering of buildings that do not contain information
  - visual improvements for areas where buildings are not rendered
 
-20150717
+20150717 v1.23
  - mkgmap version 3622
  - fix Luzon "flooding" rendering issue
 
-20150606
+20150606 v1.22
  - mkgmap version 3602
  - added Negros Island Region
 
-20150321
+20150321 v1.21
  - mkgmap version 3498
  - Road speed calculation enhancements for Philippine setting.
 
-20150128
+20150128 v1.20
  - mkgmap version 3419
  - General POI searchability fixes and improvements.
  - Evacuation Centers are identified with name extensions on normal times. Original POI types unchanged.
  - Evacuation Centers icon identified with name extensions plus icon
 	and becomes searcheable under Community\Police category during humanitarian activations.
 
-20141205
+20141205 v1.19
  - mkgmap version 3358
  - Evacuation Centers now identified on the map using international standard icon.
 
-20141121
+20141121 v1.18
  - mkgmap version 3353
  - Railroad crossing warning added.
 
-20141110
+20141110 v1.17
  - mkgmap version 3346
  - Craft services (photography, events, caterers, key duplicators) now renderable.
 
-20141106
+20141106 v1.16
  - mkgmap version 3344
  - Changed the icon of Helipads.
  - Office spaces now renderable.
 
-20141015
+20141015 v1.15
  - mkgmap version 3336
  - Made multiple elements for airports distinguishable.
  - Helipads now rendered.
 
-20141002
+20141002 v1.14
  - mkgmap version 3336
  - Added Scarborough (Panatag) Shoal
 
-20140807
+20140807 v1.13
  - mkgmap version 3330
  - Fix for Barriers (gates) that are closed but are still routable.
 
-20140405
+20140405 v1.12
  - mkgmap version 3145
  - Road Visualization Update (bridges and tunnels are made distinguishable)
  - Kalayaan Group of Islands (Spratlys) and Bajo de Masinloc (Scarborough Shoal) now included on the map.
 
-20140404
+20140404 v1.11
  - mkgmap version 3145
  - Hiking Visualization Update (regular hiking route has been made thicker)
  - Subsea features including coral reef has been made visible
  - Rock formations such as a cliff is now visible
  - TYP update for the visualization updates
 
-20140323
+20140323 v1.10
  - mkgmap version 3116
  - gasoline stations branding
  - fix on Water Stations searchability
 
-20140321
+20140321 v1.9
  - mkgmap version 3116
  - routing improvements
  - small fixes on POI generation for compatibility with new TYP
 
-20140318
+20140318 v1.8
  - mkgmap version 3072
  - new TYP (visual improvements, schadow.typ)
  - new road color scheme, matching OSM Mapnik
  - new circular-type icons or POIs
  - additional icons for Philippine local setting compliance (transportation, cuisine, water stations, services)
 
-20140308
+20140308 v1.7
  - mkgmap version 3072
  - added ramp and tunnel hints. (e.g. GPS device will prompt you on the right lane when approaching a multi-lane road)
 
  
-20140202
+20140202 v1.6
  - mkgmap version 2998
  - improved city and address search using both mkgmap's compatibility with OSM's housenumbers tag and pre-processed area boundaries from OSM data.
 
 
-20140201
+20140201 v1.5
  - mkgmap version 2998
  - fix on access properties for barriers
  - fix on waypoint script hierarchy to show proper icons for establishments embedded on buildings
@@ -160,12 +170,12 @@ Changes and updates
  - water stations (refilling and purified drinking water establishments) now has distinguishable icons
 
 
-20140122
+20140122 v1.4
  - mkgmap version 2981
  - additional fixes on waypoints identification
  - address search fixes on gmapsupp
 
-20140119
+20140119 v1.3
  - mkgmap version 2977
  - boat docks (small island hopping/small fishing boat docks now shown on map)
  - oneway roads now have directional arrows
@@ -173,12 +183,12 @@ Changes and updates
  - funeral services shown using the same icon used by cemeteries
  - diving and scuba diving icon changed to snorkeling gear instead of the swimming icon
  
-20140118
+20140118 v1.2
  - mkgmap version 2971
  - polygon update: allotments and garages are now shown on map
  - node update: monitoring stations such as Project NOAH and PHIVOLCS remote gauges are now shown on map
 
-20131231
+20131231 v1.1
  - mkgmap version 2922
  - updated most scripts for compatibility with the new version of the compiler
  - added appropriate road speed tagging for tollways down to residential roads better routing and time estimations using Garmin Basecamp
@@ -186,7 +196,7 @@ Changes and updates
  - efficient map compile reducing file size to almost 5% from previous version
 
 
-20131213
+20131213 v1.0
  - Major Version 1
  - mkgmap version 2857
  - improved city and address search using mkgmap's compatibility with OSM's housenumbers tag
