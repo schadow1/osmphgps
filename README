@@ -10,6 +10,12 @@ Download maps here (choose one):
 
 Changes and updates
 
+20171227 v4.1 beta2
+ - mkgmap version 4021
+ - optimization of digital elevation model distances
+ - img block size fix
+ - fix on map style
+
 20171225 v4.0 beta
  - mkgmap version 4019
  - 3D Terrain using SRTM3 Global 1 arc-second
@@ -20,6 +26,10 @@ Changes and updates
  - 3D Terrain using SRTM3 Global 3 arc-second
  - Compatible for Garmin Hillshade 
 
+20171227 v3.4
+ - mkgmap version 4000
+ - fix on map style on humanitarian activation and elevation contour routable map
+ 
 20171222 v3.3
  - mkgmap version 4000
  - optimization of elements on different zoom levels
