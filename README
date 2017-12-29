@@ -14,6 +14,10 @@ Changes and updates
  - mkgmap version 4025
  - optimization of file size by exclusively covering elevation model areas within the Philippines EEZ.
 
+20171229 v3.5
+ - mkgmap version 4000
+ - fire hydrants are now rendered (humanitarian activation map)
+ 
 20171227 v4.1 beta2
  - mkgmap version 4021
  - optimization of digital elevation model distances
