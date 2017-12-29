@@ -10,6 +10,10 @@ Download maps here (choose one):
 
 Changes and updates
 
+20171229 v4.2
+ - mkgmap version 4025
+ - optimization of file size by exclusively covering elevation model areas within the Philippines EEZ.
+
 20171227 v4.1 beta2
  - mkgmap version 4021
  - optimization of digital elevation model distances
