@@ -1,5 +1,5 @@
-/~\(~|\/|__|~)|_|  /~_ _  _ _ _ . _   |\/| _  _  _
-\_/_)|  |  |~ | |  \_/(_|| | | ||| |  |  |(_||_)_\
+|~)|_|  /~_ _  _ _ _ . _   |\/| _  _  _
+|~ | |  \_/(_|| | | ||| |  |  |(_||_)_\
                                              |    
 README
 
@@ -10,8 +10,10 @@ Download maps here (choose one):
 
 Changes and updates
 
-20180102 v4.3, v3.6
+20180104 v4.3, v3.6
  - optimization of polygons for file size efficiency and optimum rendering on device.
+ - UN-OCHA logos has been implemented on the Humanitarian GPS Map
+ - optimized the Humanitarian map for low resolution GPS devices
 
 20171229 v4.2
  - mkgmap version 4025
