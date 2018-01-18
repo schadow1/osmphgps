@@ -10,6 +10,13 @@ Download maps here (choose one):
 
 Changes and updates
 
+20180118 v4.5, v3.8
+ - mkgmap version 4068
+ - optimization of 3D terrain for accuracy and file size
+ - All Terrain Vehicle (ATV) shops are now rendered
+ - Optimization and fix for fuel stations POI logos
+ - Evacuation center icon fix (humanitarian version)
+
 20180111 v4.4, v3.7.1
  - mkgmap version 4043
  - availability of elevation information during hover and waypoint creation on Basecamp for 3D Terrain and GPS Routable with Elevation Contour
