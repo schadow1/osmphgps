@@ -10,6 +10,12 @@ Download maps here (choose one):
 
 Changes and updates
 
+20180531 v4.7, v3.10
+ - mkgmap version 4192
+ - compatibility with Garmin Basecamp 4.70
+ - improved road angle calculation that affects routing
+ - optimization and enhanced accuracy on 3D Terrain calculations (v4.7)
+
 20180131 v4.6, v3.9
  - mkgmap version 4094
  - healthcare POIs now rendered
