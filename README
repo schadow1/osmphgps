@@ -10,9 +10,20 @@ Download maps here (choose one):
 
 Changes and updates
 
+20190113 v4.10, v3.13
+ - mkgmap version 4262
+ - Evacuation centers visibility update
+
 20190101 v4.9, v3.12
  - mkgmap version 4260
  - Address generation optimization
+ - 75 Hiking trails
+ - 630 Bicycle routes
+ - 93,731 points of interests
+ - 47,888 beaches
+ - 257,775 kilometers of roads
+ - 19,727 gasoline stations
+ - 1,494 evacuation centers
 
 20180628 v4.8, v3.11
  - mkgmap version 4193
