@@ -130,7 +130,7 @@ barrier=gate { add mkgmap:road-speed = '-1'; add mkgmap:road-speed-min = '1' }
 #( place=city | place=town ) &  addr:state!=* & is_in:state!=* & addr:province!=* { add is_in:state='FIXME' } 	
 
 # Ensure all PLACE-POI's to be in PHL, in their respective provinces, in any state-tag format.
-#( place=* | place:ph=* ) & ( is_in:state=* | addr:state=* | addr:province=* )  				 						
+#( place=* | place:PH=* ) & ( is_in:state=* | addr:state=* | addr:province=* )  				 						
 #{ add prov_name='${is_in:state}'; add prov_name='${addr:state}'; add prov_name='${addr:province}'; 
 #  add is_in='${prov_name},,Philippines'; set is_in='${prov_name},,Philippines'; } 		#   add if it doesn't exist; or correct all wrong entries)			
 
@@ -245,20 +245,17 @@ place=island [0x650c resolution 20]
 ####02  FUEL (Nuvi: 2e06/10f06 2f01/11001 2f16/11016)  - looks like a stupid garmin idea (not applicable in PH - not universal)
 # -----------------------------------------------------------------------------------------------------------------
 # 2f01  Nuvi: Fuel
-amenity=fuel { name '${operator}: ${name}' | '${name}' | '${operator}' }
+amenity=fuel { name '${name}' | '${operator}' }
 [0x2f01 resolution 23 continue]													#generic invisible fuel icon
-amenity=fuel & brand="Petron" {delete name} [0x10f06 resolution 23]
-amenity=fuel & brand="Shell" {delete name} [0x11001 resolution 23]
-amenity=fuel & brand="Caltex" {delete name} [0x11016 resolution 23]
-amenity=fuel & brand="Total" {delete name} [0x11502 resolution 23]
-amenity=fuel & brand="Phoenix" {delete  name}[0x11503 resolution 23]
-amenity=fuel & brand="Seaoil" | brand="Sea Oil" | brand="Sea-Oil" {delete name} [0x11504 resolution 18]
-amenity=fuel & brand="Jetti" {delete name} [0x11505 resolution 23]
-amenity=fuel & brand="Flying V" {delete name} [0x11506 resolution 23]
-amenity=fuel & brand="UniOil" {delete name} [0x11507 resolution 23]
-amenity=fuel & brand="PTT" {delete name} [0x11507 resolution 23]
-amenity=fuel & brand="Uno" {delete name} [0x11507 resolution 23]
-amenity=fuel & brand!=* {delete name} [0x11507 resolution 23]
+amenity=fuel & name~"Petron" {delete name} [0x10f06 resolution 23]
+amenity=fuel & name~"Shell" {delete name} [0x11001 resolution 23]
+amenity=fuel & name~"Caltex" {delete name} [0x11016 resolution 23]
+amenity=fuel & name~"Total" {delete name} [0x11502 resolution 23]
+amenity=fuel & name~"Phoenix" {delete  name}[0x11503 resolution 23]
+amenity=fuel & name~"Seaoil" | name="Sea Oil" | name="Sea-Oil" {delete name} [0x11504 resolution 23]
+amenity=fuel & name~"Jetti" {delete name} [0x11505 resolution 23]
+amenity=fuel & name~"Flying V" | name="Flying-V" {delete name} [0x11506 resolution 23]
+amenity=fuel {delete name} [0x11507 resolution 23]
 
 
 # 2f16	Nuvi: Truck Stop (see AUTO SERVICES below)
@@ -399,6 +396,7 @@ amenity=fuel & brand!=* {delete name} [0x11507 resolution 23]
 
 # 2b04	Nuvi: Resort <resort icon> 	(beach resort or mountain spa with overnight facilities)
 	tourism=resort [0x2b04 resolution 21]
+	leisure=resort [0x2b04 resolution 21]
 	leisure=beach_resort [0x2b04 resolution 21]	#should have lodging facilities for accomodation, otherwise, use "swimming" tag only
 
 # Note: Not all Beaches should be considered resort (if there is no lodging facility). 
@@ -436,8 +434,8 @@ amenity=fuel & brand!=* {delete name} [0x11507 resolution 23]
 	shop=books [0x2e03 resolution 24]
 	shop=stationery [0x2e03 resolution 24]
 	shop=butcher [0x2e03 resolution 24]
-	shop=purified_water | shop=water_refilling [0x2e03 resolution 24 continue]
-	shop=purified_water | shop=water_refilling {delete name} [0x5000 resolution 24]
+	shop=water | shop=water_refilling [0x2e03 resolution 24 continue]
+	shop=water | shop=water_refilling {delete name} [0x5000 resolution 24]
 	
 # 2b04 
 # GarminPC:Shopping:Shopping Center 0x2b04 (malls and shopping complex covering big land area) <rally:Yellow Bag Icon>
@@ -689,11 +687,11 @@ amenity=fuel & brand!=* {delete name} [0x11507 resolution 23]
 ####11  HOSPITALS (Hospital Clinic Maternity Dentist Albularyo Drug_Rehab Lab_Diagnostic_Center Veterinary RedCross)
 # -----------------------------------------------------------------------------------------------------------------
 # 3002 	Nuvi: Hospital
-	amenity=hospital [0x3002 resolution 22 continue]	#generic invisible hospital icon
-	amenity=hospital {delete name} [0x11702 resolution 22]
+	amenity=hospital | healthcare=hospital [0x3002 resolution 22 continue]	#generic invisible hospital icon
+	amenity=hospital | healthcare=hospital {delete name} [0x11702 resolution 22]
 	
-	amenity=clinic [0x3002 resolution 23 continue] 
-	amenity=clinic {delete name} [0x11102 resolution 23]
+	amenity=clinic | healthcare=* [0x3002 resolution 23 continue] 
+	amenity=clinic | healthcare=* {delete name} [0x11102 resolution 23]
 	
 	amenity=dentist [0x3002 resolution 23 continue]
 	amenity=dentist {delete name} [0x11102 resolution 23]
@@ -891,7 +889,7 @@ amenity=fuel & brand!=* {delete name} [0x11507 resolution 23]
 
 # 2f0d/1100d	Nuvi: Automobile Club (RARELY USED) --> (((shared-category proposal)))) Auto Club + Bicycle + Motorcycle related POI's
 	
-	shop=bicycle | shop=motorcycle [0x2f0d resolution 23]
+	shop=bicycle | shop=motorcycle | shop=atv [0x2f0d resolution 23]
 	amenity=auto_club [0x1100d resolution 23]		# i think we can live with an Autoclub POI without an address, plain coordinates :-)
 	
 # 2f16/11016	Nuvi: Truck Stop

@@ -151,6 +151,7 @@ building!=* & amenity=restaurant
 | amenity=fast_food [0x08 resolution 22]
 
 leisure=water_park [0x09 resolution 22]    	#resort with fun/recreational facilities 
+leisure=resort [0x09 resolution 22]
 leisure=golf_course [0x18 resolution 22]   	#NOTE: golf_course before village_green (just in case village green is also applied on golf_course)
 landuse=village_green [0x17 resolution 18]
 leisure=common [0x17 resolution 20]
