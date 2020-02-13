@@ -9,6 +9,19 @@ Download maps here (choose one):
  - http://www.s1expeditions.com/p/openstreetmaps.html
 
 Changes and updates
+20200207 v4.13, v3.16
+ - mkgmap version 4437
+ - Road name labeling changes (Ref Shield)
+ - Optimitization on handling road blocks
+ - Addressing Optimization
+ - Bicycle lane optimizations
+ - Waterway classification changes and optimization on rendering
+ - Coastline added
+ - Shoals made searchable
+ - Remove reference numbers on Towns, Cities and Barangays
+ - Compile optimizations
+
+
 20200127 v4.12, v3.15
  - mkgmap version 4431
  - Update on handling addresses for provinces and municipalities
