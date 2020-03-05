@@ -9,6 +9,10 @@ Download maps here (choose one):
  - http://www.s1expeditions.com/p/openstreetmaps.html
 
 Changes and updates
+20200306 v5.00
+ - mkgmap version 4454
+ - Use of NASADEM Merged Digital Elevation Model 1 arc second (Feb. 2020) on 3D Terrain
+
 20200207 v4.13, v3.16
  - mkgmap version 4437
  - Road name labeling changes (Ref Shield)
