@@ -9,6 +9,21 @@ Download maps here (choose one):
  - http://www.s1expeditions.com/p/openstreetmaps.html
 
 Changes and updates
+20200324 v5.01, v3.17
+ - mkgmap version v4477
+ - inclusion of checkpoints, transit stops for CoViD-19 Luzon Lockdown
+ - integration of operating hours and contact data for establishments
+   from Donation Version to Humanitarian Version
+ - 10727 Convenience Stores
+ - 16752 Food Stores
+ - 1688 Groceries
+ - 5902 Banks
+ - 610 Water Stations
+ - 138 checkpoints
+ - 50 Transport stops for Frontliners
+ - 2783 Healthcare providers
+ - Other emergency facilities
+ 
 20200306 v5.00
  - mkgmap version 4454
  - Use of NASADEM Merged Digital Elevation Model 1 arc second (Feb. 2020) on 3D Terrain
