@@ -9,6 +9,12 @@ Download maps here (choose one):
  - http://www.s1expeditions.com/p/openstreetmaps.html
 
 Changes and updates
+20200411 v5.02, v3.18
+ - mkgmap version 4479
+ - added UN-OCHA CoViD-19 symbols
+ - identification of CoViD-19 treatment hospitals
+   and its contact information
+
 20200324 v5.01, v3.17
  - mkgmap version v4477
  - inclusion of checkpoints, transit stops for CoViD-19 Luzon Lockdown
