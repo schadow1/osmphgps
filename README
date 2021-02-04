@@ -9,6 +9,13 @@ Download maps here (choose one):
  - http://www.s1expeditions.com/p/openstreetmaps.html
 
 Changes and updates
+20210204 v5.03, v3.19
+ - mkgmap version 4600
+ - update on mountaineering data rendering
+ - compile optimizations
+ - overview map update
+ - road angle optimization
+ 
 20200411 v5.02, v3.18
  - mkgmap version 4479
  - added UN-OCHA CoViD-19 symbols
